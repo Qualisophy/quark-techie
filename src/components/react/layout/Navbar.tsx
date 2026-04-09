@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { QuarkLogo } from "../shared/QuarkLogo";
+
 
 export const Navbar = ({ currentPath }: { currentPath: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +29,11 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
           }`}
         >
           <a href="/" className="flex items-center gap-3 outline-none group">
-            <QuarkLogo className="w-8 h-8 group-hover:rotate-180 transition-transform duration-1000 ease-in-out" />
+            <img 
+              src="/logo_header.png" 
+              alt="Logo Empresa" 
+              className="w-8 h-8 object-contain transition-transform duration-1500 ease-in-out group-hover:rotate-360" 
+            />
             <span className="text-xl font-bold tracking-tight text-white mt-1">
               QUARK <span className="font-light text-gray-400">TECHIE</span>
             </span>
