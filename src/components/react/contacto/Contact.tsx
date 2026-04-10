@@ -1,6 +1,9 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
+import { Input } from "../shared/ui/Input";
+import { Textarea } from "../shared/ui/Textarea";
+import { Button } from "../shared/ui/Button";
 
 export const Contact = () => (
   <div className="min-h-screen pt-40 pb-32 px-6 max-w-5xl mx-auto flex items-center justify-center">
@@ -12,7 +15,7 @@ export const Contact = () => (
 
         <div className="relative z-10 grid md:grid-cols-2 gap-16">
           <div>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-6 text-white">
+            <h1 className="text-4xl md:text-h2-brand font-semibold tracking-tighter mb-6 text-white">
               Iniciemos el
               <br />
               proyecto.
@@ -36,35 +39,22 @@ export const Contact = () => (
             }}
           >
             <div>
-              <input
-                type="text"
-                required
-                className="w-full bg-black/50 border border-white/10 rounded-2xl p-5 text-white focus:border-[#288B88] focus:bg-black/80 outline-none transition-all placeholder:text-gray-600 font-light"
-                placeholder="Nombre o Empresa"
-              />
+              <Input type="text" required placeholder="Nombre o Empresa" />
             </div>
             <div>
-              <input
-                type="email"
-                required
-                className="w-full bg-black/50 border border-white/10 rounded-2xl p-5 text-white focus:border-[#288B88] focus:bg-black/80 outline-none transition-all placeholder:text-gray-600 font-light"
-                placeholder="Email corporativo"
-              />
+              <Input type="email" required placeholder="Email corporativo" />
             </div>
             <div>
-              <textarea
+              <Textarea
                 rows={3}
                 required
-                className="w-full bg-black/50 border border-white/10 rounded-2xl p-5 text-white focus:border-[#288B88] focus:bg-black/80 outline-none transition-all placeholder:text-gray-600 font-light resize-none"
                 placeholder="Visión del proyecto..."
-              ></textarea>
+              />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-white text-black font-medium py-5 rounded-2xl hover:scale-[1.02] transition-transform duration-300 flex justify-center items-center gap-2"
-            >
+
+            <Button type="submit">
               Enviar Mensaje <ChevronRight size={18} />
-            </button>
+            </Button>
           </form>
         </div>
       </div>
