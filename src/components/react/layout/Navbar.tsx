@@ -28,11 +28,11 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
               : "bg-transparent border-transparent"
           }`}
         >
-          <a href="/" className="flex items-center gap-3 outline-none group">
+          <a href="/" className="flex items-center gap-1 outline-none group">
             <img 
               src="/logo_header.png" 
               alt="Logo Empresa" 
-              className="w-8 h-8 object-contain transition-transform duration-1500 ease-in-out group-hover:rotate-360" 
+              className="w-8 h-8 object-contain transition-transform duration-1500 ease-in-out" 
             />
             <span className="text-xl font-bold tracking-tight text-white mt-1">
               QUARK <span className="font-light text-gray-400">TECHIE</span>
