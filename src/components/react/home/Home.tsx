@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../shared/ui/Button";
 import {
   ChevronRight,
   Zap,
@@ -39,12 +40,15 @@ export const Home = () => {
             >
               Descubrir Soluciones
             </a>
-            <a
+
+            <Button
               href="/contacto"
-              className="w-full sm:w-auto px-10 py-4 rounded-full text-lg font-medium text-white flex items-center justify-center gap-2 hover:bg-white/5 transition-colors duration-300"
+              variant="ghost"
+              size="lg"
+              className="w-full sm:w-auto"
             >
               Contactar <ArrowUpRight size={20} className="text-[#E8D33F]" />
-            </a>
+            </Button>
           </div>
         </Reveal>
       </section>
