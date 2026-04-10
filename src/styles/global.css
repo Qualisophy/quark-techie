@@ -38,3 +38,20 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+@layer utilities {
+  @keyframes ripple-expand-fade {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .animate-ripple-expand-fade {
+    animation: ripple-expand-fade 400ms linear;
+  }
+}

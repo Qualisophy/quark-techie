@@ -52,7 +52,7 @@ export const Contact = () => (
               />
             </div>
 
-            <Button type="submit">
+            <Button type="submit" size="lg" fullWidth>
               Enviar Mensaje <ChevronRight size={18} />
             </Button>
           </form>
