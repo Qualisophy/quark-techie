@@ -20,7 +20,18 @@ const currentPath = Astro.url.pathname;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link 
+			rel="icon" 
+			type="image/svg+xml" 
+			href="/favicon_light.svg" 
+			media="(prefers-color-scheme: light)" 
+		/>
+		<link 
+			rel="icon" 
+			type="image/svg+xml" 
+			href="/favicon_dark.svg" 
+			media="(prefers-color-scheme: dark)" 
+		/>
 		<title>{title}</title>
 	</head>
 	<body class="bg-[#050505] text-[#F5F5F7] min-h-screen font-sans selection:bg-[#288B88]/40 selection:text-white overflow-x-hidden relative flex flex-col">
