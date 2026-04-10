@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Button } from "../shared/ui/Button";
 
 
 export const Navbar = ({ currentPath }: { currentPath: string }) => {
@@ -53,12 +54,9 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="/contacto"
-              className="px-5 py-2 bg-white text-black rounded-full text-sm font-medium hover:scale-105 transition-transform outline-none"
-            >
+           <Button href="/contacto" size="sm">
               Contacto
-            </a>
+           </Button> 
           </div>
 
           <button

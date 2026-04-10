@@ -1,6 +1,7 @@
 import React from "react";
 import { Code2, Globe2, Layers } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
+import { Button } from "../shared/ui/Button";
 
 export const Products = () => {
   const products = [
@@ -67,12 +68,9 @@ export const Products = () => {
                 <p className="text-4xl font-semibold text-white mb-8">
                   {prod.price}
                 </p>
-                <a
-                  href="/contacto"
-                  className="w-full block text-center py-4 rounded-2xl bg-white text-black font-medium hover:scale-[1.02] transition-transform duration-300"
-                >
+                <Button href="/contacto" size="lg" fullWidth>
                   Configurar Solución
-                </a>
+                </Button>
               </div>
             </div>
           </Reveal>
