@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../shared/ui/Button";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 
@@ -47,12 +48,9 @@ export const Partnership = () => (
     </div>
 
     <Reveal delay={450} className="w-full text-center">
-      <a
-        href="/contacto"
-        className="inline-flex items-center gap-2 bg-transparent text-white border border-white/20 px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all duration-500"
-      >
+      <Button href="/contacto" variant="outline" size="lg">
         Convertirse en Partner <ArrowUpRight size={20} />
-      </a>
+      </Button>
     </Reveal>
   </section>
 );
