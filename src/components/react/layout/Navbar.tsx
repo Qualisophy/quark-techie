@@ -81,12 +81,14 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
               {link.label}
             </a>
           ))}
-          <a
-            href="/contacto"
-            className="text-left text-4xl font-semibold tracking-tighter text-[#288B88]"
+          <Button 
+            href="/contacto" 
+            variant="secondary" 
+            size="lg" 
+            fullWidth
           >
             Contacto
-          </a>
+          </Button>
         </div>
       )}
     </>
