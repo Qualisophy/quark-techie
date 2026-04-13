@@ -34,12 +34,9 @@ export const Home = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full sm:w-auto">
-            <a
-              href="/soluciones"
-              className="w-full sm:w-auto bg-white text-black px-10 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform duration-300 text-center"
-            >
+            <Button href="/soluciones" size="lg">
               Descubrir Soluciones
-            </a>
+            </Button>
 
             <Button
               href="/contacto"
