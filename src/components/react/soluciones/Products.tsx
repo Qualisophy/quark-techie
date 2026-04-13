@@ -1,6 +1,8 @@
 import React from "react";
 import { Code2, Globe2, Layers } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
+import { Card } from "../shared/ui/Card";
+import { Button } from "../shared/ui/Button";
 
 export const Products = () => {
   const products = [
@@ -41,40 +43,47 @@ export const Products = () => {
       <div className="grid md:grid-cols-3 gap-8">
         {products.map((prod, i) => (
           <Reveal key={i} delay={i * 200}>
-            <div className="group relative h-[500px] w-full rounded-[2.5rem] bg-white/[0.02] border border-white/8 backdrop-blur-3xl p-10 flex flex-col justify-between overflow-hidden hover:bg-white/[0.04] transition-all duration-700">
-              {/* Resplandor de hover */}
+            <Card className="group h-[500px]">
+              {/* Resplandor de hover de acento de color original */}
               <div
-                className="absolute top-0 right-0 w-64 h-64 blur-[100px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700"
+                className="absolute top-0 right-0 w-64 h-64 blur-[100px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
                 style={{ backgroundColor: prod.accent }}
               ></div>
 
-              <div className="relative z-10">
-                <prod.icon
-                  className="w-10 h-10 mb-8"
-                  style={{ color: prod.accent }}
-                  strokeWidth={1.5}
-                />
-                <h3 className="text-3xl font-semibold mb-4 text-white">
-                  {prod.title}
-                </h3>
-                <p className="text-gray-400 font-light leading-relaxed mb-8">
-                  {prod.desc}
-                </p>
-              </div>
+              {/* Contenedor Flex para distribuir el contenido arriba y abajo */}
+              <div className="flex flex-col justify-between h-full relative z-10">
+                {/* Parte Superior de la tarjeta */}
+                <div>
+                  <prod.icon
+                    className="w-10 h-10 mb-8"
+                    style={{ color: prod.accent }}
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="text-3xl font-semibold mb-4 text-white">
+                    {prod.title}
+                  </h3>
+                  <p className="text-gray-400 font-light leading-relaxed mb-8">
+                    {prod.desc}
+                  </p>
+                </div>
 
-              <div className="relative z-10">
-                <p className="text-sm text-gray-500 mb-1">A partir de</p>
-                <p className="text-4xl font-semibold text-white mb-8">
-                  {prod.price}
-                </p>
-                <a
-                  href="/contacto"
-                  className="w-full block text-center py-4 rounded-2xl bg-white text-black font-medium hover:scale-[1.02] transition-transform duration-300"
-                >
-                  Configurar Solución
-                </a>
+                {/* Parte Inferior de la tarjeta */}
+                <div>
+                  <p className="text-sm text-gray-500 mb-1">A partir de</p>
+                  <p className="text-4xl font-semibold text-white mb-8">
+                    {prod.price}
+                  </p>
+                  <Button
+                    href="/contacto"
+                    variant="primary"
+                    size="lg"
+                    fullWidth
+                  >
+                    Configurar Solución
+                  </Button>
+                </div>
               </div>
-            </div>
+            </Card>
           </Reveal>
         ))}
       </div>
