@@ -1,9 +1,10 @@
 ---
 import '../styles/global.css';
 import { Navbar } from '../components/react/layout/Navbar';
+import { ToastContainer } from '../components/react/shared/ui/Toast';
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -12,58 +13,60 @@ const currentPath = Astro.url.pathname;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Quark Techie - Código Evolucionado" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-		<link 
-			rel="icon" 
-			type="image/svg+xml" 
-			href="/favicon_light.svg" 
-			media="(prefers-color-scheme: light)" 
-		/>
-		<link 
-			rel="icon" 
-			type="image/svg+xml" 
-			href="/favicon_dark.svg" 
-			media="(prefers-color-scheme: dark)" 
-		/>
-		<title>{title}</title>
-	</head>
-	<body class="bg-[#050505] text-[#F5F5F7] min-h-screen font-sans selection:bg-[#288B88]/40 selection:text-white overflow-x-hidden relative flex flex-col">
-		
-        <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#288B88]/10 blur-[150px] mix-blend-screen pointer-events-none z-0"></div>
-		<div class="fixed bottom-[-20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E8D33F]/10 blur-[150px] mix-blend-screen pointer-events-none z-0"></div>
-		
-        <div class="fixed inset-0 opacity-[0.015] pointer-events-none z-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;);"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Quark Techie - Código Evolucionado" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon_light.svg" 
+      media="(prefers-color-scheme: light)" 
+    />
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon_dark.svg" 
+      media="(prefers-color-scheme: dark)" 
+    />
+    <title>{title}</title>
+  </head>
+  <body class="bg-[#050505] text-[#F5F5F7] min-h-screen font-sans selection:bg-[#288B88]/40 selection:text-white overflow-x-hidden relative flex flex-col">
+    
+    <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#288B88]/10 blur-[150px] mix-blend-screen pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E8D33F]/10 blur-[150px] mix-blend-screen pointer-events-none z-0"></div>
+    
+    <div class="fixed inset-0 opacity-[0.015] pointer-events-none z-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;);"></div>
 
-        <Navbar currentPath={currentPath} client:load />
+    <Navbar currentPath={currentPath} client:load />
 
-        <main class="relative z-10 w-full grow">
-			<slot />
-		</main>
+    <main class="relative z-10 w-full grow">
+      <slot />
+    </main>
 
-        <footer class="relative z-10 py-12 px-6 max-w-7xl mx-auto border-t border-white/5 mt-auto w-full">
-			<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-				<a href="/" class="flex items-center gap-2 opacity-70">
-					<img 
-						src="/logo_header.png" 
-						alt="Logo Empresa" 
-						class="w-5 h-5" 
-					/>
-					<span class="font-semibold tracking-tighter text-sm">QUARK TECHIE</span>
-          		</a>
-			  	<p class="text-gray-500 text-sm font-light">
-					Diseñado y desarrollado en el límite de la tecnología actual. &copy; {new Date().getFullYear()}
-			  	</p>
-			  	<div class="flex gap-6 text-gray-500 text-sm font-light">
-					<a href="#" class="hover:text-white transition-colors">Privacidad</a>
-					<a href="#" class="hover:text-white transition-colors">Términos</a>
-			  	</div>
-			</div>
-		</footer>
-	</body>
+    <footer class="relative z-10 py-12 px-6 max-w-7xl mx-auto border-t border-white/5 mt-auto w-full">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <a href="/" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+          <img
+            src="/logo_header.png"
+            alt="Logo Empresa"
+            class="w-5 h-5"
+          />
+          <span class="font-semibold tracking-tighter text-sm">QUARK TECHIE</span>
+        </a>
+        <p class="text-gray-500 text-sm font-light">
+          Diseñado y desarrollado en el límite de la tecnología actual. &copy; {new Date().getFullYear()}
+        </p>
+        <div class="flex gap-6 text-gray-500 text-sm font-light">
+          <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white transition-colors">Términos</a>
+        </div>
+      </div>
+    </footer>
+
+    <ToastContainer client:load />
+  </body>
 </html>
