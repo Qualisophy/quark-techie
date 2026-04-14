@@ -4,6 +4,7 @@ import { Card } from "../shared/ui/Card";
 import { Stepper, type Step } from "../shared/ui/Stepper"; // <-- ¡Aquí está la magia!
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
+import { CTA } from "../shared/ui/CTA";
 
 export const Partnership = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -119,12 +120,9 @@ export const Partnership = () => {
           </div>
         </div>
       </Reveal>
-
       {/* Llamada a la acción final */}
-      <Reveal delay={450} className="w-full text-center">
-        <Button href="/contacto" variant="primary" size="lg">
-          Empezar Colaboración <ArrowUpRight size={20} />
-        </Button>
+      <Reveal delay={450}>
+        <CTA className="w-full text-center" />
       </Reveal>
     </section>
   );
