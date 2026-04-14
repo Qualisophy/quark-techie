@@ -1,0 +1,20 @@
+---
+import { NotFound } from '../components/react/error/NotFound';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 - ¿Te has perdido? | Quark Techie</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon_light.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon_dark.svg" media="(prefers-color-scheme: dark)" />
+  </head>
+  <body class="bg-[#050505] font-sans text-white overflow-hidden">
+    <NotFound client:only="react" />
+  </body>
+</html>
