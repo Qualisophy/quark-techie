@@ -1,0 +1,91 @@
+---
+const { class: className } = Astro.props;
+
+const paths = Astro.url.pathname.split("/").filter(Boolean);
+
+// Mapea las rutas a nombres legibles
+const routeNameMap: Record<string, string> = {
+  // Rutas Principales
+  soluciones: "Soluciones",
+  partnership: "Partnership",
+  contacto: "Contacto",
+  privacidad: "Política de Privacidad",
+  terminos: "Términos de Uso",
+
+  // PRÓXIMAMENTE: tipos de soluciones
+  // "mvp-startup": "MVP Startup",
+  // "transformacion-digital": "Transformación Digital",
+  // ecommerce: "E-commerce Headless",
+
+};
+
+// Función para formatear el nombre de la ruta si no está mapeado
+const formatName = (slug: string) => {
+  // 1. Si está, lo usa
+  if (routeNameMap[slug]) return routeNameMap[slug];
+
+  // 2. Si no, lo formatea
+  return slug.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+};
+
+let accumulatePath = "";
+---
+
+<nav
+  aria-label="Breadcrumb"
+  class:list={["text-sm text-slate-500 w-full", className]}
+>
+  <ol class="list-none p-0 inline-flex items-center flex-wrap gap-2">
+    {/* Home */}
+    <li class="flex items-center">
+      <a
+        href="/"
+        class="hover:text-primary transition-colors flex items-center gap-1"
+        aria-label="Ir al inicio"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+          ></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg
+        >
+      </a>
+    </li>
+
+    {/* 🔄 AUTOMATIC GENERATION */}
+    {
+      paths.map((path, index) => {
+        accumulatePath += `/${path}`;
+        const isLast = index === paths.length - 1;
+        const name = formatName(path);
+
+        return (
+          <li class="flex items-center">
+            {/* Separator */}
+            <span class="text-slate-400 mx-2">/</span>
+
+            {isLast ? (
+              <span class="text-secondary font-medium" aria-current="page">
+                {name}
+              </span>
+            ) : (
+              <a
+                href={accumulatePath}
+                class="hover:text-primary transition-colors"
+              >
+                {name}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>
