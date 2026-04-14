@@ -4,6 +4,7 @@ import { Reveal } from "../shared/Reveal";
 import { Input } from "../shared/ui/Input";
 import { Textarea } from "../shared/ui/Textarea";
 import { Button } from "../shared/ui/Button";
+import { toast } from "../shared/ui/Toast";
 
 export const Contact = () => (
   <div className="min-h-screen pt-40 pb-32 px-6 max-w-5xl mx-auto flex items-center justify-center">
@@ -35,7 +36,23 @@ export const Contact = () => (
             className="space-y-6"
             onSubmit={(e) => {
               e.preventDefault();
-              alert("Mensaje encriptado y enviado.");
+              
+              const isSuccess = true; 
+
+              if (isSuccess) {
+                toast({
+                  title: "¡Mensaje enviado!",
+                  description: "Hemos recibido tu mensaje, nuestro equipo te contactará en menos de 24 horas.",
+                  type: "success",
+                });
+                e.currentTarget.reset();
+              } else {
+                toast({
+                  title: "No hemos podido recibir tu solicitud",
+                  description: "No se ha podido establecer la conexión con el servidor.",
+                  type: "error",
+                });
+              }
             }}
           >
             <div>
