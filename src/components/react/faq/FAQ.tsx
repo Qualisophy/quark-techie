@@ -1,8 +1,7 @@
 import React from "react";
 import { Reveal } from "../shared/Reveal";
-// TODO: El equipo debe importar el componente Accordion desde shared/ui
-import { Button } from "../shared/ui/Button";
-import { ArrowUpRight } from "lucide-react";
+import { Accordion } from "../shared/ui/Accordion";
+import { CTA } from "../shared/ui/CTA";
 
 export const FAQ = () => {
   /* =======================================================================
@@ -57,49 +56,21 @@ export const FAQ = () => {
           proceso, stack tecnológico y metodología de trabajo.
         </p>
       </Reveal>
-
-      {/* =======================================================================
-        👨‍💻 TAREA PARA EL EQUIPO:
-        1. Importad el componente <Accordion /> en la parte superior del archivo.
-        2. Reemplazad el <div> punteado de abajo por el componente.
-        3. Pasadle la variable 'faqData' a través de la prop 'items'.
-        Nota: El componente ya gestiona el estilo Liquid Glass, ¡no añadáis clases 
-        CSS de Tailwind adicionales al contenedor!
-        =======================================================================
-      */}
+      
+      {/* SECCIÓN DE PREGUNTAS (ACCORDION) */}
       <Reveal delay={200} className="w-full mb-24">
-        {/* TODO: Reemplazar este div por el componente Accordion */}
-        <div className="p-12 border-2 border-dashed border-white/20 rounded-3xl text-center flex flex-col items-center justify-center bg-white/[0.01]">
-          <span className="text-gray-400 font-medium mb-2">
-            Área reservada para el Acordeón
-          </span>
-          <code className="text-sm text-[#E8D33F] bg-black/50 px-3 py-1 rounded-lg">
-            &lt;Accordion items=&#123;faqData&#125; /&gt;
-          </code>
-        </div>
+        <Accordion items={faqData} allowMultiple={false} />
       </Reveal>
 
       {/* SECCIÓN DE CIERRE (CTA) */}
-      <Reveal
-        delay={400}
-        className="w-full text-center bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-12 backdrop-blur-xl"
-      >
-        <h3 className="text-2xl font-semibold text-white mb-4">
+        <h3 className="text-2xl font-semibold text-white mx-auto mb-4">
           ¿No encuentras lo que buscas?
         </h3>
-        <p className="text-gray-400 font-light mb-8 max-w-lg mx-auto">
+        <p className="text-gray-400 font-light mb-8 max-w-lg mx-auto text-center">
           Nuestros arquitectos de software están disponibles para resolver
           cualquier duda técnica o de negocio sobre tu proyecto.
         </p>
-        <Button
-          href="/contacto"
-          variant="primary"
-          size="lg"
-          className="sm:w-auto mx-auto"
-        >
-          Contactar con el equipo <ArrowUpRight size={20} />
-        </Button>
-      </Reveal>
+        <CTA className="w-full text-center" buttonText="Contactar con el equipo" />
     </div>
   );
 };
