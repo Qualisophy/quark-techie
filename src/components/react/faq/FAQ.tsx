@@ -63,19 +63,14 @@ export const FAQ = () => {
       </Reveal>
 
       {/* SECCIÓN DE CIERRE (CTA) */}
-      <Reveal
-        delay={400}
-        className="w-full text-center bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-12 backdrop-blur-xl"
-      >
-        <h3 className="text-2xl font-semibold text-white mb-4">
+        <h3 className="text-2xl font-semibold text-white mx-auto mb-4">
           ¿No encuentras lo que buscas?
         </h3>
-        <p className="text-gray-400 font-light mb-8 max-w-lg mx-auto">
+        <p className="text-gray-400 font-light mb-8 max-w-lg mx-auto text-center">
           Nuestros arquitectos de software están disponibles para resolver
           cualquier duda técnica o de negocio sobre tu proyecto.
         </p>
         <CTA className="w-full text-center" buttonText="Contactar con el equipo" />
-      </Reveal>
     </div>
   );
 };
