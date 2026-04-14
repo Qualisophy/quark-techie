@@ -47,25 +47,60 @@ const currentPath = Astro.url.pathname;
       <slot />
     </main>
 
-    <footer class="relative z-10 py-12 px-6 max-w-7xl mx-auto border-t border-white/5 mt-auto w-full">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-        <a href="/" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-          <img
-            src="/logo_header.png"
-            alt="Logo Empresa"
-            class="w-5 h-5"
-          />
-          <span class="font-semibold tracking-tighter text-sm">QUARK TECHIE</span>
+<footer class="relative z-10 py-12 px-6 max-w-7xl mx-auto border-t border-white/5 mt-auto w-full">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+    
+    <div class="flex items-center gap-6">
+      <a href="/" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/logo_header.png" alt="Logo Empresa" class="w-5 h-5" />
+        <span class="font-semibold tracking-tighter text-sm">QUARK TECHIE</span>
+      </a>
+      
+      <div class="flex gap-4 items-center border-l border-white/10 pl-6">
+        <a href="https://linkedin.com" target="_blank" class="text-gray-500 hover:text-[#288B88] transition-all hover:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <p class="text-gray-500 text-sm font-light">
-          Diseñado y desarrollado en el límite de la tecnología actual. &copy; {new Date().getFullYear()}
-        </p>
-        <div class="flex gap-6 text-gray-500 text-sm font-light">
-          <a href="#" class="hover:text-white transition-colors">Privacidad</a>
-          <a href="#" class="hover:text-white transition-colors">Términos</a>
-        </div>
+        <a href="https://x.com" target="_blank" class="text-gray-500 hover:text-[#288B88] transition-all hover:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+        </a>
       </div>
-    </footer>
+    </div>
+
+    <p class="text-gray-500 text-[14px] font-light opacity-60">
+  Diseñado y desarrollado en el límite de la tecnología actual. © {new Date().getFullYear()}
+</p>
+
+    <a 
+      href="https://www.google.com/maps/place/C.+Esteban+Salazar+Chapela,+11,+Churriana,+29004+M%C3%A1laga/@36.6900539,-4.4737703,17z/data=!3m1!4b1!4m6!3m5!1s0xd72f9e53484b7f1:0x1c89c125f2013c66!8m2!3d36.6900496!4d-4.4711954!16s%2Fg%2F11cplnq2hh?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="flex items-center gap-2 text-gray-500 text-[13px] font-light italic hover:text-[#288B88] transition-colors group"
+    >
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="14" 
+        height="14" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        class="opacity-70 group-hover:text-[#288B88] transition-colors"
+      >
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      Calle Esteban Salazar Chapela 11, Málaga
+    </a>
+
+    <div class="flex gap-6 text-gray-500 text-[14px] font-light">
+      <a href="/privacidad" class="hover:text-[#288B88] transition-colors">Privacidad</a>
+      <a href="/terminos" class="hover:text-[#288B88] transition-colors">Términos</a>
+    </div>
+
+  </div>
+</footer>
 
     <ToastContainer client:load />
   </body>
