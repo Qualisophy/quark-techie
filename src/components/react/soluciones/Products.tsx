@@ -1,8 +1,8 @@
 import React from "react";
-import { Code2, Globe2, Layers } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Card } from "../shared/ui/Card";
 import { Button } from "../shared/ui/Button";
+import { solutionsData } from "../../../data/solutions";
 
 export const Products = () => {
   const products = [
@@ -55,22 +55,25 @@ export const Products = () => {
                 }}
               ></div>
 
-              {/* Contenedor Flex para distribuir el contenido arriba y abajo */}
-              <div className="flex flex-col justify-between h-full relative z-10">
-                {/* Parte Superior de la tarjeta */}
-                <div>
-                  <prod.icon
-                    className="w-10 h-10 mb-8"
-                    style={{ color: prod.accent }}
-                    strokeWidth={1.5}
-                  />
-                  <h3 className="text-3xl font-semibold mb-4 text-white">
-                    {prod.title}
-                  </h3>
-                  <p className="text-gray-400 font-light leading-relaxed mb-8">
-                    {prod.desc}
-                  </p>
-                </div>
+                {/* MAIN CONTAINER */}
+                <div className="flex flex-col h-full relative z-10">
+
+                  {/* TOP (crece dinámicamente) */}
+                  <div className="flex flex-col flex-1">
+                    <prod.icon
+                      className="w-10 h-10 mb-8"
+                      style={{ color: prod.accent }}
+                      strokeWidth={1.5}
+                    />
+
+                    <h3 className="text-3xl font-semibold mb-4 text-white">
+                      {prod.title}
+                    </h3>
+
+                    <p className="text-gray-400 font-light leading-relaxed">
+                      {prod.short_description}
+                    </p>
+                  </div>
 
                 {/* Parte Inferior de la tarjeta */}
                 <div>
