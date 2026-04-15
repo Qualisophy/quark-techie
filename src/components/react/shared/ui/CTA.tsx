@@ -8,10 +8,11 @@ interface CTAProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const CTA: React.FC<CTAProps> = ({
-    buttonText = "Empezar Colaboración",
-    href = "/contacto",
-    className = "",
-    ...props
+  buttonText = "Empezar Colaboración",
+  href = "/contacto",
+  className = "",
+  children, // <-- Añadimos children a las props
+  ...props
 }) => {
   return (
     <div
@@ -22,9 +23,20 @@ export const CTA: React.FC<CTAProps> = ({
       `}
       {...props}
     >
-        <Button href={href} variant="primary" size="lg">
+      {/* Renderizamos el texto persuasivo aquí */}
+      {children}
+
+      {/* Renderizamos el botón debajo */}
+      <div className={children ? "mt-10" : ""}>
+        <Button
+          href={href}
+          variant="primary"
+          size="lg"
+          className="inline-flex items-center gap-2"
+        >
           {buttonText} <ArrowUpRight size={20} />
         </Button>
+      </div>
     </div>
   );
 };
