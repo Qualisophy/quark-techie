@@ -8,6 +8,7 @@ export const Products = () => {
   const products = [
     {
       title: "MVP Startup",
+      slug: "mvp-startup", // Enlace exacto a nuestra ruta dinámica
       price: "$2,500",
       desc: "Del concepto a la realidad en 4 semanas. Arquitectura validada.",
       icon: Code2,
@@ -15,6 +16,7 @@ export const Products = () => {
     },
     {
       title: "Transformación Digital",
+      slug: "transformacion-digital", // Enlace exacto a nuestra ruta dinámica
       price: "Custom",
       desc: "Modernización de sistemas legacy para corporaciones.",
       icon: Globe2,
@@ -22,6 +24,7 @@ export const Products = () => {
     },
     {
       title: "E-Commerce Headless",
+      slug: "e-commerce-headless", // Enlace exacto a nuestra ruta dinámica
       price: "$4,000",
       desc: "Ventas sin límites con Shopify y React en el frontend.",
       icon: Layers,
@@ -73,13 +76,14 @@ export const Products = () => {
                   <p className="text-4xl font-semibold text-white mb-8">
                     {prod.price}
                   </p>
+                  {/* El botón ahora navega hacia la ruta dinámica usando Template Literals */}
                   <Button
-                    href="/contacto"
+                    href={`/soluciones/${prod.slug}`}
                     variant="primary"
                     size="lg"
                     fullWidth
                   >
-                    Configurar Solución
+                    Ver Solución
                   </Button>
                 </div>
               </div>

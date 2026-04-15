@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SolutionDetail } from '../../components/react/soluciones/SolutionDetail';
+import { solutionsData } from '../../data/solutions';
+
+// 1. Astro requiere esta función para generar las páginas estáticas dinámicas
+export async function getStaticPaths() {
+  // Mapeamos los datos: por cada solución, devolvemos sus params (URL) y props (Datos)
+  return solutionsData.map((solution) => {
+    return {
+      params: { slug: solution.slug },
+      props: { solution },
+    };
+  });
+}
+
+// 2. Extraemos los props que nos acaba de pasar getStaticPaths
+const { solution } = Astro.props;
+---
+
+<Layout title={`${solution.title} | Soluciones | Quark Techie`}>
+  
+  <SolutionDetail solution={solution} client:load />
+
+</Layout>
