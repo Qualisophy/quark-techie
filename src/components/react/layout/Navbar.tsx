@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "../shared/ui/Button";
 
-
 export const Navbar = ({ currentPath }: { currentPath: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +16,7 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
     { href: "/", label: "Inicio" },
     { href: "/soluciones", label: "Soluciones" },
     { href: "/partnership", label: "Partnership" },
+    { href: "/talent-hub", label: "Talent Hub" }, // <-- Añadido aquí
   ];
 
   return (
@@ -30,10 +30,10 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
           }`}
         >
           <a href="/" className="flex items-center gap-1 outline-none group">
-            <img 
-              src="/logo_header.png" 
-              alt="Logo Empresa" 
-              className="w-8 h-8 object-contain transition-transform duration-1500 ease-in-out" 
+            <img
+              src="/logo_header.png"
+              alt="Logo Empresa"
+              className="w-8 h-8 object-contain duration-1500 ease-in-out"
             />
             <span className="text-xl font-bold tracking-tight text-white mt-1">
               QUARK <span className="font-light text-gray-400">TECHIE</span>
