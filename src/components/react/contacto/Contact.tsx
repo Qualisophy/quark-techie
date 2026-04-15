@@ -182,7 +182,7 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
 
           <div className="grid md:grid-cols-2 gap-16">
 
-            {/* LEFT */}
+            {/* BLOQUE IZQUIERDA: Título y datos de contacto */}
             <div>
               <h1 className="text-4xl md:text-h2-brand font-semibold mb-6 text-white">
                 Iniciemos el
@@ -216,7 +216,7 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
             </div>
             
 
-            {/* FORM */}
+            {/* BLOQUE DERECHA: Formulario */}
             <form onSubmit={handleSubmit} className="space-y-6">
 
               <Input
@@ -271,14 +271,18 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
                 <ChevronRight size={18} />
               </Button>
             </form>
-            <div className="mt-16 relative w-full flex justify-center">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl" />
-              <img
-                src="https://r-charts.com/es/miscelanea/procesamiento-imagenes-magick_files/figure-html/dibujar-sobre-imagen-r.png"
-                alt="Mapa de localización"
-                className="
-                  w-full max-w-4xl rounded-2xl object-cover border border-white/10 shadow-2xl
-                  hover:scale-[1.01] transition-transform duration-500"
+          </div>
+
+          {/* BLOQUE INFERIOR: Mapa de Google Maps */}
+          <div className="w-full h-full flex justify-center items-center mt-20">
+            <div className="w-[100%] aspect-[7/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.3532008746565!2d-4.4711954!3d36.690049599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f9e53484b7f1%3A0x1c89c125f2013c66!2sC.%20Esteban%20Salazar%20Chapela%2C%2011%2C%20Churriana%2C%2029004%20M%C3%A1laga!5e0!3m2!1ses!2ses!4v1776244446813!5m2!1ses!2ses"
+                className="w-full h-full"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
