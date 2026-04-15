@@ -45,7 +45,7 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm tracking-wide transition-colors outline-none font-medium ${
+                className={`text-base tracking-wide transition-colors outline-none font-medium ${
                   currentPath === link.href
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
