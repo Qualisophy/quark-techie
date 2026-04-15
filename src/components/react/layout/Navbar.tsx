@@ -45,7 +45,7 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-base tracking-wide transition-colors outline-none font-medium ${
+                className={`text-base-brand tracking-wide transition-colors outline-none font-medium ${
                   currentPath === link.href
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
@@ -54,7 +54,7 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
                 {link.label}
               </a>
             ))}
-            <Button href="/contacto" size="sm">
+            <Button href="/contacto" size="md">
               Contacto
             </Button>
           </div>
