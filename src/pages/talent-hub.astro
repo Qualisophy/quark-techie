@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Añadimos el alias "as TalentHubComponent" para evitar el choque de nombres
+import { TalentHub as TalentHubComponent } from '../components/react/talenthub/TalentHub';
+---
+
+<Layout 
+  title="Talent Hub | Quark Techie" 
+  description="Explora la red de ingenieros y especialistas de élite que han evolucionado su stack tecnológico con Quark Techie."
+>
+  <TalentHubComponent client:load />
+</Layout>
