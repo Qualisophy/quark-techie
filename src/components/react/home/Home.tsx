@@ -19,18 +19,17 @@ export const Home = () => {
           delay={100}
           className="z-10 w-full max-w-5xl mx-auto flex flex-col items-center"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-semibold tracking-tighter text-white leading-[0.9] mb-8">
-            Código.
+          <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-semibold tracking-tighter text-white leading-[0.9] mb-8">
+              Ingeniería de Software para
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#288B88] via-white to-[#E8D33F]">
-              Evolucionado.
+              Negocios que Escalan
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-tight mb-12">
-            Desarrollo web Fullstack de nivel subatómico. Diseñamos plataformas
-            tecnológicas que redefinen los límites de la velocidad y la
-            escalabilidad.
+            Desarrollo web y móvil de alto rendimiento. Construimos plataformas robustas y seguras para empresas que no pueden permitirse fallos técnicos. 
+            Sin fricciones, sin código heredado (legacy).
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full sm:w-auto">
