@@ -19,16 +19,17 @@ export const Products = () => {
       {/* GRID 3 + 2 centrado */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
         {solutionsData.map((prod, i) => {
-          const layout =
-            i < 3
-              ? "md:col-span-2"
-              : i === 3
-              ? "md:col-start-2 md:col-span-2"
-              : "md:col-span-2";
+          const layout = "md:col-span-2";
 
           return (
             <Reveal key={prod.slug} delay={i * 200} className={layout}>
-              <Card className="group h-full">
+              <Card className={`group h-full isolate overflow-hidden ${
+                prod.slug === "a-medida"
+                  ? "bg-gradient-to-br from-white/[0.06] to-white/[0.02]\
+                  border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.06)]"
+                  : ""
+                }`}
+              >
                 {/* Glow effect */}
                 <div
                   className="absolute top-0 right-0 w-64 h-64 blur-[100px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
@@ -66,12 +67,18 @@ export const Products = () => {
                     </p>
 
                     <Button
-                      href={`/soluciones/${prod.slug}`}
+                      href={
+                        prod.slug === "a-medida"
+                          ? "/contacto"
+                          : `/soluciones/${prod.slug}`
+                      }
                       variant="primary"
                       size="lg"
                       fullWidth
                     >
-                      Ver Solución
+                      {prod.slug === "a-medida"
+                        ? "Agendar Consultoría"
+                        : "Ver Solución"}
                     </Button>
                   </div>
 

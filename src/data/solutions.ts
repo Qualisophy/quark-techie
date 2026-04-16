@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
-import { Bot, Bug, Cpu, GraduationCap, Users } from "lucide-react";
+import { Bot, Bug, Cpu, GraduationCap, Users, Sparkles } from "lucide-react";
 
->>>>>>> qtw-38-ampliar-catalogo-soluciones
 // Define el esquema exacto de nuestra solución (Interfaces TypeScript)
 export interface ProcessStep {
   title: string;
@@ -18,121 +15,12 @@ export interface Solution {
   deliverables: string[];
   process: ProcessStep[];
   starting_price: string;
-<<<<<<< HEAD
-=======
   icon: React.ComponentType<{ className?: string; style?: React.CSSProperties; strokeWidth?: number }>;
   accent: string;
->>>>>>> qtw-38-ampliar-catalogo-soluciones
 }
 
 // Simulamos una base de datos o CMS headless
 export const solutionsData: Solution[] = [
-<<<<<<< HEAD
-  {
-    slug: "mvp-startup",
-    title: "MVP Startup",
-    short_description:
-      "Del concepto a la realidad en 4 semanas. Arquitectura validada.",
-    pain_point:
-      "Las startups pierden meses y miles de dólares desarrollando funcionalidades que nadie necesita en stacks tecnológicos obsoletos.",
-    solution_description:
-      "Construimos tu Producto Mínimo Viable (MVP) usando Astro, React y Node. Un producto funcional, rápido y preparado para pivotar, diseñado específicamente para validar tu modelo de negocio y atraer a tus primeros inversores.",
-    deliverables: [
-      "Arquitectura de software escalable",
-      "Desarrollo Frontend & Backend",
-      "Sistema de autenticación y base de datos",
-      "Despliegue en producción (Vercel/AWS)",
-      "Código fuente 100% en propiedad",
-    ],
-    process: [
-      {
-        title: "Discovery",
-        description: "Definición del core loop y features críticas.",
-      },
-      {
-        title: "Diseño & Arquitectura",
-        description: "Wireframes y elección del stack.",
-      },
-      {
-        title: "Desarrollo Ágil",
-        description: "Sprints semanales con entregas iterativas.",
-      },
-      {
-        title: "Lanzamiento",
-        description: "QA, testing en producción y hand-off.",
-      },
-    ],
-    starting_price: "$2,500",
-  },
-  {
-    slug: "transformacion-digital",
-    title: "Transformación Digital",
-    short_description: "Modernización de sistemas legacy para corporaciones.",
-    pain_point:
-      "Sistemas lentos, deuda técnica masiva y silos de datos que impiden a las corporaciones competir con startups ágiles.",
-    solution_description:
-      "Auditamos, refactorizamos y migramos tu infraestructura a la nube. Implementamos arquitecturas modernas (Serverless, Microservicios) que reducen costes operativos y aumentan la velocidad de despliegue de tu equipo.",
-    deliverables: [
-      "Auditoría profunda de deuda técnica",
-      "Plan de migración Cloud / Serverless",
-      "Refactorización a frameworks modernos",
-      "Integración continua (CI/CD)",
-      "Capacitación del equipo interno",
-    ],
-    process: [
-      {
-        title: "Auditoría Profunda",
-        description: "Análisis del código y cuellos de botella.",
-      },
-      {
-        title: "Plan de Acción",
-        description: "Roadmap de migración sin tiempos de caída.",
-      },
-      {
-        title: "Refactorización",
-        description: "Migración progresiva a nueva arquitectura.",
-      },
-      {
-        title: "Despliegue y Monitorización",
-        description: "Puesta en marcha y observabilidad.",
-      },
-    ],
-    starting_price: "Custom",
-  },
-  {
-    slug: "e-commerce-headless",
-    title: "E-Commerce Headless",
-    short_description: "Ventas sin límites con Shopify y React en el frontend.",
-    pain_point:
-      "Las tiendas online tradicionales sufren tiempos de carga lentos que destruyen la tasa de conversión y limitan la personalización de la marca.",
-    solution_description:
-      "Desacoplamos el frontend de tu e-commerce usando una arquitectura Headless. Gestionas el inventario en Shopify, pero la experiencia de usuario se renderiza instantáneamente con React y Astro, logrando un SEO inmejorable.",
-    deliverables: [
-      "Frontend a medida en React/Astro",
-      "Integración de API de Shopify/Swell",
-      "Optimizaciones avanzadas de Web Vitals",
-      "Sistema de diseño (UI Kit) personalizado",
-      "Analítica avanzada e integraciones",
-    ],
-    process: [
-      {
-        title: "UX/UI E-Commerce",
-        description: "Diseño enfocado en conversión (CRO).",
-      },
-      {
-        title: "Integración Headless",
-        description: "Conexión del motor de pagos e inventario.",
-      },
-      {
-        title: "Optimización de Rendimiento",
-        description: "Ajuste fino de tiempos de carga.",
-      },
-      { title: "Go-Live", description: "Transición de dominio y lanzamiento." },
-    ],
-    starting_price: "$4,000",
-  },
-];
-=======
   
   {
     slug: "ia-operativa",
@@ -328,6 +216,44 @@ export const solutionsData: Solution[] = [
     icon: Users,
     accent: "#10B981",
   },
+
+  {
+    slug: "a-medida",
+    title: "Crea tu Solución a Medida",
+    short_description:
+      "Ingeniería sin límites. Diseñamos soluciones tecnológicas a medida para resolver retos únicos que no encajan en productos estándar.",
+    pain_point:
+      "No todas las empresas encajan en soluciones estándar. Cuando los procesos son únicos o complejos, las herramientas existentes se quedan cortas, obligando a hacer 'parches' que generan ineficiencias, dependencia técnica y falta de escalabilidad.",
+    solution_description:
+      "Construimos soluciones 100% a medida desde cero o evolucionando tus sistemas actuales. Desde plataformas internas hasta productos digitales complejos, adaptamos tecnología, arquitectura e IA a tus necesidades reales de negocio, sin limitaciones de herramientas predefinidas.",
+    deliverables: [
+      "Desarrollo de software totalmente personalizado",
+      "Plataformas internas o productos digitales a medida",
+      "Integraciones específicas y lógica de negocio avanzada",
+      "Arquitectura técnica adaptada a escalabilidad futura",
+      "Documentación completa y hand-off técnico",
+    ],
+    process: [
+      {
+        title: "Discovery Profundo",
+        description: "Entendemos tu negocio, procesos y objetivos para definir una solución realista y efectiva.",
+      },
+      {
+        title: "Definición Funcional & Técnica",
+        description: "Traducimos necesidades en especificaciones claras, arquitectura y roadmap.",
+      },
+      {
+        title: "Desarrollo Iterativo",
+        description: "Construcción por fases con validaciones constantes para asegurar encaje con negocio.",
+      },
+      {
+        title: "Entrega & Evolución",
+        description: "Despliegue, documentación y acompañamiento para escalar la solución.",
+      },
+    ],
+    starting_price: "Custom",
+    icon: Sparkles,
+    accent: "#E5E7EB",
+  }
   
 ];
->>>>>>> qtw-38-ampliar-catalogo-soluciones
