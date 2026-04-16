@@ -1,10 +1,31 @@
-import React from "react";
 import { Code2, Globe2, Layers } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Card } from "../shared/ui/Card";
 import { Button } from "../shared/ui/Button";
+import { Stepper, type Step } from "../shared/ui/Stepper";
+import React, { useState } from "react";
 
 export const Products = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+// Definimos los pasos con sus textos explicativos profesionales
+  const roadmapSteps: Step[] = [
+    {
+      label: "Comunicación directa",
+      description:
+        "Hablarás con los ingenieros que construyen tu producto, no con intermediarios que ralentizan el proceso.",
+    },
+    {
+      label: "Entregas Ágiles",
+      description:
+        "Mostramos avances tangibles semana a semana. Nada de esperar meses para ver la primera pantalla.",
+    },
+    {
+      label: "Propiedad Total",
+      description:
+        "El código es 100% tuyo desde el primer commit. Documentado y listo para que cualquier equipo interno lo entienda en el futuro.",
+    },
+ ];
+
   const products = [
     {
       title: "MVP Startup",
@@ -33,6 +54,45 @@ export const Products = () => {
   ];
 
   return (
+    <section className="min-h-screen pt-40 pb-32 px-6 relative flex flex-col justify-center max-w-6xl mx-auto">
+      <Reveal delay={400}>
+        <div className="text-center mb-24">
+          <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white">
+            Ingeniería transparente. Sin cajas negras.
+            </h1>
+          </div>
+
+          <Stepper
+            steps={roadmapSteps}
+            currentStep={currentStep}
+            className="mb-12"
+          />
+
+          <div className="flex justify-center gap-6 mt-12">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+              disabled={currentStep === 0}
+            >
+              &larr; Anterior
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                setCurrentStep(
+                  Math.min(roadmapSteps.length - 1, currentStep + 1),
+                )
+              }
+              disabled={currentStep === roadmapSteps.length - 1}
+            >
+              Siguiente &rarr;
+            </Button>
+          </div>
+      </Reveal>
+
+
     <div className="pt-40 pb-32 px-6 max-w-7xl mx-auto min-h-screen">
       <Reveal>
         <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-center">
@@ -86,11 +146,12 @@ export const Products = () => {
                     Ver Solución
                   </Button>
                 </div>
-              </div>
-            </Card>
-          </Reveal>
-        ))}
+                </div>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
