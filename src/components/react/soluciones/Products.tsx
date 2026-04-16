@@ -1,4 +1,3 @@
-import React from "react";
 import { Reveal } from "../shared/Reveal";
 import { Card } from "../shared/ui/Card";
 import { Button } from "../shared/ui/Button";
@@ -16,7 +15,6 @@ export const Products = () => {
         </p>
       </Reveal>
 
-      {/* GRID 3 + 2 centrado */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
         {solutionsData.map((prod, i) => {
           const layout = "md:col-span-2";
