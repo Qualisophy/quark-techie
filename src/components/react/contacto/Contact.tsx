@@ -6,7 +6,7 @@ import { Textarea } from "../shared/ui/Textarea";
 import { Button } from "../shared/ui/Button";
 import { toast } from "../shared/ui/Toast";
 
-export const Contact = ({ endpoint = "/api/send-email" }) => {
+export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,6 +49,8 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
     }
   };
 
+  const fields = ["name", "email", "message"] as const;
+
   // -----------------------------
   // CAMBIOS
   // -----------------------------
@@ -62,7 +64,6 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
       [name]: value,
     }));
 
-    // Solo valida en tiempo real si ya fue tocado
     if (touched[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -93,71 +94,69 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
   // -----------------------------
   // ENVIAR
   // -----------------------------
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newTouched = {
+    setTouched({
       name: true,
       email: true,
       message: true,
-    };
+    });
 
-    setTouched(newTouched);
+    const newErrors: Record<string, string> = {};
 
-    const newErrors = {
-      name: validateField("name", formData.name),
-      email: validateField("email", formData.email),
-      message: validateField("message", formData.message),
-    };
+    fields.forEach((field) => {
+      newErrors[field] = validateField(field, formData[field]);
+    });
 
     setErrors(newErrors);
 
-    const hasErrors = Object.values(newErrors).some(Boolean);
-    if (hasErrors) return;
+    let hasErrors = false;
 
-    setIsSubmitting(true);
-    setSuccess(false);
+    fields.forEach((field) => {
+      const value = formData[field];
+      const error = newErrors[field];
 
-    try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error();
-
-      setSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-      setErrors({});
-      setTouched({});
-
-      toast({
-        type: "success",
-        title: "Mensaje enviado",
-        description: "Nuestro equipo te responderá lo antes posible.",
-      });
-
-      setTimeout(() => setSuccess(false), 4000);
-    } catch {
-      setErrors({
-        general: "No se pudo enviar el mensaje",
-      });
-
+      if (!value) {
+        hasErrors = true;
         toast({
           type: "error",
-          title: "Error al enviar",
-          description: "Inténtalo de nuevo.",
-  });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+          title: "Error",
+          description: error,
+        });
+        return;
+      }
 
-  const isFormValid =
-  !validateField("name", formData.name) &&
-  !validateField("email", formData.email) &&
-  !validateField("message", formData.message);
+      if (error) {
+        hasErrors = true;
+        toast({
+          type: "error",
+          title: "Error",
+          description: error,
+        });
+      }
+    });
+
+    if (hasErrors) return;
+
+    // Mensaje Enviado (simulación de API)
+    setIsSubmitting(true);
+
+    setSuccess(true);
+    setFormData({ name: "", email: "", message: "" });
+    setErrors({});
+    setTouched({});
+
+    toast({
+      type: "success",
+      title: "Mensaje enviado",
+      description: "Nuestro equipo te responderá lo antes posible.",
+    });
+
+    setTimeout(() => setSuccess(false), 4000);
+
+    setIsSubmitting(false);
+  };
 
   return (
     <div className="min-h-screen pt-40 pb-32 px-6 max-w-5xl mx-auto flex items-center justify-center">
@@ -182,7 +181,7 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
 
           <div className="grid md:grid-cols-2 gap-16">
 
-            {/* BLOQUE IZQUIERDA: Título y datos de contacto */}
+            {/* BLOQUE IZQUIERDO: CTA y Datos de Contacto */}
             <div>
               <h1 className="text-4xl md:text-h2-brand font-semibold mb-6 text-white">
                 Iniciemos el
@@ -196,16 +195,16 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
 
               <div className="space-y-4 text-gray-300 font-light">
                 <p className="hover:text-white transition-colors">
-                    <a href="https://maps.app.goo.gl/VStbnoiDd58fEe8m9">
-                      Calle Esteban Salazar Chapela 11, 9
-                      <br></br>
-                      Málaga (España)
-                    </a>
+                  <a href="https://maps.app.goo.gl/VStbnoiDd58fEe8m9">
+                    Calle Esteban Salazar Chapela 11, 9º
+                    <br />
+                    Málaga (España)
+                  </a>
                 </p>
                 <p className="hover:text-white transition-colors">
-                    <a href="mailto:hello@quark-techie.com">
-                      hello@quark-techie.com
-                    </a>
+                  <a href="mailto:hello@quark-techie.com">
+                    hello@quark-techie.com
+                  </a>
                 </p>
                 <p className="hover:text-white transition-colors">
                   <a href="tel:+34951768789">
@@ -214,9 +213,8 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
                 </p>
               </div>
             </div>
-            
 
-            {/* BLOQUE DERECHA: Formulario */}
+            {/* BLOQUE DERECHO: Formulario de Contacto */}
             <form onSubmit={handleSubmit} className="space-y-6">
 
               <Input
@@ -252,16 +250,16 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
               {touched.message && errors.message && (
                 <p className="text-red-400 text-xs">{errors.message}</p>
               )}
+
               <Button
                 type="submit"
                 size="lg"
                 fullWidth
-                disabled={isSubmitting || !isFormValid}
+                disabled={isSubmitting}
                 className={`
                   transition-all duration-300
-
                   ${
-                    isSubmitting || !isFormValid
+                    isSubmitting
                       ? "opacity-40 cursor-not-allowed shadow-none"
                       : "opacity-100 cursor-pointer shadow-none hover:shadow-lg"
                   }
@@ -273,7 +271,7 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
             </form>
           </div>
 
-          {/* BLOQUE INFERIOR: Mapa de Google Maps */}
+          {/* BLOQUE INFERIOR: Ubicación de Google Maps */}
           <div className="w-full h-full flex justify-center items-center mt-20">
             <div className="w-[100%] aspect-[7/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <iframe
