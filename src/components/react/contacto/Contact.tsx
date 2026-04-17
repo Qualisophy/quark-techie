@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Input } from "../shared/ui/Input";
 import { Textarea } from "../shared/ui/Textarea";
 import { Button } from "../shared/ui/Button";
-import { toast } from "../shared/ui/Toast";
 import { toast } from "../shared/ui/Toast";
 
 export const Contact = () => {
@@ -65,33 +63,12 @@ export const Contact = () => {
       ...prev,
       [name]: value,
     }));
-
-    if (touched[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: validateField(name, value),
-      }));
-    }
   };
 
   // -----------------------------
   // FOCO
   // -----------------------------
-  const handleBlur = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-
-    setTouched((prev) => ({
-      ...prev,
-      [name]: true,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: validateField(name, value),
-    }));
-  };
+  // (sin validación en blur)
 
   // -----------------------------
   // ENVIAR
@@ -119,17 +96,7 @@ export const Contact = () => {
       const value = formData[field];
       const error = newErrors[field];
 
-      if (!value) {
-        hasErrors = true;
-        toast({
-          type: "error",
-          title: "Error",
-          description: error,
-        });
-        return;
-      }
-
-      if (error) {
+      if (!value || error) {
         hasErrors = true;
         toast({
           type: "error",
@@ -141,7 +108,6 @@ export const Contact = () => {
 
     if (hasErrors) return;
 
-    // Mensaje Enviado (simulación de API)
     setIsSubmitting(true);
 
     setSuccess(true);
@@ -165,7 +131,6 @@ export const Contact = () => {
       <Reveal className="w-full">
         <div className="w-full p-10 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/8 backdrop-blur-3xl relative overflow-hidden">
 
-          {/* luces */}
           <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#288B88]/20 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#E8D33F]/10 blur-[100px] rounded-full pointer-events-none" />
 
@@ -183,7 +148,6 @@ export const Contact = () => {
 
           <div className="grid md:grid-cols-2 gap-16">
 
-            {/* BLOQUE IZQUIERDO: CTA y Datos de Contacto */}
             <div>
               <h1 className="text-4xl md:text-h2-brand font-semibold mb-6 text-white">
                 Iniciemos el
@@ -216,7 +180,6 @@ export const Contact = () => {
               </div>
             </div>
 
-            {/* BLOQUE DERECHO: Formulario de Contacto */}
             <form onSubmit={handleSubmit} className="space-y-6">
 
               <Input
@@ -224,7 +187,6 @@ export const Contact = () => {
                 placeholder="Nombre o Empresa"
                 value={formData.name}
                 onChange={handleChange}
-                onBlur={handleBlur}
               />
               {touched.name && errors.name && (
                 <p className="text-red-400 text-xs">{errors.name}</p>
@@ -235,7 +197,6 @@ export const Contact = () => {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
-                onBlur={handleBlur}
               />
               {touched.email && errors.email && (
                 <p className="text-red-400 text-xs">{errors.email}</p>
@@ -247,7 +208,6 @@ export const Contact = () => {
                 placeholder="Cuéntanos sobre tu proyecto..."
                 value={formData.message}
                 onChange={handleChange}
-                onBlur={handleBlur}
               />
               {touched.message && errors.message && (
                 <p className="text-red-400 text-xs">{errors.message}</p>
@@ -273,7 +233,6 @@ export const Contact = () => {
             </form>
           </div>
 
-          {/* BLOQUE INFERIOR: Ubicación de Google Maps */}
           <div className="w-full h-full flex justify-center items-center mt-20">
             <div className="w-[100%] aspect-[7/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <iframe
@@ -282,16 +241,10 @@ export const Contact = () => {
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
-        </div>
-      </Reveal>
-    </div>
-  );
-};
-          </div>
+
         </div>
       </Reveal>
     </div>
