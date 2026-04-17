@@ -1,80 +1,290 @@
-import React from "react";
+import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Input } from "../shared/ui/Input";
 import { Textarea } from "../shared/ui/Textarea";
 import { Button } from "../shared/ui/Button";
 import { toast } from "../shared/ui/Toast";
+import { toast } from "../shared/ui/Toast";
 
-export const Contact = () => (
-  <div className="min-h-screen pt-40 pb-32 px-6 max-w-5xl mx-auto flex items-center justify-center">
-    <Reveal className="w-full">
-      <div className="w-full p-10 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/8 backdrop-blur-3xl relative overflow-hidden">
-        {/* Luces de cristal en el formulario */}
-        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#288B88]/20 blur-[100px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#E8D33F]/10 blur-[100px] rounded-full pointer-events-none"></div>
+export const Contact = ({ endpoint = "/api/send-email" }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-        <div className="relative z-10 grid md:grid-cols-2 gap-16">
-          <div>
-            <h1 className="text-4xl md:text-h2-brand font-semibold tracking-tighter mb-6 text-white">
-              Iniciemos el
-              <br />
-              proyecto.
-            </h1>
-            <p className="text-lg text-gray-400 font-light mb-12">
-              Arquitecturas modernas requieren conversaciones directas. Déjanos
-              tus coordenadas.
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  // -----------------------------
+  // VALIDACIÓN DE CAMPOS
+  // -----------------------------
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case "name":
+        if (!value) return "El nombre es obligatorio";
+        if (value.trim().length < 2)
+          return "El nombre debe tener al menos 2 caracteres";
+        if (!/^[a-zA-ZÀ-ÿ\s\-]+$/.test(value))
+          return "El nombre solo permite letras y espacios";
+        return "";
+
+      case "email":
+        if (!value) return "El email es obligatorio";
+        if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,63}$/.test(value))
+          return "Email inválido";
+        return "";
+
+      case "message":
+        if (!value) return "El mensaje es obligatorio";
+        if (value.trim().length < 10)
+          return "El mensaje debe tener al menos 10 caracteres";
+        return "";
+
+      default:
+        return "";
+    }
+  };
+
+  // -----------------------------
+  // CAMBIOS
+  // -----------------------------
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Solo valida en tiempo real si ya fue tocado
+    if (touched[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: validateField(name, value),
+      }));
+    }
+  };
+
+  // -----------------------------
+  // FOCO
+  // -----------------------------
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setTouched((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: validateField(name, value),
+    }));
+  };
+
+  // -----------------------------
+  // ENVIAR
+  // -----------------------------
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newTouched = {
+      name: true,
+      email: true,
+      message: true,
+    };
+
+    setTouched(newTouched);
+
+    const newErrors = {
+      name: validateField("name", formData.name),
+      email: validateField("email", formData.email),
+      message: validateField("message", formData.message),
+    };
+
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some(Boolean);
+    if (hasErrors) return;
+
+    setIsSubmitting(true);
+    setSuccess(false);
+
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error();
+
+      setSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({});
+      setTouched({});
+
+      toast({
+        type: "success",
+        title: "Mensaje enviado",
+        description: "Nuestro equipo te responderá lo antes posible.",
+      });
+
+      setTimeout(() => setSuccess(false), 4000);
+    } catch {
+      setErrors({
+        general: "No se pudo enviar el mensaje",
+      });
+
+        toast({
+          type: "error",
+          title: "Error al enviar",
+          description: "Inténtalo de nuevo.",
+  });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const isFormValid =
+  !validateField("name", formData.name) &&
+  !validateField("email", formData.email) &&
+  !validateField("message", formData.message);
+
+  return (
+    <div className="min-h-screen pt-40 pb-32 px-6 max-w-5xl mx-auto flex items-center justify-center">
+      <Reveal className="w-full">
+        <div className="w-full p-10 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/8 backdrop-blur-3xl relative overflow-hidden">
+
+          {/* luces */}
+          <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#288B88]/20 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#E8D33F]/10 blur-[100px] rounded-full pointer-events-none" />
+
+          {success && (
+            <p className="text-green-400 mb-6 text-sm">
+              Mensaje enviado correctamente
             </p>
-            <div className="space-y-4 font-light text-gray-300">
-              <p>Madrid, España</p>
-              <p>hola@quarktechie.com</p>
-              <p>+34 600 000 000</p>
-            </div>
-          </div>
+          )}
 
-          <form
-            className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              
-              const isSuccess = true; 
+          {errors.general && (
+            <p className="text-red-400 mb-6 text-sm">
+              {errors.general}
+            </p>
+          )}
 
-              if (isSuccess) {
-                toast({
-                  title: "¡Mensaje enviado!",
-                  description: "Hemos recibido tu mensaje, nuestro equipo te contactará en menos de 24 horas.",
-                  type: "success",
-                });
-                e.currentTarget.reset();
-              } else {
-                toast({
-                  title: "No hemos podido recibir tu solicitud",
-                  description: "No se ha podido establecer la conexión con el servidor.",
-                  type: "error",
-                });
-              }
-            }}
-          >
+          <div className="grid md:grid-cols-2 gap-16">
+
+            {/* LEFT */}
             <div>
-              <Input type="text" required placeholder="Nombre o Empresa" />
+              <h1 className="text-4xl md:text-h2-brand font-semibold mb-6 text-white">
+                Iniciemos el
+                <br />
+                proyecto.
+              </h1>
+
+              <p className="text-gray-400 mb-12">
+                Arquitecturas modernas requieren conversaciones directas.
+              </p>
+
+              <div className="space-y-4 text-gray-300 font-light">
+                <p className="hover:text-white transition-colors">
+                    <a href="https://maps.app.goo.gl/VStbnoiDd58fEe8m9">
+                      Calle Esteban Salazar Chapela 11, 9
+                      <br></br>
+                      Málaga (España)
+                    </a>
+                </p>
+                <p className="hover:text-white transition-colors">
+                    <a href="mailto:hello@quark-techie.com">
+                      hello@quark-techie.com
+                    </a>
+                </p>
+                <p className="hover:text-white transition-colors">
+                  <a href="tel:+34951768789">
+                    +34 951 768 789
+                  </a>
+                </p>
+              </div>
             </div>
-            <div>
-              <Input type="email" required placeholder="Email corporativo" />
-            </div>
-            <div>
+            
+
+            {/* FORM */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+
+              <Input
+                name="name"
+                placeholder="Nombre o Empresa"
+                value={formData.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.name && errors.name && (
+                <p className="text-red-400 text-xs">{errors.name}</p>
+              )}
+
+              <Input
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.email && errors.email && (
+                <p className="text-red-400 text-xs">{errors.email}</p>
+              )}
+
               <Textarea
-                rows={3}
-                required
-                placeholder="Visión del proyecto..."
+                name="message"
+                rows={4}
+                placeholder="Cuéntanos sobre tu proyecto..."
+                value={formData.message}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.message && errors.message && (
+                <p className="text-red-400 text-xs">{errors.message}</p>
+              )}
+              <Button
+                type="submit"
+                size="lg"
+                fullWidth
+                disabled={isSubmitting || !isFormValid}
+                className={`
+                  transition-all duration-300
+
+                  ${
+                    isSubmitting || !isFormValid
+                      ? "opacity-40 cursor-not-allowed shadow-none"
+                      : "opacity-100 cursor-pointer shadow-none hover:shadow-lg hover:scale-[1.01]"
+                  }
+                `}
+              >
+                {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                <ChevronRight size={18} />
+              </Button>
+            </form>
+            <div className="mt-16 relative w-full flex justify-center">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl" />
+              <img
+                src="https://r-charts.com/es/miscelanea/procesamiento-imagenes-magick_files/figure-html/dibujar-sobre-imagen-r.png"
+                alt="Mapa de localización"
+                className="
+                  w-full max-w-4xl rounded-2xl object-cover border border-white/10 shadow-2xl
+                  hover:scale-[1.01] transition-transform duration-500"
               />
             </div>
-
-            <Button type="submit" size="lg" fullWidth>
-              Enviar Mensaje <ChevronRight size={18} />
-            </Button>
-          </form>
+          </div>
         </div>
-      </div>
-    </Reveal>
-  </div>
-);
+      </Reveal>
+    </div>
+  );
+};
