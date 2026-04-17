@@ -18,7 +18,6 @@ export interface ToastMessage {
 }
 
 // 2. Función disparadora (Pub/Sub nativo)
-// Puedes importar y usar esta función en CUALQUIER componente para lanzar un toast
 export const toast = ({
   title,
   description,
@@ -30,7 +29,7 @@ export const toast = ({
   window.dispatchEvent(event);
 };
 
-// 3. El Contenedor de Toasts (Debe colocarse una sola vez en el Layout global)
+// 3. El Contenedor de Toasts
 export const ToastContainer = () => {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
@@ -56,12 +55,20 @@ export const ToastContainer = () => {
   return (
     <div
       aria-live="polite"
-      className="fixed bottom-6 right-6 z-[100] flex w-full max-w-[360px] flex-col gap-3 pointer-events-none"
+      className={`
+        fixed z-[100] flex flex-col gap-3 pointer-events-none
+        bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[360px]
+        sm:bottom-6 sm:left-auto sm:right-6 sm:translate-x-0 sm:w-[360px]
+      `}
     >
+      {/* Hemos cambiado la animación de translateX a translateY. 
+        Desplazarse de abajo hacia arriba queda perfecto tanto centrado en móvil 
+        como en la esquina en escritorio.
+      */}
       <style>{`
         @keyframes toast-in {
-          from { opacity: 0; transform: translateX(60px) scale(0.95); }
-          to { opacity: 1; transform: translateX(0) scale(1); }
+          from { opacity: 0; transform: translateY(20px) scale(0.95); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
         }
         .animate-toast-in { animation: toast-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
       `}</style>
@@ -81,7 +88,6 @@ const ToastItem = ({
   toast: ToastMessage;
   onClose: () => void;
 }) => {
-  // Mapeo de estilos según el tipo usando tus variables de Tailwind
   const styles = {
     success: {
       border: "border-state-success/40",
@@ -99,7 +105,7 @@ const ToastItem = ({
       icon: <AlertTriangle className="text-state-warning" size={20} />,
     },
     info: {
-      border: "border-[#5EE7DF]/40", // Info Cyan
+      border: "border-[#5EE7DF]/40",
       shadow: "shadow-[0_4px_24px_rgba(94,231,223,0.2)]",
       icon: <Info className="text-[#5EE7DF]" size={20} />,
     },
@@ -114,10 +120,9 @@ const ToastItem = ({
         animate-toast-in pointer-events-auto cursor-pointer
         relative overflow-hidden rounded-2xl p-4
         bg-white/[0.03] backdrop-blur-xl border ${currentStyle.border} ${currentStyle.shadow}
-        flex items-start gap-3 transition-all duration-300 hover:-translate-x-1
+        flex items-start gap-3 transition-all duration-300 hover:-translate-y-1
       `}
     >
-      {/* Brillo interno de Glassmorphism */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
 
       <div className="flex-shrink-0 mt-0.5">{currentStyle.icon}</div>
