@@ -1,37 +1,9 @@
-import React from "react";
-import { Code2, Globe2, Layers } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Card } from "../shared/ui/Card";
 import { Button } from "../shared/ui/Button";
+import { solutionsData } from "../../../data/solutions";
 
 export const Products = () => {
-  const products = [
-    {
-      title: "MVP Startup",
-      slug: "mvp-startup",
-      price: "$2,500",
-      desc: "Del concepto a la realidad en 4 semanas. Arquitectura validada.",
-      icon: Code2,
-      accent: "#288B88",
-    },
-    {
-      title: "Transformación Digital",
-      slug: "transformacion-digital",
-      price: "Custom",
-      desc: "Modernización de sistemas legacy para corporaciones.",
-      icon: Globe2,
-      accent: "#E8D33F",
-    },
-    {
-      title: "E-Commerce Headless",
-      slug: "e-commerce-headless",
-      price: "$4,000",
-      desc: "Ventas sin límites con Shopify y React en el frontend.",
-      icon: Layers,
-      accent: "#FFFFFF",
-    },
-  ];
-
   return (
     <div className="pt-40 pb-32 px-6 max-w-7xl mx-auto min-h-screen">
       <Reveal>
@@ -43,54 +15,76 @@ export const Products = () => {
         </p>
       </Reveal>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {products.map((prod, i) => (
-          <Reveal key={i} delay={i * 200}>
-            <Card className="group h-[500px]">
-              {/* FIX: Reemplazamos el filtro 'blur' por un radial-gradient nativo */}
-              <div
-                className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
-                style={{
-                  background: `radial-gradient(circle, ${prod.accent} 0%, transparent 70%)`,
-                }}
-              ></div>
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+        {solutionsData.map((prod, i) => {
+          const layout = "md:col-span-2";
 
-              {/* Contenedor Flex para distribuir el contenido arriba y abajo */}
-              <div className="flex flex-col justify-between h-full relative z-10">
-                {/* Parte Superior de la tarjeta */}
-                <div>
-                  <prod.icon
-                    className="w-10 h-10 mb-8"
-                    style={{ color: prod.accent }}
-                    strokeWidth={1.5}
-                  />
-                  <h3 className="text-3xl font-semibold mb-4 text-white">
-                    {prod.title}
-                  </h3>
-                  <p className="text-gray-400 font-light leading-relaxed mb-8">
-                    {prod.desc}
-                  </p>
-                </div>
+          return (
+            <Reveal key={prod.slug} delay={i * 200} className={layout}>
+              <Card className={`group h-full isolate overflow-hidden ${
+                prod.slug === "a-medida"
+                  ? "bg-gradient-to-br from-white/[0.06] to-white/[0.02]\
+                  border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.06)]"
+                  : ""
+                }`}
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute top-0 right-0 w-64 h-64 blur-[100px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
+                  style={{ backgroundColor: prod.accent }}
+                />
 
-                {/* Parte Inferior de la tarjeta */}
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">A partir de</p>
-                  <p className="text-4xl font-semibold text-white mb-8">
-                    {prod.price}
-                  </p>
-                  <Button
-                    href={`/soluciones/${prod.slug}`}
-                    variant="primary"
-                    size="lg"
-                    fullWidth
-                  >
-                    Ver Solución
-                  </Button>
+                {/* MAIN CONTAINER */}
+                <div className="flex flex-col h-full relative z-10">
+
+                  {/* TOP (crece dinámicamente) */}
+                  <div className="flex flex-col flex-1">
+                    <prod.icon
+                      className="w-10 h-10 mb-8"
+                      style={{ color: prod.accent }}
+                      strokeWidth={1.5}
+                    />
+
+                    <h3 className="text-3xl font-semibold mb-4 text-white">
+                      {prod.title}
+                    </h3>
+
+                    <p className="text-gray-400 font-light leading-relaxed">
+                      {prod.short_description}
+                    </p>
+                  </div>
+
+                  {/* BOTTOM (siempre abajo alineado) */}
+                  <div className="mt-auto pt-8">
+                    <p className="text-sm text-gray-500 mb-1">
+                      A partir de
+                    </p>
+
+                    <p className="text-4xl font-semibold text-white mb-8">
+                      {prod.starting_price}
+                    </p>
+
+                    <Button
+                      href={
+                        prod.slug === "a-medida"
+                          ? "/contacto"
+                          : `/soluciones/${prod.slug}`
+                      }
+                      variant="primary"
+                      size="lg"
+                      fullWidth
+                    >
+                      {prod.slug === "a-medida"
+                        ? "Agendar Consultoría"
+                        : "Ver Solución"}
+                    </Button>
+                  </div>
+
                 </div>
-              </div>
-            </Card>
-          </Reveal>
-        ))}
+              </Card>
+            </Reveal>
+          );
+        })}
       </div>
     </div>
   );
