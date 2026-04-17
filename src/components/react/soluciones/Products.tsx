@@ -8,7 +8,7 @@ export const Products = () => {
   const products = [
     {
       title: "MVP Startup",
-      slug: "mvp-startup", // Enlace exacto a nuestra ruta dinámica
+      slug: "mvp-startup",
       price: "$2,500",
       desc: "Del concepto a la realidad en 4 semanas. Arquitectura validada.",
       icon: Code2,
@@ -16,7 +16,7 @@ export const Products = () => {
     },
     {
       title: "Transformación Digital",
-      slug: "transformacion-digital", // Enlace exacto a nuestra ruta dinámica
+      slug: "transformacion-digital",
       price: "Custom",
       desc: "Modernización de sistemas legacy para corporaciones.",
       icon: Globe2,
@@ -24,7 +24,7 @@ export const Products = () => {
     },
     {
       title: "E-Commerce Headless",
-      slug: "e-commerce-headless", // Enlace exacto a nuestra ruta dinámica
+      slug: "e-commerce-headless",
       price: "$4,000",
       desc: "Ventas sin límites con Shopify y React en el frontend.",
       icon: Layers,
@@ -47,10 +47,12 @@ export const Products = () => {
         {products.map((prod, i) => (
           <Reveal key={i} delay={i * 200}>
             <Card className="group h-[500px]">
-              {/* Resplandor de hover de acento de color original */}
+              {/* FIX: Reemplazamos el filtro 'blur' por un radial-gradient nativo */}
               <div
-                className="absolute top-0 right-0 w-64 h-64 blur-[100px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
-                style={{ backgroundColor: prod.accent }}
+                className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
+                style={{
+                  background: `radial-gradient(circle, ${prod.accent} 0%, transparent 70%)`,
+                }}
               ></div>
 
               {/* Contenedor Flex para distribuir el contenido arriba y abajo */}
@@ -76,7 +78,6 @@ export const Products = () => {
                   <p className="text-4xl font-semibold text-white mb-8">
                     {prod.price}
                   </p>
-                  {/* El botón ahora navega hacia la ruta dinámica usando Template Literals */}
                   <Button
                     href={`/soluciones/${prod.slug}`}
                     variant="primary"
