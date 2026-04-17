@@ -66,11 +66,6 @@ export const Contact = () => {
   };
 
   // -----------------------------
-  // FOCO
-  // -----------------------------
-  // (sin validación en blur)
-
-  // -----------------------------
   // ENVIAR
   // -----------------------------
   const handleSubmit = (e: React.FormEvent) => {
