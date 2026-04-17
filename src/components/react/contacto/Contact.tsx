@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Input } from "../shared/ui/Input";
 import { Textarea } from "../shared/ui/Textarea";
 import { Button } from "../shared/ui/Button";
+import { toast } from "../shared/ui/Toast";
 import { toast } from "../shared/ui/Toast";
 
 export const Contact = () => {
@@ -283,6 +285,12 @@ export const Contact = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  );
+};
           </div>
         </div>
       </Reveal>
