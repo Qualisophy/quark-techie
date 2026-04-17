@@ -1,4 +1,4 @@
-import { Bot, Bug, Cpu, GraduationCap, Users } from "lucide-react";
+import { Bot, Bug, Cpu, GraduationCap, Users, Sparkles } from "lucide-react";
 
 // Define el esquema exacto de nuestra solución (Interfaces TypeScript)
 export interface ProcessStep {
@@ -216,5 +216,44 @@ export const solutionsData: Solution[] = [
     icon: Users,
     accent: "#10B981",
   },
+
+  {
+    slug: "a-medida",
+    title: "Crea tu Solución a Medida",
+    short_description:
+      "Ingeniería sin límites. Diseñamos soluciones tecnológicas a medida para resolver retos únicos que no encajan en productos estándar.",
+    pain_point:
+      "No todas las empresas encajan en soluciones estándar. Cuando los procesos son únicos o complejos, las herramientas existentes se quedan cortas, obligando a hacer 'parches' que generan ineficiencias, dependencia técnica y falta de escalabilidad.",
+    solution_description:
+      "Construimos soluciones 100% a medida desde cero o evolucionando tus sistemas actuales. Desde plataformas internas hasta productos digitales complejos, adaptamos tecnología, arquitectura e IA a tus necesidades reales de negocio, sin limitaciones de herramientas predefinidas.",
+    deliverables: [
+      "Desarrollo de software totalmente personalizado",
+      "Plataformas internas o productos digitales a medida",
+      "Integraciones específicas y lógica de negocio avanzada",
+      "Arquitectura técnica adaptada a escalabilidad futura",
+      "Documentación completa y hand-off técnico",
+    ],
+    process: [
+      {
+        title: "Discovery Profundo",
+        description: "Entendemos tu negocio, procesos y objetivos para definir una solución realista y efectiva.",
+      },
+      {
+        title: "Definición Funcional & Técnica",
+        description: "Traducimos necesidades en especificaciones claras, arquitectura y roadmap.",
+      },
+      {
+        title: "Desarrollo Iterativo",
+        description: "Construcción por fases con validaciones constantes para asegurar encaje con negocio.",
+      },
+      {
+        title: "Entrega & Evolución",
+        description: "Despliegue, documentación y acompañamiento para escalar la solución.",
+      },
+    ],
+    starting_price: "Custom",
+    icon: Sparkles,
+    accent: "#E5E7EB",
+  }
   
 ];
