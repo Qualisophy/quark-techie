@@ -42,7 +42,8 @@ export const Card: React.FC<CardProps> = ({
         className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+          // FIX: Usamos rgba(255,255,255,0) en lugar de 'transparent' para evitar el bug de bandas en Safari
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%)`,
         }}
       />
 
