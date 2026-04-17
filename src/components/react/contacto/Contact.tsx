@@ -263,7 +263,7 @@ export const Contact = ({ endpoint = "/api/send-email" }) => {
                   ${
                     isSubmitting || !isFormValid
                       ? "opacity-40 cursor-not-allowed shadow-none"
-                      : "opacity-100 cursor-pointer shadow-none hover:shadow-lg hover:scale-[1.01]"
+                      : "opacity-100 cursor-pointer shadow-none hover:shadow-lg"
                   }
                 `}
               >
