@@ -9,59 +9,18 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
-import { BentoGrid } from "./BentoGrid";
 
-export const Home = () => {
+export const BentoGrid = () => {
   return (
     <div className="w-full flex flex-col items-center">
-      {/* HERO SECTION - Estilo Apple */}
-      <section className="relative min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden pt-20">
-        <Reveal
-          delay={100}
-          className="z-10 w-full max-w-5xl mx-auto flex flex-col items-center"
-        >
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-semibold tracking-tighter text-white leading-[0.9] mb-8">
-            Código.
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#288B88] via-white to-[#E8D33F]">
-              Evolucionado.
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-tight mb-12">
-            En Quark Techie transformamos la complejidad técnica en ventaja competitiva. Diseñamos y desarrollamos plataformas Fullstack a nivel subatómico para empresas que lideran el cambio.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full sm:w-auto">
-            <Button href="/soluciones" size="lg">
-              Descubrir Soluciones
-            </Button>
-
-            <Button
-              href="/contacto"
-              variant="ghost"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              Iniciar Consultoría <ArrowUpRight size={20} className="text-[#E8D33F]" />
-            </Button>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* BENTO GRID - GLASSMORPHISM FEATURES */}
-
       <section className="py-32 px-6 w-full max-w-7xl mx-auto">
         <Reveal>
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6">
-              Ingeniería de vanguardia.
+              Ingeniería a medida.
               <br />
               Diseño de precisión.
             </h2>
-            <p className="text-gray-400 text-xl font-light max-w-2xl mx-auto">
-              No solo construimos aplicaciones; forjamos activos digitales mediante una optimización obsesiva por el rendimiento.
-            </p>
           </div>
         </Reveal>
 
@@ -74,10 +33,12 @@ export const Home = () => {
                 <Zap className="w-12 h-12 text-[#E8D33F]" strokeWidth={1.5} />
                 <div>
                   <h3 className="text-3xl font-semibold mb-3 text-white">
-                    Performance al milisegundo.
+                    Rendimiento Extremo.
                   </h3>
                   <p className="text-gray-400 text-lg max-w-md font-light">
-                    Optimizamos cada línea de código para garantizar tiempos de carga instantáneos y dominar las Core Web Vitals.
+                    Optimizamos la carga al milisegundo. Construimos
+                    arquitecturas modernas que retienen usuarios y dominan el
+                    SEO.
                   </p>
                 </div>
               </div>
@@ -94,10 +55,10 @@ export const Home = () => {
               />
               <div className="relative z-10 mt-auto">
                 <h3 className="text-2xl font-semibold mb-2 text-white">
-                  Sistemas listos para el mañana.
+                  Escalabilidad
                 </h3>
                 <p className="text-gray-400 font-light">
-                  Infraestructuras elásticas que crecen orgánicamente con tu negocio.
+                  Sistemas que crecen orgánicamente.
                 </p>
               </div>
             </div>
@@ -112,10 +73,10 @@ export const Home = () => {
               />
               <div>
                 <h3 className="text-2xl font-semibold mb-2 text-white">
-                  Blindaje desde el núcleo.
+                  Seguridad Nativa
                 </h3>
                 <p className="text-gray-400 font-light">
-                  Protocolos de seguridad avanzada y cifrado para garantizar la integridad de tu ecosistema.
+                  Protección de datos desde la base estructural.
                 </p>
               </div>
             </div>
@@ -129,10 +90,11 @@ export const Home = () => {
                 <Cpu className="w-12 h-12 text-white" strokeWidth={1.5} />
                 <div>
                   <h3 className="text-3xl font-semibold mb-3 text-white">
-                    Tecnología de nivel subatómico.
+                    Stack Tecnológico.
                   </h3>
                   <p className="text-gray-400 text-lg max-w-md font-light">
-                    Dominamos las herramientas que impulsan a las empresas: Astro, React, Node.js y Tailwind CSS.
+                    React, Astro, Node, Tailwind. Empleamos las herramientas que
+                    impulsan a las empresas tecnológicas líderes del mundo.
                   </p>
                 </div>
               </div>
@@ -140,9 +102,6 @@ export const Home = () => {
           </Reveal>
         </div>
       </section>
-
-      <BentoGrid />
-
     </div>
   );
 };
