@@ -21,34 +21,28 @@ export const solutionsData: Solution[] = [
     slug: "mvp-startup",
     title: "MVP Startup",
     short_description:
-      "Del concepto a la realidad en 4 semanas. Arquitectura validada.",
+      "Desarrollamos productos mínimos viables con una base técnica sólida en tiempo récord. No hacemos prototipos descartables; construimos la primera versión de tu software bajo estándares que permiten iterar y escalar sin reescrituras costosas.",
     pain_point:
-      "Las startups pierden meses y miles de dólares desarrollando funcionalidades que nadie necesita en stacks tecnológicos obsoletos.",
+      "Muchas startups lanzan rápido, pero sobre cimientos frágiles. El resultado es un producto difícil de mantener, con errores constantes y una escalabilidad bloqueada que obliga a empezar de cero justo cuando el negocio empieza a crecer.",
     solution_description:
-      "Construimos tu Producto Mínimo Viable (MVP) usando Astro, React y Node. Un producto funcional, rápido y preparado para pivotar, diseñado específicamente para validar tu modelo de negocio y atraer a tus primeros inversores.",
-    deliverables: [
-      "Arquitectura de software escalable",
-      "Desarrollo Frontend & Backend",
-      "Sistema de autenticación y base de datos",
-      "Despliegue en producción (Vercel/AWS)",
-      "Código fuente 100% en propiedad",
-    ],
+      "Implementamos tu MVP en un ciclo optimizado de 4 semanas utilizando un stack moderno: Astro, React y Node. Nos enfocamos en las funcionalidades críticas para validar tu modelo de negocio, entregando un código limpio, documentado y preparado para evolucionar.",
+    deliverables: ["Arquitectura modular: Estructura preparada para añadir nuevas funcionalidades sin comprometer la estabilidad.", "Desarrollo Fullstack optimizado: Código eficiente que garantiza tiempos de respuesta rápidos y una carga ligera.", "Seguridad y Gestión de Datos: Implementación de protocolos de autenticación y bases de datos siguiendo buenas prácticas.", "Infraestructura en la Nube: Configuración profesional para un despliegue continuo y fiable.", "Propiedad Total del Código: Entrega completa del repositorio. Tu software es un activo de tu empresa desde el primer día."],
     process: [
       {
         title: "Discovery",
-        description: "Definición del core loop y features críticas.",
+        description: "Identificación de las core features necesarias para la validación.",
       },
       {
-        title: "Diseño & Arquitectura",
-        description: "Wireframes y elección del stack.",
+        title: "Arquitectura",
+        description: "Selección de herramientas y diseño de la estructura de datos.",
       },
       {
         title: "Desarrollo Ágil",
-        description: "Sprints semanales con entregas iterativas.",
+        description: "Ciclos de construcción con visibilidad total del progreso.",
       },
       {
-        title: "Lanzamiento",
-        description: "QA, testing en producción y hand-off.",
+        title: "Handoff",
+        description: "Testing final, despliegue y entrega de documentación técnica.",
       },
     ],
     starting_price: "$2,500",
@@ -56,34 +50,34 @@ export const solutionsData: Solution[] = [
   {
     slug: "transformacion-digital",
     title: "Transformación Digital",
-    short_description: "Modernización de sistemas legacy para corporaciones.",
+    short_description: "Ayudamos a empresas consolidadas a eliminar las barreras tecnológicas que frenan su crecimiento. Convertimos infraestructuras rígidas en sistemas ágiles y eficientes.",
     pain_point:
-      "Sistemas lentos, deuda técnica masiva y silos de datos que impiden a las corporaciones competir con startups ágiles.",
+      "Sistemas lentos, silos de datos y una deuda técnica acumulada impiden a las corporaciones innovar. El mantenimiento de infraestructuras legacy supone un riesgo operativo constante.",
     solution_description:
-      "Auditamos, refactorizamos y migramos tu infraestructura a la nube. Implementamos arquitecturas modernas (Serverless, Microservicios) que reducen costes operativos y aumentan la velocidad de despliegue de tu equipo.",
+      "Auditamos y migramos tu infraestructura a la nube usando estándares modernos (Serverless, Microservicios). Reducimos costes operativos y aumentamos la seguridad de los datos.",
     deliverables: [
-      "Auditoría profunda de deuda técnica",
-      "Plan de migración Cloud / Serverless",
-      "Refactorización a frameworks modernos",
-      "Integración continua (CI/CD)",
-      "Capacitación del equipo interno",
+      "Auditoría de Deuda Técnica: Análisis profundo de cuellos de botella y riesgos en el sistema actual.",
+      "Plan de Migración Cloud/Serverless: Roadmap estratégico para una transición sin tiempos de inactividad.",
+      "Refactorización a Frameworks Modernos: Evolución del código legacy hacia arquitecturas ágiles y mantenibles.",
+      "Integración Continua (CI/CD): Implementación de pipelines automatizados para despliegues seguros y rápidos.",
+      "Optimización de Seguridad y Datos: Blindaje de la infraestructura y cumplimiento de estándares modernos de cifrado.",
     ],
     process: [
       {
-        title: "Auditoría Profunda",
-        description: "Análisis del código y cuellos de botella.",
+        title: "Auditoría de Sistemas",
+        description: "Análisis exhaustivo del código legacy, infraestructura actual y detección de cuellos de botella técnicos.",
       },
       {
-        title: "Plan de Acción",
-        description: "Roadmap de migración sin tiempos de caída.",
+        title: "Estrategia de Migración",
+        description: "Diseño de un roadmap detallado para la transición a la nube sin interrupciones en la operativa del negocio.",
       },
       {
-        title: "Refactorización",
-        description: "Migración progresiva a nueva arquitectura.",
+        title: "Refactorización Ágil",
+        description: "Migración progresiva de módulos críticos hacia arquitecturas modernas, escalables y seguras.",
       },
       {
-        title: "Despliegue y Monitorización",
-        description: "Puesta en marcha y observabilidad.",
+        title: "Optimización y Cierre",
+        description: "Implementación de CI/CD, monitorización avanzada y entrega de la nueva documentación técnica.",
       },
     ],
     starting_price: "Custom",
@@ -91,32 +85,35 @@ export const solutionsData: Solution[] = [
   {
     slug: "e-commerce-headless",
     title: "E-Commerce Headless",
-    short_description: "Ventas sin límites con Shopify y React en el frontend.",
+    short_description: "Desacoplamos el frontend de tu tienda para lograr una velocidad de carga instantánea y libertad total de diseño. Rendimiento impecable para maximizar tus ventas.",
     pain_point:
-      "Las tiendas online tradicionales sufren tiempos de carga lentos que destruyen la tasa de conversión y limitan la personalización de la marca.",
+      "Las tiendas tradicionales sufren tiempos de carga lentos que destruyen la conversión. Las plantillas rígidas limitan la marca y el exceso de scripts penaliza el SEO.",
     solution_description:
-      "Desacoplamos el frontend de tu e-commerce usando una arquitectura Headless. Gestionas el inventario en Shopify, pero la experiencia de usuario se renderiza instantáneamente con React y Astro, logrando un SEO inmejorable.",
+      "Usamos arquitecturas Headless donde gestionas el inventario en Shopify y la experiencia de usuario se renderiza con React/Astro. Máximo SEO y navegación fluida.",
     deliverables: [
-      "Frontend a medida en React/Astro",
-      "Integración de API de Shopify/Swell",
-      "Optimizaciones avanzadas de Web Vitals",
-      "Sistema de diseño (UI Kit) personalizado",
-      "Analítica avanzada e integraciones",
+      "Frontend a medida en React/Astro: Interfaz única, ultrarrápida y optimizada para dispositivos móviles.",
+      "Integración de API de Shopify/Swell: Conexión fluida con tu motor de e-commerce preferido sin sacrificar velocidad.",
+      "Optimizaciones avanzadas de Web Vitals: Puntuaciones máximas en PageSpeed para dominar los resultados de búsqueda.",
+      "Sistema de diseño (UI Kit) personalizado: Coherencia visual total y facilidad para iterar tu diseño en el futuro.",
+      "Analítica avanzada e integraciones: Tracking de precisión para entender el comportamiento de tus clientes sin ralentizar la web.",
     ],
     process: [
       {
-        title: "UX/UI E-Commerce",
-        description: "Diseño enfocado en conversión (CRO).",
+        title: "Estrategia UX/UI",
+        description: "Diseño de interfaces de alto rendimiento enfocadas exclusivamente en la conversión (CRO) y el SEO.",
       },
       {
         title: "Integración Headless",
-        description: "Conexión del motor de pagos e inventario.",
+        description: "Configuración del motor de e-commerce y conexión de APIs para una gestión de inventario centralizada.",
       },
       {
-        title: "Optimización de Rendimiento",
-        description: "Ajuste fino de tiempos de carga.",
+        title: "Optimización Core",
+        description: "Ajuste fino de tiempos de carga y renderizado para garantizar una navegación instantánea.",
       },
-      { title: "Go-Live", description: "Transición de dominio y lanzamiento." },
+      {
+        title: "Lanzamiento y SEO",
+        description: "Migración de dominio, testing final de pasarelas de pago y despliegue en infraestructura escalable.",
+      },
     ],
     starting_price: "$4,000",
   },

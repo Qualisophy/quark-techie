@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { CTA } from "../shared/ui/CTA";
 import {
   Search,
   Filter,
@@ -97,8 +98,7 @@ export const TalentHub = () => {
           Talent Hub.
         </h1>
         <p className="text-xl text-gray-400 font-light max-w-2xl">
-          Explora la red de ingenieros y especialistas que han evolucionado su
-          stack tecnológico con nosotros.
+          Explora nuestra red exclusiva de especialistas que han evolucionado su stack tecnológico con nosotros. No solo te presentamos perfiles; te entregamos profesionales con mentalidad de ingeniería, expertos en metodologías ágiles y preparados para aportar valor real desde el primer sprint.
         </p>
       </Reveal>
 
@@ -317,6 +317,23 @@ export const TalentHub = () => {
           </div>
         )}
       </div>
+
+        
+      <Reveal delay={200} className="mt-32 pb-10">
+        <CTA 
+          className="w-full text-center" 
+          buttonText="Solicitar Recomendación"
+        >
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            ¿No encuentras el perfil exacto?
+          </h2>
+          <p className="text-gray-400 font-light max-w-2xl mx-auto mb-2 text-lg leading-relaxed">
+            Cuéntanos qué stack o rol necesitas cubrir. Conocemos profundamente a nuestra comunidad y podemos recomendarte al candidato ideal para tu cultura técnica.
+          </p>
+        </CTA>
+      </Reveal>
+      
+
     </div>
   );
 };

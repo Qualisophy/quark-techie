@@ -10,7 +10,7 @@ export const Products = () => {
       title: "MVP Startup",
       slug: "mvp-startup",
       price: "$2,500",
-      desc: "Del concepto a la realidad en 4 semanas. Arquitectura validada.",
+      desc: "Del concepto a un producto funcional en 4 semanas con arquitectura validada.",
       icon: Code2,
       accent: "#288B88",
     },
@@ -18,7 +18,7 @@ export const Products = () => {
       title: "Transformación Digital",
       slug: "transformacion-digital",
       price: "Custom",
-      desc: "Modernización de sistemas legacy para corporaciones.",
+      desc: "Modernización de sistemas legacy y optimización de infraestructuras corporativas.",
       icon: Globe2,
       accent: "#E8D33F",
     },
@@ -26,7 +26,7 @@ export const Products = () => {
       title: "E-Commerce Headless",
       slug: "e-commerce-headless",
       price: "$4,000",
-      desc: "Ventas sin límites con Shopify y React en el frontend.",
+      desc: "Arquitecturas desacopladas para maximizar la velocidad de carga y las ventas.",
       icon: Layers,
       accent: "#FFFFFF",
     },
@@ -39,7 +39,7 @@ export const Products = () => {
           Soluciones de otro nivel.
         </h2>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto text-center font-light mb-24">
-          Elige el ecosistema que impulsará tu próxima era digital.
+          Elige el ecosistema tecnológico que impulsará tu próxima era de crecimiento. En Quark Techie, combinamos velocidad de ejecución con robustez técnica para entregar productos que dominan el mercado.
         </p>
       </Reveal>
 

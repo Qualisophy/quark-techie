@@ -12,24 +12,24 @@ export const Partnership = () => {
   // Definimos los pasos con sus textos explicativos profesionales
   const roadmapSteps: Step[] = [
     {
-      label: "Contacto Inicial",
+      label: "Recepción de Propuesta",
       description:
-        "Inicia el proceso compartiendo la visión de tu proyecto. Nuestro equipo técnico analizará tu solicitud para asignar a los arquitectos de software más adecuados según tu stack tecnológico.",
+        "Comparte la visión de tu proyecto. Analizaremos tu solicitud en menos de 24h para asignar a los arquitectos de software adecuados.",
     },
     {
-      label: "Discovery Call",
+      label: "Sesión Estratégica de Alineación",
       description:
-        "Agendamos una sesión estratégica para alinear expectativas, definir el alcance del producto y entender los desafíos técnicos específicos que tu agencia necesita resolver.",
+        "Agendamos una consultoría técnica para alinear expectativas de negocio y entender los desafíos que tu agencia necesita delegar.",
     },
     {
-      label: "Análisis Arquitectónico",
+      label: "Ingeniería de Sistemas y Escalabilidad",
       description:
-        "Nuestros ingenieros diseñan una estructura escalable, segura y eficiente. Creamos una hoja de ruta técnica detallada que garantiza que el código sea de nivel Silicon Valley.",
+        "Diseñamos una arquitectura escalable y segura. Creamos una hoja de ruta técnica detallada que garantiza una infraestructura sólida.",
     },
     {
-      label: "Propuesta Tecnológica",
+      label: "Solución Integral y Ejecución",
       description:
-        "Te presentamos una solución integral con presupuestos transparentes, tiempos de entrega garantizados y la garantía de una ejecución estética bajo estándares de Apple y Glassmorphism.",
+        "Presentamos la propuesta final con presupuestos transparentes y ejecución estética premium bajo estándares de diseño vanguardistas.",
     },
   ];
 
@@ -39,11 +39,10 @@ export const Partnership = () => {
       <Reveal>
         <div className="text-center mb-24">
           <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white">
-            El motor de tu agencia.
+            El motor tecnológico de tu agencia.
           </h1>
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
-            Tú pones la creatividad y la estrategia. Nosotros aportamos la
-            ingeniería compleja bajo la estética que a tus clientes les encanta.
+            Tú aportas la visión estratégica y la creatividad; nosotros ejecutamos la ingeniería compleja. Eleva el estándar de tus proyectos con soluciones digitales robustas, escalables y estéticamente impecables, eliminando la necesidad de mantener un equipo técnico in-house.
           </p>
         </div>
       </Reveal>
@@ -53,12 +52,10 @@ export const Partnership = () => {
         <Reveal delay={150}>
           <Card className="h-full">
             <h3 className="text-3xl font-semibold mb-4 text-[#288B88]">
-              White-label.
+              Partner de Marca Blanca.
             </h3>
             <p className="text-gray-400 font-light text-lg">
-              Actuamos como tu equipo técnico in-house. Firmamos NDAs y
-              entregamos un código tan limpio que creerán que tienes ingenieros
-              de Silicon Valley en nómina.
+              Actuamos como tu brazo técnico invisible. Firmamos NDAs estrictos y entregamos un código tan limpio, documentado y optimizado que tus clientes percibirán un nivel de ejecución de élite.
             </p>
           </Card>
         </Reveal>
@@ -66,12 +63,10 @@ export const Partnership = () => {
         <Reveal delay={300}>
           <Card className="h-full">
             <h3 className="text-3xl font-semibold mb-4 text-[#E8D33F]">
-              Revenue Share.
+              Modelo de Revenue Share.
             </h3>
             <p className="text-gray-400 font-light text-lg">
-              ¿Nos recomiendas a tus clientes? Entramos en un modelo de
-              partnership puro. Gana un porcentaje recurrente por elevar el
-              estándar técnico de tus proyectos.
+              Una alianza basada en el crecimiento mutuo. Entra en un modelo de partnership puro donde ganas un porcentaje recurrente por cada cliente que refieras a nuestra infraestructura.
             </p>
           </Card>
         </Reveal>
@@ -82,7 +77,7 @@ export const Partnership = () => {
         <div className="mb-32">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold text-white mb-4">
-              Nuestro flujo de colaboración
+              Tu camino hacia una infraestructura técnica superior.
             </h2>
             <p className="text-gray-400 font-light">
               Un proceso de ingeniería riguroso para asegurar la excelencia en
