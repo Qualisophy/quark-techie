@@ -28,9 +28,7 @@ export const Home = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-tight mb-12">
-            Desarrollo web Fullstack de nivel subatómico. Diseñamos plataformas
-            tecnológicas que redefinen los límites de la velocidad y la
-            escalabilidad.
+            En Quark Techie transformamos la complejidad técnica en ventaja competitiva. Diseñamos y desarrollamos plataformas Fullstack a nivel subatómico para empresas que lideran el cambio.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full sm:w-auto">
@@ -44,7 +42,7 @@ export const Home = () => {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Contactar <ArrowUpRight size={20} className="text-[#E8D33F]" />
+              Iniciar Consultoría <ArrowUpRight size={20} className="text-[#E8D33F]" />
             </Button>
           </div>
         </Reveal>
@@ -55,10 +53,13 @@ export const Home = () => {
         <Reveal>
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6">
-              Ingeniería a medida.
+              Ingeniería de vanguardia.
               <br />
               Diseño de precisión.
             </h2>
+            <p className="text-gray-400 text-xl font-light max-w-2xl mx-auto">
+              No solo construimos aplicaciones; forjamos activos digitales mediante una optimización obsesiva por el rendimiento.
+            </p>
           </div>
         </Reveal>
 
@@ -71,12 +72,10 @@ export const Home = () => {
                 <Zap className="w-12 h-12 text-[#E8D33F]" strokeWidth={1.5} />
                 <div>
                   <h3 className="text-3xl font-semibold mb-3 text-white">
-                    Rendimiento Extremo.
+                    Performance al milisegundo.
                   </h3>
                   <p className="text-gray-400 text-lg max-w-md font-light">
-                    Optimizamos la carga al milisegundo. Construimos
-                    arquitecturas modernas que retienen usuarios y dominan el
-                    SEO.
+                    Optimizamos cada línea de código para garantizar tiempos de carga instantáneos y dominar las Core Web Vitals.
                   </p>
                 </div>
               </div>
@@ -93,10 +92,10 @@ export const Home = () => {
               />
               <div className="relative z-10 mt-auto">
                 <h3 className="text-2xl font-semibold mb-2 text-white">
-                  Escalabilidad
+                  Sistemas listos para el mañana.
                 </h3>
                 <p className="text-gray-400 font-light">
-                  Sistemas que crecen orgánicamente.
+                  Infraestructuras elásticas que crecen orgánicamente con tu negocio.
                 </p>
               </div>
             </div>
@@ -111,10 +110,10 @@ export const Home = () => {
               />
               <div>
                 <h3 className="text-2xl font-semibold mb-2 text-white">
-                  Seguridad Nativa
+                  Blindaje desde el núcleo.
                 </h3>
                 <p className="text-gray-400 font-light">
-                  Protección de datos desde la base estructural.
+                  Protocolos de seguridad avanzada y cifrado para garantizar la integridad de tu ecosistema.
                 </p>
               </div>
             </div>
@@ -128,11 +127,10 @@ export const Home = () => {
                 <Cpu className="w-12 h-12 text-white" strokeWidth={1.5} />
                 <div>
                   <h3 className="text-3xl font-semibold mb-3 text-white">
-                    Stack Tecnológico.
+                    Tecnología de nivel subatómico.
                   </h3>
                   <p className="text-gray-400 text-lg max-w-md font-light">
-                    React, Astro, Node, Tailwind. Empleamos las herramientas que
-                    impulsan a las empresas tecnológicas líderes del mundo.
+                    Dominamos las herramientas que impulsan a las empresas: Astro, React, Node.js y Tailwind CSS.
                   </p>
                 </div>
               </div>
