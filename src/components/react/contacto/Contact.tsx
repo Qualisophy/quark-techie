@@ -22,13 +22,12 @@ export const Contact = () => (
               proyecto.
             </h1>
             <p className="text-lg text-gray-400 font-light mb-12">
-              Arquitecturas modernas requieren conversaciones directas. Déjanos
-              tus coordenadas.
+              Cuéntanos tu desafío. Nuestro equipo de ingenieros analizará tu caso para proponerte el roadmap tecnológico más eficiente para tu negocio.
             </p>
             <div className="space-y-4 font-light text-gray-300">
-              <p>Madrid, España</p>
-              <p>hola@quarktechie.com</p>
-              <p>+34 600 000 000</p>
+              <p>Málaga, España</p>
+              <p>hola@quark-techie.com</p>
+              <p>+34 951 768 789</p>
             </div>
           </div>
 
@@ -70,7 +69,7 @@ export const Contact = () => (
             </div>
 
             <Button type="submit" size="lg" fullWidth>
-              Enviar Mensaje <ChevronRight size={18} />
+              Enviar Solicitud Técnica <ChevronRight size={18} />
             </Button>
           </form>
         </div>
