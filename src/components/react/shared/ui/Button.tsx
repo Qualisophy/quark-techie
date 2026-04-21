@@ -9,7 +9,6 @@ interface BaseProps {
   className?: string;
 }
 
-// Permitimos que funcione como un Button HTML o como un Anchor (enlace) HTML
 type ButtonAsButton = BaseProps &
   React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: never };
 type ButtonAsLink = BaseProps &
@@ -35,9 +34,8 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const [ripples, setRipples] = useState<Ripple[]>([]);
 
-  // Lógica de la onda (Ripple)
   const createRipple = (event: React.MouseEvent<HTMLElement>) => {
-    // @ts-ignore - TS se lía un poco al compartir onClick entre a y button, pero en ejecución funciona perfecto
+    // @ts-ignore
     if (onClick) onClick(event);
 
     const element = event.currentTarget;
@@ -55,12 +53,12 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const sizeClasses = {
+    // DE VUELTA A TU DISEÑO ORIGINAL: rounded-xl
     sm: "px-4 py-2 text-sm rounded-xl",
-    md: "px-6 py-4 text-base rounded-full", // Cambiado a full para redondear más
-    lg: "px-10 py-4 text-lg rounded-full", // Ajustado al estilo de tus capturas
+    md: "px-6 py-4 text-base rounded-full",
+    lg: "px-10 py-4 text-lg rounded-full",
   };
 
-  // Aquí añadimos tus nuevas variantes
   const variantClasses = {
     primary:
       "bg-white text-black hover:bg-white/90 shadow-[0_4px_24px_rgba(255,255,255,0.15)]",
@@ -68,22 +66,16 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-secondary text-white hover:bg-secondary/90 shadow-[0_4px_24px_rgba(91,123,123,0.3)]",
     glass:
       "bg-white/[0.03] border border-white/10 backdrop-blur-md text-white hover:bg-white/[0.08] hover:border-white/20",
-
-    // Nuevo: Ghost (Sin fondo, sin borde, con hover sutil) -> Para el botón "Contactar"
     ghost: "bg-transparent text-white hover:bg-white/5",
-
-    // Nuevo: Outline (Borde semitransparente, se vuelve sólido en hover) -> Para "Convertirse en Partner"
     outline:
       "bg-transparent text-white border border-white/20 hover:bg-white hover:text-black",
   };
 
-  // Color de la onda
   const rippleColor =
     variant === "primary" || variant === "outline"
       ? "rgba(0, 0, 0, 0.15)"
       : "rgba(255, 255, 255, 0.2)";
 
-  // Clases base combinadas
   const combinedClasses = `
     relative overflow-hidden
     inline-flex justify-center items-center gap-2 
@@ -97,7 +89,6 @@ export const Button: React.FC<ButtonProps> = ({
     ${className}
   `;
 
-  // Elementos internos (Ondas + Contenido)
   const innerContent = (
     <>
       {ripples.map((ripple) => (
@@ -126,7 +117,6 @@ export const Button: React.FC<ButtonProps> = ({
     </>
   );
 
-  // Si le pasamos un href, renderiza un <a>, si no, un <button>
   if (href) {
     return (
       <a

@@ -19,6 +19,14 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
     { href: "/talent-hub", label: "Talent Hub" },
   ];
 
+  // Función que arregla el bug de producción en Vercel
+  const isActive = (href: string, path: string) => {
+    if (href === "/") {
+      return path === "/";
+    }
+    return path.startsWith(href);
+  };
+
   return (
     <>
       <div className="fixed top-0 w-full z-50 px-6 pt-6 flex justify-center pointer-events-none">
@@ -45,8 +53,9 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm tracking-wide transition-colors outline-none font-medium ${
-                  currentPath === link.href
+                // NUEVO: text-base en lugar de text-sm para hacer match con el diseño global
+                className={`text-base tracking-wide transition-colors outline-none font-medium ${
+                  isActive(link.href, currentPath)
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
                 }`}
@@ -55,7 +64,7 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
               </a>
             ))}
 
-            {/* Aquí usamos tu componente Button, que ya lleva la animación ripple integrada */}
+            {/* INTACTO: size="sm" para no perder tu diseño de bordes redondeados (rounded-xl) */}
             <Button href="/contacto" size="sm">
               Contacto
             </Button>
@@ -76,8 +85,8 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
             <a
               key={link.href}
               href={link.href}
-              className={`text-left text-4xl font-semibold tracking-tighter ${
-                currentPath === link.href
+              className={`text-left text-4xl font-semibold tracking-tighter transition-colors ${
+                isActive(link.href, currentPath)
                   ? "text-white"
                   : "text-gray-500 hover:text-white"
               }`}
@@ -86,7 +95,6 @@ export const Navbar = ({ currentPath }: { currentPath: string }) => {
             </a>
           ))}
 
-          {/* El botón móvil también usa el componente reutilizable */}
           <Button href="/contacto" size="lg" fullWidth>
             Contacto
           </Button>
