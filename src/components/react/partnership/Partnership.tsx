@@ -93,31 +93,9 @@ export const Partnership = () => {
           <Stepper
             steps={roadmapSteps}
             currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
             className="mb-12"
           />
-
-          <div className="flex justify-center gap-6 mt-12">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-              disabled={currentStep === 0}
-            >
-              &larr; Anterior
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() =>
-                setCurrentStep(
-                  Math.min(roadmapSteps.length - 1, currentStep + 1),
-                )
-              }
-              disabled={currentStep === roadmapSteps.length - 1}
-            >
-              Siguiente &rarr;
-            </Button>
-          </div>
         </div>
       </Reveal>
       {/* Llamada a la acción final */}
