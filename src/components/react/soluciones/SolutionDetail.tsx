@@ -56,7 +56,7 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </div>
       </section>
 
-      {/* 2. EL RETO Y LA SOLUCIÓN (Apilados verticalmente) */}
+      {/* 2. EL RETO Y LA SOLUCIÓN */}
       <section className="w-full max-w-5xl mx-auto px-6 py-20 flex flex-col gap-8">
         <Reveal>
           <div className="p-10 rounded-[2.5rem] bg-[#E8D33F]/5 border border-[#E8D33F]/20 backdrop-blur-md">
@@ -80,13 +80,12 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </Reveal>
       </section>
 
-      {/* 3. ENTREGABLES (Estilo Tabla/Matriz) */}
+      {/* 3. ENTREGABLES */}
       <section className="w-full max-w-5xl mx-auto px-6 py-20">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-10">
             Qué incluye exactamente.
           </h2>
-          {/* Contenedor principal de la tabla */}
           <div className="flex flex-col border border-white/10 rounded-2xl overflow-hidden bg-white/[0.01]">
             {solution.deliverables.map((item, index) => (
               <div
@@ -104,7 +103,7 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </Reveal>
       </section>
 
-      {/* 4. PROCESO (En Cuadrícula / Grid sin números de fondo) */}
+      {/* 4. PROCESO */}
       <section className="w-full max-w-5xl mx-auto px-6 py-20">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-12">
@@ -116,7 +115,6 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
                 key={index}
                 className="flex flex-col gap-4 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 relative overflow-hidden group hover:bg-white/[0.04] transition-colors h-full"
               >
-                {/* Circulo del número */}
                 <div className="w-12 h-12 rounded-full bg-[#288B88]/20 flex items-center justify-center shrink-0 border border-[#288B88]/30 text-[#288B88] font-bold">
                   {index + 1}
                 </div>
@@ -132,13 +130,10 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </Reveal>
       </section>
 
-      {/* 5. CTA (Limpio, sin recuadro, con copy persuasivo específico para ventas) */}
+      {/* 5. CTA */}
       <section className="w-full max-w-4xl mx-auto px-6 py-24">
         <Reveal>
-          <CTA
-            buttonText="Empezar a colaborar"
-            className="!p-0" // Anulamos el recuadro/padding para este caso específico
-          >
+          <CTA buttonText="Empezar a colaborar" className="!p-0">
             <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
               Construyamos tu próxima ventaja competitiva.
             </h2>
