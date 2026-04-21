@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { Input } from "../shared/ui/Input";
@@ -6,10 +6,40 @@ import { Textarea } from "../shared/ui/Textarea";
 import { Button } from "../shared/ui/Button";
 import { toast } from "../shared/ui/Toast";
 
-export const Contact = () => (
+export const Contact = () => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+  const rect = cardRef.current.getBoundingClientRect();
+
+  setMousePosition({
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top,
+  });
+};
+
+return (
   <div className="min-h-screen pt-40 pb-32 px-6 max-w-5xl mx-auto flex items-center justify-center">
     <Reveal className="w-full">
-      <div className="w-full p-10 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/8 backdrop-blur-3xl relative overflow-hidden">
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="w-full p-10 md:p-16 rounded-[3rem] bg-white/[0.02] border border-white/8 backdrop-blur-3xl relative overflow-hidden isolate z-0"
+        style={{ contain: "layout paint" }}
+      >
+        <div
+          className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%)`,
+          }}
+        />
         {/* Luces de cristal en el formulario */}
         <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#288B88]/20 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#E8D33F]/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -77,4 +107,4 @@ export const Contact = () => (
       </div>
     </Reveal>
   </div>
-);
+)};
