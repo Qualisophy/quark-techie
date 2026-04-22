@@ -31,11 +31,12 @@ export const TalentHub = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#D9C58F]/5 blur-[150px] rounded-full -z-10"></div>
 
       <Reveal>
-        <section className="text-center py-24 relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#288B88]/10 blur-[120px] rounded-full -z-10"></div>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-10 uppercase leading-[0.95]" style={{ background: 'linear-gradient(to right, #63A3A4, #A3B899, #D9C58F)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            Talento certificado,<br /> resultados excepcionales.
-          </h1>
+      <section className="text-center pt-15 pb-24 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#288B88]/10 blur-[120px] rounded-full -z-10"></div>
+        
+        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-10 uppercase leading-[0.95] text-transparent bg-clip-text bg-gradient-to-r from-[#288B88] via-white to-[#D9C58F]">
+          Talento certificado,<br /> resultados excepcionales.
+        </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-12">
             Accede a nuestra red exclusiva de ingenieros y especialistas que han sido formados y rigurosamente validados por Quark Techie.
           </p>
