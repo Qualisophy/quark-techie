@@ -1,6 +1,7 @@
 import React from "react";
 import { Reveal } from "../shared/Reveal";
-import { Rocket, Cog, Settings, Link, Activity, Workflow, ShoppingCart, Server } from "lucide-react";
+import { Rocket, Cog, Settings, Link, Activity, Workflow, ShoppingCart, Server, ArrowUpRight } from "lucide-react";
+import { Button } from "../shared/ui/Button";
 
 export const WhatWeDo = () => {
   return (
@@ -51,7 +52,7 @@ export const WhatWeDo = () => {
                     </div>
                 </div>
 
-                {/* BLOQUE INFERIOR: Pilares de Servicio */}
+                {/* BLOQUE INFERIOR: Pilares de Servicio y CTA */}
                 <div className="mt-20">
 
                     <div className="text-center mb-10">
@@ -125,6 +126,15 @@ export const WhatWeDo = () => {
                             </p>
                         </div>
                     </div>
+                    
+                    <div className="mt-12 flex justify-center">
+                    
+                        <Button href="/soluciones" size="lg">
+                            Saber más sobre nuestras soluciones
+                            <ArrowUpRight size={20} className="text-[#5B7B7B] w-10 h-10 md:w-6 md:h-6" />
+                        </Button>
+                    </div>
+                    
                 </div>
 
             </div>
