@@ -50,9 +50,6 @@ export const Home = () => {
           </div>
         </Reveal>
       </section>
-
-      {/* BENTO GRID - GLASSMORPHISM FEATURES */}
-      <BentoGrid />
     </div>
   );
 };
