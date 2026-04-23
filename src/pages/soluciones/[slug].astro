@@ -18,8 +18,9 @@ export async function getStaticPaths() {
 const { solution } = Astro.props;
 ---
 
-<Layout title={`${solution.title} | Soluciones | Quark Techie`}>
-  
+<Layout 
+  title={solution.meta_title} 
+  description={solution.meta_description}
+>
   <SolutionDetail solution={solution} client:load />
-
 </Layout>
