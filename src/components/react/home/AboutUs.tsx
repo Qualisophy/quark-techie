@@ -8,7 +8,7 @@ export const AboutUs = () => {
 
         <Reveal delay={150}>
           {/* Cuadro */}
-          <div className="relative w-full rounded-[2.5rem] bg-white/[0.03] border border-white/8 backdrop-blur-2xl p-10 md:p-14 overflow-hidden group transition-colors duration-500">
+          <div className="relative w-full rounded-[2.5rem] bg-white/[0.03] border border-white/8 backdrop-blur-2xl px-6 py-10 md:p-14 overflow-hidden group transition-colors duration-500">
 
             {/* Efectos de Luz */}
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#288B88]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-full translate-x-1/4 -translate-y-1/4"></div>
@@ -26,21 +26,21 @@ export const AboutUs = () => {
                 </div>
 
               {/* BLOQUE DERECHO: Título y Párrafo */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center">
+              <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
 
-                <h1 className="text-2xl md:text-3xl font-semibold text-white tracking-tighter mb-6">
-                    Código de Alto Rendimiento.<br />
-                    <span className="font-bold">
+                <h1 className="text-[clamp(1rem,5.2vw,1.875rem)] md:text-3xl font-semibold text-white tracking-tighter mb-6 leading-tight">
+                    <span className="block whitespace-nowrap">Código de Alto Rendimiento.</span>
+                    <span className="font-bold block whitespace-nowrap">
                     Soluciones que Evolucionan.
                     </span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed">
-                  En <span className="font-semibold text-white">Quark Techie</span>{" "}
-                  transformamos la complejidad técnica en ventaja competitiva.
-                  Diseñamos y desarrollamos plataformas Fullstack a nivel
-                  subatómico, redefiniendo los límites de la velocidad, la
-                  escalabilidad y el SEO técnico para empresas que lideran el cambio.
+                <p className="text-base md:text-xl text-gray-400 font-light leading-relaxed w-full">
+                    En <span className="font-semibold text-white">Quark Techie</span>{" "}
+                    transformamos la complejidad técnica en ventaja competitiva.
+                    Diseñamos y desarrollamos plataformas Fullstack a nivel
+                    subatómico, redefiniendo los límites de la velocidad, la
+                    escalabilidad y el SEO técnico para empresas que lideran el cambio.
                 </p>
 
               </div>
