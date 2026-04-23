@@ -1,321 +1,260 @@
 import React, { useState, useMemo, useEffect } from "react";
-import {
+import { 
+  ArrowRight, 
+  BookOpen, 
+  CheckCircle, 
+  SquareGanttChart,
+  Rocket,
   Search,
   Filter,
   ArrowUpDown,
   Download,
   Briefcase,
   Clock,
-  Linkedin,
+  Linkedin
 } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
-import { Dropdown } from "../shared/ui/Dropdown";
 import { talentsData } from "../../../data/talents";
+import { Dropdown } from "../shared/ui/Dropdown";
+import { Button } from "../shared/ui/Button";
 
+// --- LANDING PAGE (TALENT HUB) ---
 export const TalentHub = () => {
-  // 1. ESTADOS DE FILTRADO
+  const navigateToAlumni = () => {
+    window.location.href = "/talent-hub/antiguos-alumnos";
+  };
+
+  return (
+    <div className="pt-28 pb-32 px-6 max-w-7xl mx-auto min-h-screen font-sans relative overflow-hidden">
+      
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#288B88]/5 blur-[120px] rounded-full -z-10"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#D9C58F]/5 blur-[150px] rounded-full -z-10"></div>
+
+      <Reveal>
+      <section className="text-center pt-15 pb-24 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#288B88]/10 blur-[120px] rounded-full -z-10"></div>
+        
+        <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white">
+            Talento certificado,<br /> Resultados excepcionales.
+        </h1>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-12">
+            Accede a nuestra red exclusiva de ingenieros y especialistas que han sido formados y rigurosamente validados por Quark Techie.
+          </p>
+          <Button 
+            variant="primary" 
+            size="lg" 
+            onClick={navigateToAlumni}
+            className="uppercase text-xs tracking-[0.2em]"
+          >
+            Conoce a nuestro talento <ArrowRight size={16} />
+          </Button>
+        </section>
+      </Reveal>
+
+      {/* --- BENTO GRID COMPLETO (LAS 4 CARTAS) --- */}
+      <section className="py-24 border-t border-white/5 relative">
+        <Reveal>
+          <div className="text-center mb-20 relative z-10">
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 uppercase">El valor de nuestra certificación.</h2>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] md:auto-rows-[380px] relative z-10">
+          
+          <Reveal delay={100} className="md:col-span-2 h-full">
+            <div className="relative h-full w-full rounded-[2.5rem] bg-white/[0.03] border border-white/8 backdrop-blur-2xl p-10 overflow-hidden group hover:bg-white/5 transition-colors duration-500">
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#63A3A4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-full translate-x-1/4 -translate-y-1/4"></div>
+              <div className="relative z-10 flex flex-col h-full justify-between">
+                <BookOpen className="w-12 h-12 text-[#63A3A4]" strokeWidth={1.5} />
+                <div>
+                  <h3 className="text-3xl font-semibold mb-3 text-white uppercase tracking-wider">Formación de Vanguardia.</h3>
+                  <p className="text-gray-400 text-lg max-w-md font-light">Programa intensivo diseñado por expertos para dominar las herramientas que impulsan a las empresas líderes.</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={200} className="md:col-span-1 h-full">
+            <div className="relative h-full w-full rounded-[2.5rem] bg-white/[0.03] border border-white/8 backdrop-blur-2xl p-10 overflow-hidden group hover:bg-white/5 transition-colors duration-500 flex flex-col justify-between items-center text-center">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#A3B899] to-[#63A3A4] blur-xl absolute opacity-30 group-hover:opacity-60 transition-opacity"></div>
+              <SquareGanttChart className="w-12 h-12 text-white relative z-10" strokeWidth={1.5} />
+              <div className="relative z-10 mt-auto">
+                <h3 className="text-2xl font-semibold mb-2 text-white uppercase">Perfilado Especializado</h3>
+                <p className="text-gray-400 font-light text-sm">Asignación precisa de roles y stacks tecnológicos según el proyecto.</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={300} className="md:col-span-1 h-full">
+            <div className="relative h-full w-full rounded-[2.5rem] bg-white/[0.03] border border-white/8 backdrop-blur-2xl p-10 overflow-hidden group hover:bg-white/5 transition-colors duration-500 flex flex-col justify-between">
+              <CheckCircle className="w-12 h-12 text-[#D9C58F]" strokeWidth={1.5} />
+              <div>
+                <h3 className="text-2xl font-semibold mb-2 text-white uppercase">Validación Rigurosa</h3>
+                <p className="text-gray-400 font-light text-sm">Pruebas técnicas reales que aseguran la excelencia estructural en cada línea.</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={400} className="md:col-span-2 h-full">
+            <div className="relative h-full w-full rounded-[2.5rem] bg-white/[0.03] border border-white/8 backdrop-blur-2xl p-10 overflow-hidden group hover:bg-white/5 transition-colors duration-500">
+              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-[#288B88]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-full -translate-x-1/4 translate-y-1/4"></div>
+              <div className="relative z-10 flex flex-col h-full justify-between">
+                <Rocket className="w-12 h-12 text-white" strokeWidth={1.5} />
+                <div>
+                  <h3 className="text-3xl font-semibold mb-3 text-white uppercase tracking-wider">Listo para el desafío.</h3>
+                  <p className="text-gray-400 text-lg max-w-md font-light">Profesionales con experiencia práctica para impactar desde el primer día en entornos de alta exigencia.</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* --- CTA FINAL --- */}
+      <Reveal>
+        <section className="text-center py-32 relative overflow-hidden">
+          <h2 className="text-4xl md:text-6xl font-bold mb-12 uppercase tracking-tighter leading-none bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+            Tu próximo ingeniero clave <br /> te está esperando.
+          </h2>
+          <Button 
+            variant="primary" 
+            size="lg" 
+            onClick={navigateToAlumni}
+            className="uppercase text-xs tracking-[0.2em]"
+          >
+            Explorar base de candidatos <ArrowRight size={18} />
+          </Button>
+        </section>
+      </Reveal>
+    </div>
+  );
+};
+
+// --- LA TABLA ORIGINAL (AHORA TRANSPARENTE) ---
+export const TalentTable = () => {
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("All");
   const [techFilter, setTechFilter] = useState("All");
   const [sortConfig, setSortConfig] = useState("date-desc");
-
-  // 2. ESTADOS DE PAGINACIÓN
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  // Si cambian los filtros, reseteamos a la página 1 para que el usuario no se quede en una página vacía
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search, roleFilter, techFilter, sortConfig]);
+  const roleOptions = [{ label: "Todos los Roles", value: "All" }, ...Array.from(new Set(talentsData.map((p) => p.role))).map((r) => ({ label: r, value: r }))];
+  const techOptions = [{ label: "Todas las Tech", value: "All" }, ...Array.from(new Set(talentsData.flatMap((p) => p.techs))).map((t) => ({ label: t, value: t }))];
+  const sortOptions = [{ label: "Recientes", value: "date-desc" }, { label: "Nombre (A-Z)", value: "name-asc" }];
 
-  // 3. OPCIONES DINÁMICAS PARA LOS DROPDOWNS
-  const roleOptions = [
-    { label: "Todos los Roles", value: "All" },
-    ...Array.from(new Set(talentsData.map((p) => p.role))).map((r) => ({
-      label: r,
-      value: r,
-    })),
-  ];
-
-  const techOptions = [
-    { label: "Todas las Tech", value: "All" },
-    ...Array.from(new Set(talentsData.flatMap((p) => p.techs))).map((t) => ({
-      label: t,
-      value: t,
-    })),
-  ];
-
-  const sortOptions = [
-    { label: "Más recientes", value: "date-desc" },
-    { label: "Más antiguos", value: "date-asc" },
-    { label: "Nombre (A-Z)", value: "name-asc" },
-    { label: "Rol (A-Z)", value: "role-asc" },
-  ];
-
-  // 4. LÓGICA DE FILTRADO Y ORDENACIÓN
   const filteredAndSortedData = useMemo(() => {
     let result = [...talentsData];
-
     if (search) {
       const q = search.toLowerCase();
-      result = result.filter(
-        (p) =>
-          p.name.toLowerCase().includes(q) || p.email.toLowerCase().includes(q),
-      );
+      result = result.filter(p => p.name.toLowerCase().includes(q) || p.email.toLowerCase().includes(q));
     }
-
-    if (roleFilter !== "All")
-      result = result.filter((p) => p.role === roleFilter);
-    if (techFilter !== "All")
-      result = result.filter((p) => p.techs.includes(techFilter));
+    if (roleFilter !== "All") result = result.filter(p => p.role === roleFilter);
+    if (techFilter !== "All") result = result.filter(p => p.techs.includes(techFilter));
 
     result.sort((a, b) => {
       const [sortBy, sortOrder] = sortConfig.split("-");
-      let comparison = 0;
-      if (sortBy === "name") comparison = a.name.localeCompare(b.name);
-      if (sortBy === "role") comparison = a.role.localeCompare(b.role);
-      if (sortBy === "date")
-        comparison =
-          new Date(a.dateAdded).getTime() - new Date(b.dateAdded).getTime();
-      return sortOrder === "asc" ? comparison : -comparison;
+      let comp = sortBy === "name" ? a.name.localeCompare(b.name) : new Date(a.dateAdded).getTime() - new Date(b.dateAdded).getTime();
+      return sortOrder === "asc" ? comp : -comp;
     });
-
     return result;
   }, [search, roleFilter, techFilter, sortConfig]);
 
-  // 5. LÓGICA DE PAGINACIÓN APLICADA SOBRE LOS DATOS YA FILTRADOS
   const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
-  const paginatedData = filteredAndSortedData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage,
-  );
+  const paginatedData = filteredAndSortedData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
-    <div className="pt-40 pb-32 px-6 max-w-7xl mx-auto min-h-screen">
-      <Reveal className="mb-12">
-        <h1 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-4 text-white">
-          Talent Hub.
-        </h1>
-        <p className="text-xl text-gray-400 font-light max-w-2xl">
-          Explora la red de ingenieros y especialistas que han evolucionado su
-          stack tecnológico con nosotros.
-        </p>
-      </Reveal>
-
-      <div className="bg-white/[0.02] border border-white/10 rounded-3xl backdrop-blur-2xl shadow-2xl overflow-hidden pb-4">
-        {/* TOOLBAR */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-6 border-b border-white/10 bg-white/[0.01]">
-          <div className="relative w-full lg:w-72">
-            <Search
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-              size={18}
-            />
-            <input
-              type="text"
-              placeholder="Buscar por nombre o email..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-full py-2.5 pl-10 pr-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#288B88] focus:bg-white/[0.05] transition-all"
-            />
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-            <Dropdown
-              icon={<Filter size={14} />}
-              value={roleFilter}
-              options={roleOptions}
-              onChange={setRoleFilter}
-            />
-            <Dropdown
-              icon={<Filter size={14} />}
-              value={techFilter}
-              options={techOptions}
-              onChange={setTechFilter}
-            />
-            <Dropdown
-              icon={<ArrowUpDown size={14} className="text-[#288B88]" />}
-              prefix="Orden:"
-              value={sortConfig}
-              options={sortOptions}
-              onChange={setSortConfig}
-            />
-          </div>
+    // CAMBIO CLAVE: He quitado el bg-[#0A0A0A] y puesto bg-transparent
+    <div className="w-full bg-transparent font-sans">
+      
+      {/* Toolbar Transparente */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-4 p-8 border-b border-white/5 bg-white/[0.01]">
+        <div className="relative w-full lg:w-96">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={20} />
+          <input 
+            type="text" 
+            placeholder="Buscar por nombre o email..." 
+            value={search} 
+            onChange={(e) => setSearch(e.target.value)} 
+            className="w-full bg-white/[0.03] border border-white/10 rounded-full py-3 pl-12 pr-6 text-sm text-white focus:border-[#288B88] outline-none backdrop-blur-md" 
+          />
         </div>
+        <div className="flex flex-wrap gap-3">
+          <Dropdown icon={<Filter size={14} />} value={roleFilter} options={roleOptions} onChange={setRoleFilter} />
+          <Dropdown icon={<ArrowUpDown size={14} className="text-[#288B88]" />} prefix="Orden:" value={sortConfig} options={sortOptions} onChange={setSortConfig} />
+        </div>
+      </div>
 
-        {/* TABLA DE DATOS */}
-        <div className="overflow-x-auto min-h-[400px]">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-white/10 text-xs uppercase tracking-widest text-gray-500 bg-white/[0.01]">
-                <th className="px-6 py-4 font-medium">Miembro</th>
-                <th className="px-6 py-4 font-medium">Rol & Stack</th>
-                <th className="px-6 py-4 font-medium text-center">
-                  Nivel
-                </th>{" "}
-                {/* Ahora dice Nivel */}
-                <th className="px-6 py-4 font-medium text-center">
-                  Disponibilidad
-                </th>
-                <th className="px-6 py-4 font-medium text-center">LinkedIn</th>
-                <th className="px-6 py-4 font-medium text-right">CV</th>
+      <div className="overflow-x-auto min-h-[500px]">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr className="text-[10px] uppercase tracking-[0.2em] text-white/30 bg-white/[0.03] backdrop-blur-sm">
+              <th className="px-8 py-6 text-left">Miembro</th>
+              <th className="px-8 py-6 text-left">Rol & Stack</th>
+              <th className="px-8 py-6 text-left">Nivel</th>
+              <th className="px-8 py-6 text-left">Disponibilidad</th>
+              <th className="px-8 py-6 text-center">Linkedin</th>
+              <th className="px-8 py-6 text-right">Currículum</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-white/5">
+            {paginatedData.map((profile) => (
+              <tr key={profile.id} className="hover:bg-white/[0.03] transition-all group">
+                <td className="px-8 py-7">
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl border border-white/10 bg-gradient-to-br shadow-lg ${profile.avatarGradient}`}>{profile.emoji}</div>
+                    <div>
+                      <div className="text-sm font-bold text-white group-hover:text-[#288B88] transition-colors">{profile.name}</div>
+                      <div className="text-[11px] text-white/40">{profile.email}</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="px-8 py-7">
+                  <div className="text-sm text-gray-300">{profile.role}</div>
+                  <div className="flex gap-2 mt-2">
+                    {profile.techs.map(t => <span key={t} className="text-[9px] px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/40">{t}</span>)}
+                  </div>
+                </td>
+                <td className="px-8 py-7 text-sm text-white/60">
+                  <Briefcase size={14} className="inline mr-2 text-[#288B88]" /> {profile.level}
+                </td>
+                <td className="px-8 py-7 text-sm text-[#D9C58F]">
+                  <Clock size={14} className="inline mr-2" /> {profile.availability}
+                </td>
+                <td className="px-8 py-7 text-center">
+                  <a href={profile.linkedinUrl} target="_blank" className="inline-block p-2 rounded-lg bg-white/5 text-white/20 hover:text-[#0077B5] transition-all">
+                    <Linkedin size={18} />
+                  </a>
+                </td>
+                <td className="px-8 py-7 text-right">
+                  <a href={profile.cvUrl} download className="px-5 py-2.5 rounded-xl bg-white/10 border border-white/10 text-xs font-bold hover:bg-white hover:text-black transition-all backdrop-blur-sm">
+                    Descargar CV
+                  </a>
+                </td>
               </tr>
-            </thead>
-            <tbody className="divide-y divide-white/5">
-              {paginatedData.length === 0 ? (
-                <tr>
-                  <td
-                    colSpan={6}
-                    className="py-24 text-center text-gray-500 font-light"
-                  >
-                    No se encontraron perfiles con estos filtros.
-                  </td>
-                </tr>
-              ) : (
-                paginatedData.map((profile) => (
-                  <tr
-                    key={profile.id}
-                    className="hover:bg-white/[0.02] transition-colors group"
-                  >
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`w-10 h-10 rounded-full flex items-center justify-center text-lg border border-white/20 bg-gradient-to-br ${profile.avatarGradient}`}
-                        >
-                          {profile.emoji}
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-sm font-semibold text-white">
-                            {profile.name}
-                          </span>
-                          <span className="text-xs text-gray-500">
-                            {profile.email}
-                          </span>
-                        </div>
-                      </div>
-                    </td>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-                    <td className="px-6 py-4">
-                      <div className="flex flex-col gap-1.5">
-                        <span className="text-sm text-gray-300">
-                          {profile.role}
-                        </span>
-                        <div className="flex gap-2">
-                          {profile.techs.map((tech) => (
-                            <span
-                              key={tech}
-                              className="text-[10px] px-2 py-0.5 rounded border border-white/10 text-gray-400 bg-white/[0.03]"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </td>
-
-                    {/* MOSTRANDO 'profile.level' en lugar de experience */}
-                    <td className="px-6 py-4 text-center">
-                      <div className="inline-flex items-center gap-2 text-sm text-gray-400">
-                        <Briefcase size={14} className="text-[#288B88]" />
-                        {profile.level}
-                      </div>
-                    </td>
-
-                    <td className="px-6 py-4 text-center">
-                      <div className="inline-flex items-center gap-2 text-sm text-gray-400">
-                        <Clock size={14} className="text-[#E8D33F]" />
-                        {profile.availability}
-                      </div>
-                    </td>
-
-                    <td className="px-6 py-4 text-center">
-                      {/* LinkedIn Icon con rounded-lg (cuadrado suavizado) en lugar de rounded-full */}
-                      <a
-                        href={profile.linkedinUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-8 h-8 rounded-lg border border-white/10 text-gray-500 hover:text-[#0077B5] hover:border-[#0077B5]/50 hover:bg-[#0077B5]/10 transition-all duration-300"
-                        title="Ver perfil de LinkedIn"
-                      >
-                        <Linkedin size={16} />
-                      </a>
-                    </td>
-
-                    <td className="px-6 py-4 text-right">
-                      <a
-                        href={profile.cvUrl}
-                        download={`${profile.name.replace(" ", "_")}_CV.pdf`}
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 text-gray-300 bg-white/[0.03] hover:bg-white/[0.08] hover:text-white transition-all"
-                      >
-                        <Download size={14} /> Descargar
-                      </a>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+      {/* Footer Transparente */}
+      <div className="p-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-white/20 uppercase font-bold bg-white/[0.01]">
+        <div>Mostrando {paginatedData.length} de {filteredAndSortedData.length} perfiles</div>
+        <div className="flex gap-6 items-center">
+           <button onClick={() => setCurrentPage(p => Math.max(1, p-1))} disabled={currentPage === 1} className="hover:text-white transition-colors disabled:opacity-10">Anterior</button>
+           <div className="flex gap-2">
+              {[...Array(totalPages)].map((_, i) => (
+                <button 
+                  key={i} 
+                  onClick={() => setCurrentPage(i+1)} 
+                  className={`w-8 h-8 rounded-lg text-xs transition-all ${currentPage === i+1 ? 'bg-[#288B88]/20 text-[#288B88] border border-[#288B88]/30' : 'hover:bg-white/5 text-white/20'}`}
+                >
+                  {i+1}
+                </button>
+              ))}
+           </div>
+           <button onClick={() => setCurrentPage(p => Math.min(totalPages, p+1))} disabled={currentPage === totalPages} className="hover:text-white transition-colors disabled:opacity-10">Siguiente</button>
         </div>
-
-        {/* CONTROLES DE PAGINACIÓN */}
-        {filteredAndSortedData.length > 0 && (
-          <div className="px-6 py-4 border-t border-white/10 bg-white/[0.01] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="text-sm text-gray-500">
-              Mostrando{" "}
-              <span className="text-white">
-                {(currentPage - 1) * itemsPerPage + 1}
-              </span>{" "}
-              -{" "}
-              <span className="text-white">
-                {Math.min(
-                  currentPage * itemsPerPage,
-                  filteredAndSortedData.length,
-                )}
-              </span>{" "}
-              de{" "}
-              <span className="text-white">{filteredAndSortedData.length}</span>{" "}
-              perfiles
-            </span>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-                className="px-3 py-1.5 rounded text-sm border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-400"
-              >
-                Anterior
-              </button>
-
-              {/* Indicador numérico de página */}
-              <div className="flex items-center gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                  (page) => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`w-8 h-8 rounded text-sm flex items-center justify-center transition-colors ${
-                        currentPage === page
-                          ? "bg-[#288B88]/20 text-[#288B88] border border-[#288B88]/50"
-                          : "text-gray-400 border border-transparent hover:border-white/10 hover:bg-white/5"
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  ),
-                )}
-              </div>
-
-              <button
-                onClick={() =>
-                  setCurrentPage((p) => Math.min(totalPages, p + 1))
-                }
-                disabled={currentPage === totalPages}
-                className="px-3 py-1.5 rounded text-sm border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-400"
-              >
-                Siguiente
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
