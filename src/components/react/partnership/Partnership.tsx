@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../shared/ui/Button";
 import { Card } from "../shared/ui/Card";
 import { Stepper, type Step } from "../shared/ui/Stepper"; // <-- ¡Aquí está la magia!
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, FileLock, EyeOff } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { CTA } from "../shared/ui/CTA";
 
@@ -77,9 +77,75 @@ export const Partnership = () => {
         </Reveal>
       </div>
 
+      {/* Sección Confianza y Seguridad */}
+      <Reveal delay={430}>
+        <div className="mb-32">
+          <div className="text-center mb-16">
+            <div className="mb-4">
+              <span className="text-sm tracking-[0.3em] text-gray-400 font-medium uppercase">
+                SEGURIDAD Y ÉTICA
+              </span>
+            </div>
+            <h2 className="text-3xl font-semibold text-white mb-4">
+              Tu propiedad intelectual, blindada.
+            </h2>
+            <p className="text-gray-400 font-light">
+              Trabajamos bajo un estricto código de confidencialidad
+              para que delegues tus proyectos con total tranquilidad y seguridad
+              jurídica.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            
+            {/* NDA */}
+            <div className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300">
+              <div className="mb-4 flex justify-center md:justify-start">
+                <ShieldCheck className="w-10 h-10 text-[#288B88]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                NDAs Blindados
+              </h3>
+              <p className="text-gray-400 font-light">
+                Firmamos acuerdos de confidencialidad antes de cualquier intercambio de información.
+                Tu estrategia y la de tus clientes están protegidas por contrato desde el primer minuto.
+              </p>
+            </div>
+
+            {/* Propiedad Intelectual */}
+            <div className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300">
+              <div className="mb-4 flex justify-center md:justify-start">
+                <FileLock className="w-10 h-10 text-[#E8D33F]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                IP 100% de la Agencia
+              </h3>
+              <p className="text-gray-400 font-light">
+                El código, los activos y toda la propiedad intelectual generada pertenecen íntegramente
+                a tu agencia. Renunciamos a cualquier derecho sobre el desarrollo realizado.
+              </p>
+            </div>
+
+            {/* Invisibilidad Total */}
+            <div className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300">
+              <div className="mb-4 flex justify-center md:justify-start">
+                <EyeOff className="w-10 h-10 text-white" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Invisibilidad Total
+              </h3>
+              <p className="text-gray-400 font-light">
+                Somos tu brazo tecnológico invisible. Nunca contactaremos con tu cliente ni revelaremos
+                nuestra participación; operamos bajo tu marca y tus procesos de comunicación.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+      
       {/* Sección del Roadmap Dinámico */}
       <Reveal delay={400}>
-        <div className="mb-32">
+        <div className="mb-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold text-white mb-4">
               Nuestro flujo de colaboración
@@ -98,7 +164,12 @@ export const Partnership = () => {
           />
         </div>
       </Reveal>
+
      
+
+
+     
+
     </section>
   );
 };

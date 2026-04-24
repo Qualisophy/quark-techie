@@ -13,7 +13,7 @@ import { Reveal } from "../shared/Reveal";
 export const BentoGrid = () => {
   return (
     <div className="w-full flex flex-col items-center">
-      <section className="py-32 px-6 w-full max-w-7xl mx-auto">
+      <section className="py-16 px-6 w-full max-w-7xl mx-auto">
         <Reveal>
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6">

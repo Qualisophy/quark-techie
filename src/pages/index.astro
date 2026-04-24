@@ -2,13 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import { Home } from '../components/react/home/Home';
 import { AboutUs } from '../components/react/home/AboutUs';
-import { BentoGrid } from '../components/react/home/BentoGrid';
 import { WhyUs } from '../components/react/home/WhyUs';
+import { WhatWeDo } from '../components/react/home/WhatWeDo';
+import { BentoGrid } from '../components/react/home/BentoGrid';
 ---
 
 <Layout title="Quark Techie | Código Evolucionado">
   <Home client:load />
   <AboutUs client:load />
   <WhyUs client:load />
+  <WhatWeDo client:load />
   <BentoGrid client:load />
 </Layout>
