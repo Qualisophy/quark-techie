@@ -34,7 +34,7 @@ export const Partnership = () => {
   ];
 
   return (
-    <section className="min-h-screen pt-40 pb-32 px-6 relative flex flex-col justify-center max-w-6xl mx-auto">
+    <section className="min-h-screen pt-40 pb-8 px-6 relative flex flex-col justify-center max-w-6xl mx-auto">
       {/* Cabecera */}
       <Reveal>
         <div className="text-center mb-24">
@@ -98,10 +98,7 @@ export const Partnership = () => {
           />
         </div>
       </Reveal>
-      {/* Llamada a la acción final */}
-      <Reveal delay={450}>
-        <CTA className="w-full text-center" />
-      </Reveal>
+     
     </section>
   );
 };
