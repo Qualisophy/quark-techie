@@ -12,20 +12,20 @@ export const WhyUs = () => {
 
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#288B88]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-full translate-x-1/4 -translate-y-1/4"></div>
 
-            {/* Contenido con md:flex-row-reverse para el Zig-Zag (Imagen Derecha, Texto Izquierda) */}
-            <div className="relative z-10 flex flex-col md:flex-row-reverse gap-10 items-stretch">
+            {/* Contenido con md:flex-row para que la Imagen esté a la IZQUIERDA y el Texto a la DERECHA */}
+            <div className="relative z-10 flex flex-col md:flex-row gap-10 items-stretch">
 
+              {/* BLOQUE DE IMAGEN */}
               <div className="w-full md:w-1/2 rounded-2xl overflow-hidden relative aspect-video md:aspect-auto">
                   <img
-                      src="/logo_header.png" 
+                      src="/WhyUs_definitivo.png"
                       alt="Propuesta de valor Quark Techie"
-                      className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      className="absolute inset-0 w-full h-full object-contain"
                   />
               </div>
 
-              {/* BLOQUE DE TEXTO (Ahora a la izquierda en escritorio) */}
+              {/* BLOQUE DE TEXTO */}
               <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
-                
                 
                 <p className="text-[#288B88] font-semibold tracking-widest text-xs uppercase mb-3">VALOR DIFERENCIAL</p>
                 
@@ -44,7 +44,7 @@ export const WhyUs = () => {
                       construimos los cimientos tecnológicos de tu éxito con un enfoque en calidad técnica y visión de negocio.
                     </p>
                     
-                    {/* Lista con los iconos EXACTOS del primer borrador */}
+                    {/* Lista con los iconos */}
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-sm md:text-base">
                       <li><span className="text-white font-medium">🛡️ Ingeniería:</span> Código limpio y mantenible sin deuda técnica.</li>
                       <li><span className="text-white font-medium">⚡ Velocidad:</span> Agilidad real para un Time-to-Market reducido.</li>
