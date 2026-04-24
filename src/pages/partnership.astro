@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Partnership as PartnershipComponent } from '../components/react/partnership/Partnership';
+import { CollaborationScenarios } from "../components/react/partnership/CollaborationScenarios";
+import { CTA } from "../components/react/shared/ui/CTA";
 ---
 
 <Layout title="Partnership | Quark Techie">
   <PartnershipComponent client:load />
+  <CollaborationScenarios client:visible />
+  <section class="pb-32 pt-12 px-6 max-w-6xl mx-auto">
+     <CTA client:visible className="w-full text-center" />
+  </section>
 </Layout>
