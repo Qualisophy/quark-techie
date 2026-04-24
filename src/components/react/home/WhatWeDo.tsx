@@ -6,7 +6,7 @@ import { Button } from "../shared/ui/Button";
 export const WhatWeDo = () => {
   return (
     <div className="w-full flex flex-col items-center">
-        <section className="py-32 px-6 w-full max-w-7xl mx-auto">
+        <section className="py-16 px-6 w-full max-w-7xl mx-auto">
         <Reveal delay={150}>
 
             {/* Kicker */}
