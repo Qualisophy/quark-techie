@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Button } from "../shared/ui/Button";
 import { Card } from "../shared/ui/Card";
 import { Stepper, type Step } from "../shared/ui/Stepper"; // <-- ¡Aquí está la magia!
-import { ArrowUpRight, ShieldCheck, FileLock, EyeOff } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, FileLock, EyeOff, ChevronDown } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { CTA } from "../shared/ui/CTA";
 
 export const Partnership = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
   // Definimos los pasos con sus textos explicativos profesionales
   const roadmapSteps: Step[] = [
@@ -143,6 +144,146 @@ export const Partnership = () => {
         </div>
       </Reveal>
       
+      {/* Sección FAQ */}
+      <Reveal delay={380}>
+        <div className="mb-32">
+
+          <div className="text-center mb-16">
+            <div className="mb-4">
+              <span className="text-sm tracking-[0.3em] text-gray-400 font-medium uppercase">
+                PREGUNTAS FRECUENTES
+              </span>
+            </div>
+
+            <h2 className="text-3xl font-semibold text-white mb-4">
+              Despeja tus dudas sobre el modelo de Partnership.
+            </h2>
+
+            <p className="text-gray-400 font-light max-w-2xl mx-auto">
+              Todo lo que necesitas saber sobre cómo trabajamos codo
+              con codo con tu agencia.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+
+            {/* Pregunta 1 */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 0 ? null : 0)}
+                className="w-full flex justify-between items-center p-6 text-left"
+              >
+                <span className="text-white font-medium">
+                  ¿Cómo gestionáis la comunicación con el cliente final?
+                </span>
+                <ChevronDown
+                  className={`transition-transform duration-300 ${openFAQ === 0 ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <div
+                className={`px-6 transition-all duration-300 ease-in-out ${
+                  openFAQ === 0 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden`}
+              >
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Operamos bajo un modelo estricto de marca blanca.
+                  Toda la comunicación técnica se canaliza a través de vuestro
+                  equipo o mediante cuentas de correo corporativas de vuestra
+                  agencia. Nunca contactamos directamente con vuestro cliente
+                  sin autorización expresa.
+                </p>
+              </div>
+            </div>
+
+            {/* Pregunta 2 */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
+                className="w-full flex justify-between items-center p-6 text-left"
+              >
+                <span className="text-white font-medium">
+                  ¿Qué ocurre con el mantenimiento tras el lanzamiento?
+                </span>
+                <ChevronDown
+                  className={`transition-transform duration-300 ${openFAQ === 1 ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <div
+                className={`px-6 transition-all duration-300 ease-in-out ${
+                  openFAQ === 1 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden`}
+              >
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Ofrecemos planes de soporte y mantenimiento
+                  preventivo/correctivo post-lanzamiento. Podemos gestionar las
+                  actualizaciones directamente o formar a vuestro equipo para
+                  que tome el relevo técnico.
+                </p>
+              </div>
+            </div>
+
+            {/* Pregunta 3 */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
+                className="w-full flex justify-between items-center p-6 text-left"
+              >
+                <span className="text-white font-medium">
+                  ¿Cómo manejáis los cambios de alcance durante el desarrollo?
+                </span>
+                <ChevronDown
+                  className={`transition-transform duration-300 ${openFAQ === 2 ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <div
+                className={`px-6 transition-all duration-300 ease-in-out ${
+                  openFAQ === 2 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden`}
+              >
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Trabajamos con metodologías ágiles. Los cambios se
+                  evalúan en cada sprint; si el alcance varía
+                  significativamente, ajustamos el roadmap y el presupuesto
+                  de forma transparente antes de proceder con el desarrollo.
+                </p>
+              </div>
+            </div>
+
+            {/* Pregunta 4 */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
+              <button
+                onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
+                className="w-full flex justify-between items-center p-6 text-left"
+              >
+                <span className="text-white font-medium">
+                  ¿Cuáles son vuestros tiempos medios de respuesta?
+                </span>
+                <ChevronDown
+                  className={`transition-transform duration-300 ${openFAQ === 3 ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <div
+                className={`px-6 transition-all duration-300 ease-in-out ${
+                  openFAQ === 3 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden`}
+              >
+                <p className="text-gray-400 font-light text-sm md:text-base">
+                  Para incidencias críticas en proyectos activos, el tiempo
+                  de respuesta es inferior a 4 horas. Para consultas comerciales
+                  o de nuevos proyectos, garantizamos una respuesta en menos de
+                  24 horas laborales.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </Reveal>
+
       {/* Sección del Roadmap Dinámico */}
       <Reveal delay={400}>
         <div className="mb-16">
