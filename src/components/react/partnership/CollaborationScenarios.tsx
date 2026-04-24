@@ -22,7 +22,7 @@ const scenarios = [
 
 export const CollaborationScenarios = () => {
   return (
-    <section className="pb-24 pt-8 px-6 w-full max-w-6xl mx-auto">
+    <section className="pb-8 pt-8 px-6 w-full max-w-6xl mx-auto">
       <Reveal>
         <div className="text-center mb-16">
           <p className="text-[#288B88] font-semibold tracking-widest text-xs uppercase mb-3">
