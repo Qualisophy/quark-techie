@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Partnership as PartnershipComponent } from '../components/react/partnership/Partnership';
+import { CollaborationScenarios } from "../components/react/partnership/CollaborationScenarios";
 ---
 
 <Layout title="Partnership | Quark Techie">
   <PartnershipComponent client:load />
+  <CollaborationScenarios client:visible />
 </Layout>
