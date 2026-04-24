@@ -128,50 +128,52 @@ export const Products = () => {
 
             return (
               <Reveal key={prod.slug} delay={i * 50}>
-                <Card className="group h-[500px]">
-                  <div
-                    className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
-                    style={{
-                      background: `radial-gradient(circle, ${prod.accent_color} 0%, transparent 70%)`,
-                    }}
-                  ></div>
+                <a href={`/soluciones/${prod.slug}`} className="block">
+                  <Card className="group h-[500px]">
+                    <div
+                      className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
+                      style={{
+                        background: `radial-gradient(circle, ${prod.accent_color} 0%, transparent 70%)`,
+                      }}
+                    ></div>
 
-                  <div className="flex flex-col justify-between h-full relative z-10">
-                    <div>
-                      <div className="flex justify-between items-start mb-8">
-                        <IconComponent
-                          className="w-10 h-10"
-                          style={{ color: prod.accent_color }}
-                          strokeWidth={1.5}
-                        />
-                        <span className="text-[10px] uppercase tracking-wider text-gray-500 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02]">
-                          {prod.category}
-                        </span>
+                    <div className="flex flex-col justify-between h-full relative z-10">
+                      <div>
+                        <div className="flex justify-between items-start mb-8">
+                          <IconComponent
+                            className="w-10 h-10"
+                            style={{ color: prod.accent_color }}
+                            strokeWidth={1.5}
+                          />
+                          <span className="text-[10px] uppercase tracking-wider text-gray-500 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02]">
+                            {prod.category}
+                          </span>
+                        </div>
+                        <h3 className="text-3xl font-semibold mb-4 text-white">
+                          {prod.title}
+                        </h3>
+                        <p className="text-gray-400 font-light leading-relaxed mb-8 line-clamp-3">
+                          {prod.short_description}
+                        </p>
                       </div>
-                      <h3 className="text-3xl font-semibold mb-4 text-white">
-                        {prod.title}
-                      </h3>
-                      <p className="text-gray-400 font-light leading-relaxed mb-8 line-clamp-3">
-                        {prod.short_description}
-                      </p>
-                    </div>
 
-                    <div>
-                      <p className="text-sm text-gray-500 mb-1">{priceLabel}</p>
-                      <p className="text-3xl font-semibold text-white mb-8">
-                        {prod.starting_price}
-                      </p>
-                      <Button
-                        href={`/soluciones/${prod.slug}`}
-                        variant="primary"
-                        size="lg"
-                        fullWidth
-                      >
-                        Ver Solución
-                      </Button>
+                      <div>
+                        <p className="text-sm text-gray-500 mb-1">{priceLabel}</p>
+                        <p className="text-3xl font-semibold text-white mb-8">
+                          {prod.starting_price}
+                        </p>
+                        <Button
+                          href={`/soluciones/${prod.slug}`}
+                          variant="primary"
+                          size="lg"
+                          fullWidth
+                        >
+                          Ver Solución
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </a>
               </Reveal>
             );
           })}
