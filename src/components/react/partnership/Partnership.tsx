@@ -34,7 +34,7 @@ export const Partnership = () => {
   ];
 
   return (
-    <section className="min-h-screen pt-40 pb-32 px-6 relative flex flex-col justify-center max-w-6xl mx-auto">
+    <section className="min-h-screen pt-40 pb-16 px-6 relative flex flex-col justify-center max-w-6xl mx-auto">
       {/* Cabecera */}
       <Reveal>
         <div className="text-center mb-24">
@@ -77,31 +77,9 @@ export const Partnership = () => {
         </Reveal>
       </div>
 
-      {/* Sección del Roadmap Dinámico */}
-      <Reveal delay={400}>
-        <div className="mb-32">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold text-white mb-4">
-              Nuestro flujo de colaboración
-            </h2>
-            <p className="text-gray-400 font-light">
-              Un proceso de ingeniería riguroso para asegurar la excelencia en
-              cada entrega.
-            </p>
-          </div>
-
-          <Stepper
-            steps={roadmapSteps}
-            currentStep={currentStep}
-            setCurrentStep={setCurrentStep}
-            className="mb-12"
-          />
-        </div>
-      </Reveal>
-
       {/* Sección Confianza y Seguridad */}
       <Reveal delay={430}>
-        <div className="mb-16">
+        <div className="mb-32">
           <div className="text-center mb-16">
             <div className="mb-4">
               <span className="text-sm tracking-[0.3em] text-gray-400 font-medium uppercase">
@@ -161,11 +139,32 @@ export const Partnership = () => {
                 nuestra participación; operamos bajo tu marca y tus procesos de comunicación.
               </p>
             </div>
-
           </div>
         </div>
       </Reveal>
       
+      {/* Sección del Roadmap Dinámico */}
+      <Reveal delay={400}>
+        <div className="mb-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold text-white mb-4">
+              Nuestro flujo de colaboración
+            </h2>
+            <p className="text-gray-400 font-light">
+              Un proceso de ingeniería riguroso para asegurar la excelencia en
+              cada entrega.
+            </p>
+          </div>
+
+          <Stepper
+            steps={roadmapSteps}
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+            className="mb-12"
+          />
+        </div>
+      </Reveal>
+
       {/* Llamada a la acción final */}
       <Reveal delay={450}>
         <CTA className="w-full text-center" />
