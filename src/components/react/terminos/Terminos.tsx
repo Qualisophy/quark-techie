@@ -1,177 +1,109 @@
+import React from "react";
 import { Reveal } from "../shared/Reveal";
 
 export const Terminos = () => {
-
   return (
     <div className="pt-40 pb-32 px-6 max-w-4xl mx-auto min-h-screen flex flex-col">
       {/* CABECERA DE LA PÁGINA */}
-      <Reveal className="mb-12">
-        <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white text-center">
-          Términos de Uso.
+      <Reveal className="mb-12 text-center">
+        <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white">
+          Términos y Condiciones de Uso.
         </h1>
-        <h3 className="text-2xl font-semibold text-white mb-4">1. DATOS IDENTIFICATIVOS</h3>
+      </Reveal>
+
+      {/* 1. IDENTIFICACIÓN */}
+      <Reveal className="mb-12">
+        <h3 className="text-2xl font-semibold text-white mb-4">1. IDENTIFICACIÓN DEL PRESTADOR DE SERVICIOS</h3>
         <p className="text-gray-400 font-light leading-relaxed mb-4">
-          En cumplimiento con el deber de información recogido en la normativa española, se reflejan a continuación los datos del titular del sitio web:
+          En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular del sitio web <a href="https://www.quark-techie.com/" className="text-white hover:underline">https://www.quark-techie.com/</a>:
         </p>
         <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed space-y-1 mb-4">
-          <li>Denominación social: Qualisophy S.L.</li>
-          <li>Nombre comercial: Quark Techie</li>
-          <li>CIF: B16444960</li>
-          <li>Domicilio social: Calle Esteban Salazar Chapela 11, 9º, CP 29004 Málaga, España</li>
-          <li>Correo electrónico: <a href="mailto:hello@quark-techie.com" className="text-gray-400 hover:text-white">hello@quark-techie.com</a></li>
-          <li>Teléfono: <a href="tel:+34951768789" className="text-gray-400 hover:text-white">+34 951 768 789</a></li>
+          <li><strong>Titular:</strong> Francisco Antonio Guerrero Sánchez (Quark Techie)</li>
+          <li><strong>NIF/CIF:</strong> B16444960</li>
+          <li><strong>Domicilio social:</strong> Calle Esteban Salazar Chapela 11, Málaga, España</li>
+          <li><strong>Correo electrónico:</strong> <a href="mailto:hello@quark-techie.com" className="text-gray-400 hover:text-white">hello@quark-techie.com</a></li>
+          <li><strong>Delegado de Protección de Datos (DPO):</strong> No es legalmente exigible de conformidad con el artículo 37 del RGPD.</li>
         </ul>
       </Reveal>
 
-      {/* 2. OBJETO */}
+      {/* 2. ACEPTACIÓN */}
       <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">2. OBJETO</h3>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          El presente sitio web tiene como finalidad ofrecer información sobre los servicios de consultoría IT prestados por Quark Techie, incluyendo:
-        </p>
-        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed mb-4 space-y-1">
-          <li>Desarrollo de software</li>
-          <li>Servicios de QA (Quality Assurance)</li>
-          <li>Soporte técnico</li>
-        </ul>
+        <h3 className="text-2xl font-semibold text-white mb-4">2. ACEPTACIÓN DE LOS TÉRMINOS</h3>
         <p className="text-gray-400 font-light leading-relaxed">
-          Asimismo, el sitio permite a los usuarios solicitar información o presupuestos personalizados a través de formularios de contacto.
+          El acceso y uso de este sitio web le atribuye la condición de "Usuario", lo cual implica la aceptación plena y sin reservas de todas las disposiciones incluidas en estos Términos y Condiciones. Si no está de acuerdo con alguna de las condiciones establecidas, le rogamos que se abstenga de utilizar este sitio.
         </p>
       </Reveal>
 
-      {/* 3. CONDICIONES DE USO */}
+      {/* 3. DESCRIPCIÓN DE SERVICIOS */}
       <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">3. CONDICIONES DE USO</h3>
+        <h3 className="text-2xl font-semibold text-white mb-4">3. DESCRIPCIÓN DE LOS SERVICIOS</h3>
         <p className="text-gray-400 font-light leading-relaxed mb-4">
-          El acceso y uso del sitio web atribuye la condición de usuario, implicando la aceptación plena y sin reservas de los presentes términos.
-        </p>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          El usuario se compromete a:
-        </p>
-        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed space-y-1">
-          <li>Hacer un uso adecuado del sitio web y de sus contenidos</li>
-          <li>No realizar actividades ilícitas o contrarias a la buena fe</li>
-          <li>No intentar acceder a áreas restringidas sin autorización</li>
-          <li>No introducir virus o cualquier otro sistema que pueda dañar la web o a terceros</li>
-        </ul>
-      </Reveal>
-
-      {/* 4. SERVICIOS Y CONTRATACIÓN */}
-      <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">4. SERVICIOS Y CONTRATACIÓN</h3>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Los servicios ofrecidos a través de la web tienen carácter informativo.
-        </p>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          La contratación de servicios se realiza mediante:
-        </p>
-        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed mb-4 space-y-1">
-          <li>Solicitud de contacto por parte del usuario</li>
-          <li>Análisis de necesidades por parte de Quark Techie</li>
-          <li>Elaboración y envío de un presupuesto personalizado</li>
-        </ul>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          El envío de un formulario no implica la formalización de ningún contrato ni obligación por parte de la empresa.
+          Quark Techie es una firma de consultoría que ofrece servicios a nivel local, europeo e internacional. La información contenida en el sitio web tiene un carácter puramente informativo sobre las áreas de práctica y servicios disponibles.
         </p>
         <p className="text-gray-400 font-light leading-relaxed">
-          La relación contractual, en su caso, se formalizará posteriormente mediante acuerdo expreso entre las partes.
+          <strong>Contratación de servicios:</strong> La contratación efectiva de los servicios de consultoría, así como la definición de honorarios, presupuestos y métodos de pago, no se realiza a través de este sitio web. Todos los acuerdos comerciales, contratos de consultoría y gestiones de pago se tramitan de forma directa, privada y personalizada durante las reuniones formales con los clientes.
         </p>
       </Reveal>
 
-      {/* 5. PROPIEDAD INTELECTUAL E INDUSTRIAL */}
+      {/* 4. USO Y RESTRICCIONES */}
+      <Reveal className="mb-12">
+        <h3 className="text-2xl font-semibold text-white mb-4">4. USO DEL SITIO WEB Y RESTRICCIONES</h3>
+        <p className="text-gray-400 font-light leading-relaxed mb-4">
+          El Usuario se compromete a utilizar el sitio web, sus contenidos y servicios de conformidad con la ley, la moral, el orden público y los presentes Términos y Condiciones. Queda terminantemente prohibido:
+        </p>
+        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed space-y-2">
+          <li>Utilizar el sitio web con fines ilícitos, lesivos de los derechos de terceros o que puedan dañar la reputación de la Empresa.</li>
+          <li>Introducir o difundir virus informáticos, malware u otros sistemas que puedan provocar daños en nuestros sistemas o en los de terceros proveedores.</li>
+          <li>Intentar acceder, modificar, manipular o utilizar las cuentas de otros usuarios o áreas restringidas de los sistemas informáticos de la Empresa.</li>
+        </ul>
+      </Reveal>
+
+      {/* 5. PROPIEDAD INTELECTUAL */}
       <Reveal className="mb-12">
         <h3 className="text-2xl font-semibold text-white mb-4">5. PROPIEDAD INTELECTUAL E INDUSTRIAL</h3>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Todos los contenidos del sitio web (textos, diseño, código, logotipos, imágenes, etc.) son titularidad de Qualisophy S.L. o dispone de los derechos necesarios para su uso.
+        <p className="text-gray-400 font-light leading-relaxed">
+          Todos los contenidos del sitio web, incluyendo textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a <strong>Francisco Antonio Guerrero Sánchez (Quark Techie)</strong> o a terceros que han autorizado su uso. Queda prohibida su reproducción, distribución, comunicación pública o transformación sin la autorización expresa y por escrito del titular.
         </p>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Queda prohibida:
-        </p>
-        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed space-y-1">
-          <li>La reproducción</li>
-          <li>Distribución</li>
-          <li>Comunicación pública</li>
-          <li>Transformación</li>
+      </Reveal>
+
+      {/* 6. RESPONSABILIDADES */}
+      <Reveal className="mb-12">
+        <h3 className="text-2xl font-semibold text-white mb-4">6. RESPONSABILIDADES Y LIMITACIONES</h3>
+        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed space-y-3">
+          <li><strong>Disponibilidad:</strong> La Empresa no garantiza la disponibilidad continua y permanente del sitio web, reservándose el derecho de suspender el acceso temporalmente para mantenimiento o actualizaciones.</li>
+          <li><strong>Resultados de Consultoría:</strong> El contenido publicado en la web (artículos, blogs, guías) es de carácter orientativo. No constituye asesoramiento profesional vinculante. La Empresa no se hace responsable de las decisiones tomadas por el usuario basadas únicamente en la información de la web.</li>
+          <li><strong>Enlaces Externos:</strong> El sitio web puede incluir enlaces a páginas de terceros. La Empresa no asume responsabilidad alguna por el contenido, políticas de privacidad o prácticas de dichas páginas externas.</li>
         </ul>
-        <p className="text-gray-400 font-light leading-relaxed mt-4">
-          de dichos contenidos sin autorización expresa del titular.
-        </p>
       </Reveal>
 
-      {/* 6. RESPONSABILIDAD */}
+      {/* 7. MODIFICACIONES */}
       <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">6. RESPONSABILIDAD</h3>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Quark Techie no se hace responsable de:
-        </p>
-        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed mb-4 space-y-1">
-          <li>Los errores u omisiones en los contenidos</li>
-          <li>La falta de disponibilidad del sitio web</li>
-          <li>La transmisión de virus o programas maliciosos, a pesar de haber adoptado todas las medidas tecnológicas necesarias</li>
-        </ul>
+        <h3 className="text-2xl font-semibold text-white mb-4">7. MODIFICACIONES DE LOS TÉRMINOS</h3>
         <p className="text-gray-400 font-light leading-relaxed">
-          Asimismo, la información proporcionada en la web tiene carácter general y no constituye asesoramiento técnico vinculante.
+          Nos reservamos el derecho a modificar los presentes Términos y Condiciones en cualquier momento para adaptarlos a novedades legislativas, jurisprudenciales o prácticas del mercado. La versión actualizada estará siempre disponible en el sitio web y entrará en vigor desde el momento de su publicación.
         </p>
       </Reveal>
 
-      {/* 7. PROTECCIÓN DE DATOS */}
+      {/* 8. LEY Y JURISDICCIÓN */}
       <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">7. PROTECCIÓN DE DATOS</h3>
+        <h3 className="text-2xl font-semibold text-white mb-4">8. LEY APLICABLE Y JURISDICCIÓN</h3>
         <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Los datos personales recogidos a través de los formularios de contacto serán tratados por Qualisophy S.L. con la finalidad de:
-        </p>
-        <ul className="list-disc list-inside text-gray-400 font-light leading-relaxed mb-4 space-y-1">
-          <li>Atender consultas</li>
-          <li>Gestionar solicitudes de información o presupuestos</li>
-        </ul>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          <strong>Base legal:</strong> consentimiento del interesado.
-        </p>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Los datos no serán cedidos a terceros, salvo obligación legal.
+          La relación entre la Empresa y el Usuario se regirá por la normativa vigente en España y el marco legal de la Unión Europea.
         </p>
         <p className="text-gray-400 font-light leading-relaxed">
-          El usuario podrá ejercer sus derechos de acceso, rectificación, supresión y demás derechos reconocidos por la normativa vigente mediante solicitud al correo electrónico: hello@quark-techie.com
+          Para la resolución de cualquier controversia que pudiera derivarse del acceso o uso de este sitio web, ambas partes se someten expresamente a los Juzgados y Tribunales de Málaga, renunciando a cualquier otro fuero que pudiera corresponderles, sin perjuicio de los derechos irrenunciables de los consumidores internacionales según sus leyes locales.
         </p>
       </Reveal>
 
-      {/* 8. ENLACES A TERCEROS */}
+      {/* 9. DISPUTAS Y CONTACTO */}
       <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">8. ENLACES A TERCEROS</h3>
-        <p className="text-gray-400 font-light leading-relaxed">
-          En caso de que el sitio web contenga enlaces a sitios de terceros, Qualisophy S.L. no se responsabiliza de los contenidos ni de las políticas de privacidad de dichos sitios externos.
-        </p>
-      </Reveal>
-
-      {/* 9. MODIFICACIONES */}
-      <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">9. MODIFICACIONES</h3>
-        <p className="text-gray-400 font-light leading-relaxed">
-          Qualisophy S.L. se reserva el derecho a modificar en cualquier momento los presentes términos, siendo debidamente publicados en el sitio web.
-        </p>
-      </Reveal>
-
-      {/* 10. LEGISLACIÓN APLICABLE Y JURISDICCIÓN */}
-      <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">10. LEGISLACIÓN APLICABLE Y JURISDICCIÓN</h3>
+        <h3 className="text-2xl font-semibold text-white mb-4">9. RESOLUCIÓN DE DISPUTAS Y CONTACTO PARA RECLAMACIONES</h3>
         <p className="text-gray-400 font-light leading-relaxed mb-4">
-          La relación entre el usuario y Qualisophy S.L. se regirá por la legislación española vigente.
+          Fomentamos la resolución amistosa de cualquier discrepancia. En caso de duda, queja o reclamación relacionada con nuestro sitio web o nuestros servicios, el Usuario puede ponerse en contacto directo con nosotros a través de:
         </p>
         <p className="text-gray-400 font-light leading-relaxed">
-          Para la resolución de cualquier conflicto que pudiera surgir, las partes se someterán a los juzgados y tribunales de Málaga, salvo que la normativa aplicable disponga otra cosa.
+          <strong>Email:</strong> <a href="mailto:hello@quark-techie.com" className="text-gray-400 hover:text-white">hello@quark-techie.com</a>
         </p>
-      </Reveal>
-
-      {/* 11. CONTACTO */}
-      <Reveal className="mb-12">
-        <h3 className="text-2xl font-semibold text-white mb-4">11. CONTACTO</h3>
-        <p className="text-gray-400 font-light leading-relaxed mb-4">
-          Para cualquier duda relativa a estos términos, el usuario puede contactar a través de:
-        </p>
-        <div className="text-gray-400 font-light leading-relaxed space-y-1">
-          <p>Email: <a href="mailto:hello@quark-techie.com" className="text-gray-400 hover:text-white">hello@quark-techie.com</a></p>
-          <p>Teléfono: <a href="tel:+34951768789" className="text-gray-400 hover:text-white">+34 951 768 789</a></p>
-        </div>
       </Reveal>
     </div>
   );
