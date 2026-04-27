@@ -61,8 +61,7 @@ export const CollaborationScenarios = () => {
                 </p>
               </div>
 
-              {/* Efecto de luz suave al pasar el ratón */}
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#288B88]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              
             </Card>
           </Reveal>
         ))}
