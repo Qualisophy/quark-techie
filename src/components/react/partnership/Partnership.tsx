@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "../shared/ui/Button";
 import { Card } from "../shared/ui/Card";
-import { Stepper, type Step } from "../shared/ui/Stepper"; // <-- ¡Aquí está la magia!
+import { Stepper, type Step } from "../shared/ui/Stepper";
 import { ArrowUpRight, ShieldCheck, FileLock, EyeOff, ChevronDown } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
 import { CTA } from "../shared/ui/CTA";
@@ -10,7 +10,18 @@ export const Partnership = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
-  // Definimos los pasos con sus textos explicativos profesionales
+  // --- LÓGICA DE MOUSE TRACKING (SOPORTE PARA SEGURIDAD Y FAQS) ---
+  const [positions, setPositions] = useState<{ [key: string]: { x: number; y: number } }>({});
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, key: string) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPositions(prev => ({
+      ...prev,
+      [key]: { x: e.clientX - rect.left, y: e.clientY - rect.top }
+    }));
+  };
+
   const roadmapSteps: Step[] = [
     {
       label: "Contacto Inicial",
@@ -98,188 +109,142 @@ export const Partnership = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            
             {/* NDA */}
-            <div className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300">
-              <div className="mb-4 flex justify-center md:justify-start">
-                <ShieldCheck className="w-10 h-10 text-[#288B88]" strokeWidth={1.5} />
+            <div 
+              onMouseMove={(e) => handleMouseMove(e, 'sec-0')}
+              onMouseEnter={() => setHoveredKey('sec-0')}
+              onMouseLeave={() => setHoveredKey(null)}
+              className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300 relative overflow-hidden isolate"
+            >
+              <div className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0 hidden md:block"
+                style={{
+                  opacity: hoveredKey === 'sec-0' ? 1 : 0,
+                  background: `radial-gradient(400px circle at ${positions['sec-0']?.x || 0}px ${positions['sec-0']?.y || 0}px, rgba(255,255,255,0.06), transparent 40%)`,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="mb-4 flex justify-center md:justify-start">
+                  <ShieldCheck className="w-10 h-10 text-[#288B88]" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">NDAs Blindados</h3>
+                <p className="text-gray-400 font-light">
+                  Firmamos acuerdos de confidencialidad antes de cualquier intercambio de información.
+                  Tu estrategia y la de tus clientes están protegidas por contrato desde el primer minuto.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                NDAs Blindados
-              </h3>
-              <p className="text-gray-400 font-light">
-                Firmamos acuerdos de confidencialidad antes de cualquier intercambio de información.
-                Tu estrategia y la de tus clientes están protegidas por contrato desde el primer minuto.
-              </p>
             </div>
 
             {/* Propiedad Intelectual */}
-            <div className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300">
-              <div className="mb-4 flex justify-center md:justify-start">
-                <FileLock className="w-10 h-10 text-[#E8D33F]" strokeWidth={1.5} />
+            <div 
+              onMouseMove={(e) => handleMouseMove(e, 'sec-1')}
+              onMouseEnter={() => setHoveredKey('sec-1')}
+              onMouseLeave={() => setHoveredKey(null)}
+              className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300 relative overflow-hidden isolate"
+            >
+              <div className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0 hidden md:block"
+                style={{
+                  opacity: hoveredKey === 'sec-1' ? 1 : 0,
+                  background: `radial-gradient(400px circle at ${positions['sec-1']?.x || 0}px ${positions['sec-1']?.y || 0}px, rgba(255,255,255,0.06), transparent 40%)`,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="mb-4 flex justify-center md:justify-start">
+                  <FileLock className="w-10 h-10 text-[#E8D33F]" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">IP 100% de la Agencia</h3>
+                <p className="text-gray-400 font-light">
+                  El código, los activos y toda la propiedad intelectual generada pertenecen íntegramente
+                  a tu agencia. Renunciamos a cualquier derecho sobre el desarrollo realizado.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                IP 100% de la Agencia
-              </h3>
-              <p className="text-gray-400 font-light">
-                El código, los activos y toda la propiedad intelectual generada pertenecen íntegramente
-                a tu agencia. Renunciamos a cualquier derecho sobre el desarrollo realizado.
-              </p>
             </div>
 
             {/* Invisibilidad Total */}
-            <div className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300">
-              <div className="mb-4 flex justify-center md:justify-start">
-                <EyeOff className="w-10 h-10 text-white" strokeWidth={1.5} />
+            <div 
+              onMouseMove={(e) => handleMouseMove(e, 'sec-2')}
+              onMouseEnter={() => setHoveredKey('sec-2')}
+              onMouseLeave={() => setHoveredKey(null)}
+              className="rounded-[2rem] bg-white/[0.03] border border-white/8 backdrop-blur-xl p-8 text-center md:text-left hover:bg-white/[0.06] transition-colors duration-300 relative overflow-hidden isolate"
+            >
+              <div className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0 hidden md:block"
+                style={{
+                  opacity: hoveredKey === 'sec-2' ? 1 : 0,
+                  background: `radial-gradient(400px circle at ${positions['sec-2']?.x || 0}px ${positions['sec-2']?.y || 0}px, rgba(255,255,255,0.06), transparent 40%)`,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="mb-4 flex justify-center md:justify-start">
+                  <EyeOff className="w-10 h-10 text-white" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Invisibilidad Total</h3>
+                <p className="text-gray-400 font-light">
+                  Somos tu brazo tecnológico invisible. Nunca contactaremos con tu cliente ni revelaremos
+                  nuestra participación; operamos bajo tu marca y tus procesos de comunicación.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Invisibilidad Total
-              </h3>
-              <p className="text-gray-400 font-light">
-                Somos tu brazo tecnológico invisible. Nunca contactaremos con tu cliente ni revelaremos
-                nuestra participación; operamos bajo tu marca y tus procesos de comunicación.
-              </p>
             </div>
           </div>
         </div>
       </Reveal>
       
-      {/* Sección FAQ */}
+      {/* Sección FAQ (CON EFECTO HOVER INDIVIDUAL) */}
       <Reveal delay={380}>
         <div className="mb-32">
-
           <div className="text-center mb-16">
             <div className="mb-4">
               <span className="text-sm tracking-[0.3em] text-gray-400 font-medium uppercase">
                 PREGUNTAS FRECUENTES
               </span>
             </div>
-
             <h2 className="text-3xl font-semibold text-white mb-4">
               Despeja tus dudas sobre el modelo de Partnership.
             </h2>
-
             <p className="text-gray-400 font-light max-w-2xl mx-auto">
-              Todo lo que necesitas saber sobre cómo trabajamos codo
-              con codo con tu agencia.
+              Todo lo que necesitas saber sobre cómo trabajamos codo con codo con tu agencia.
             </p>
           </div>
 
           <div className="space-y-4">
-
-            {/* Pregunta 1 */}
-            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
-              <button
-                onClick={() => setOpenFAQ(openFAQ === 0 ? null : 0)}
-                className="w-full flex justify-between items-center p-6 text-left"
+            {[
+              { q: "¿Cómo gestionáis la comunicación con el cliente final?", a: "Operamos bajo un modelo estricto de marca blanca. Toda la comunicación técnica se canaliza a través de vuestro equipo o mediante cuentas de correo corporativas de vuestra agencia. Nunca contactamos directamente con vuestro cliente sin autorización expresa." },
+              { q: "¿Qué ocurre con el mantenimiento tras el lanzamiento?", a: "Ofrecemos planes de soporte y mantenimiento preventivo/correctivo post-lanzamiento. Podemos gestionar las actualizaciones directamente o formar a vuestro equipo para que tome el relevo técnico." },
+              { q: "¿Cómo manejáis los cambios de alcance durante el desarrollo?", a: "Trabajamos con metodologías ágiles. Los cambios se evalúan en cada sprint; si el alcance varía significativamente, ajustamos el roadmap y el presupuesto de forma transparente antes de proceder con el desarrollo." },
+              { q: "¿Cuáles son vuestros tiempos medios de respuesta?", a: "Para incidencias críticas en proyectos activos, el tiempo de respuesta es inferior a 4 horas. Para consultas comerciales o de nuevos proyectos, garantizamos una respuesta en menos de 24 horas laborales." }
+            ].map((faq, idx) => (
+              <div 
+                key={idx}
+                onMouseMove={(e) => handleMouseMove(e, `faq-${idx}`)}
+                onMouseEnter={() => setHoveredKey(`faq-${idx}`)}
+                onMouseLeave={() => setHoveredKey(null)}
+                className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden relative isolate"
               >
-                <span className="text-white font-medium">
-                  ¿Cómo gestionáis la comunicación con el cliente final?
-                </span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${openFAQ === 0 ? "rotate-180" : ""}`}
+                {/* LINTERNA INDIVIDUAL FAQ */}
+                <div className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0 hidden md:block"
+                  style={{
+                    opacity: hoveredKey === `faq-${idx}` ? 1 : 0,
+                    background: `radial-gradient(400px circle at ${positions[`faq-${idx}`]?.x || 0}px ${positions[`faq-${idx}`]?.y || 0}px, rgba(255,255,255,0.06), transparent 40%)`,
+                  }}
                 />
-              </button>
+                
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === idx ? null : idx)}
+                  className="w-full flex justify-between items-center p-6 text-left relative z-10"
+                >
+                  <span className="text-white font-medium">{faq.q}</span>
+                  <ChevronDown className={`transition-transform duration-300 text-white ${openFAQ === idx ? "rotate-180" : ""}`} />
+                </button>
 
-              <div
-                className={`px-6 transition-all duration-300 ease-in-out ${
-                  openFAQ === 0 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
-              >
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Operamos bajo un modelo estricto de marca blanca.
-                  Toda la comunicación técnica se canaliza a través de vuestro
-                  equipo o mediante cuentas de correo corporativas de vuestra
-                  agencia. Nunca contactamos directamente con vuestro cliente
-                  sin autorización expresa.
-                </p>
+                <div
+                  className={`px-6 transition-all duration-300 ease-in-out relative z-10 ${
+                    openFAQ === idx ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
+                  } overflow-hidden`}
+                >
+                  <p className="text-gray-400 font-light text-sm md:text-base">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            {/* Pregunta 2 */}
-            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
-              <button
-                onClick={() => setOpenFAQ(openFAQ === 1 ? null : 1)}
-                className="w-full flex justify-between items-center p-6 text-left"
-              >
-                <span className="text-white font-medium">
-                  ¿Qué ocurre con el mantenimiento tras el lanzamiento?
-                </span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${openFAQ === 1 ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              <div
-                className={`px-6 transition-all duration-300 ease-in-out ${
-                  openFAQ === 1 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
-              >
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Ofrecemos planes de soporte y mantenimiento
-                  preventivo/correctivo post-lanzamiento. Podemos gestionar las
-                  actualizaciones directamente o formar a vuestro equipo para
-                  que tome el relevo técnico.
-                </p>
-              </div>
-            </div>
-
-            {/* Pregunta 3 */}
-            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
-              <button
-                onClick={() => setOpenFAQ(openFAQ === 2 ? null : 2)}
-                className="w-full flex justify-between items-center p-6 text-left"
-              >
-                <span className="text-white font-medium">
-                  ¿Cómo manejáis los cambios de alcance durante el desarrollo?
-                </span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${openFAQ === 2 ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              <div
-                className={`px-6 transition-all duration-300 ease-in-out ${
-                  openFAQ === 2 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
-              >
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Trabajamos con metodologías ágiles. Los cambios se
-                  evalúan en cada sprint; si el alcance varía
-                  significativamente, ajustamos el roadmap y el presupuesto
-                  de forma transparente antes de proceder con el desarrollo.
-                </p>
-              </div>
-            </div>
-
-            {/* Pregunta 4 */}
-            <div className="rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-xl overflow-hidden">
-              <button
-                onClick={() => setOpenFAQ(openFAQ === 3 ? null : 3)}
-                className="w-full flex justify-between items-center p-6 text-left"
-              >
-                <span className="text-white font-medium">
-                  ¿Cuáles son vuestros tiempos medios de respuesta?
-                </span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${openFAQ === 3 ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              <div
-                className={`px-6 transition-all duration-300 ease-in-out ${
-                  openFAQ === 3 ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
-              >
-                <p className="text-gray-400 font-light text-sm md:text-base">
-                  Para incidencias críticas en proyectos activos, el tiempo
-                  de respuesta es inferior a 4 horas. Para consultas comerciales
-                  o de nuevos proyectos, garantizamos una respuesta en menos de
-                  24 horas laborales.
-                </p>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </Reveal>
@@ -292,8 +257,7 @@ export const Partnership = () => {
               Nuestro flujo de colaboración
             </h2>
             <p className="text-gray-400 font-light">
-              Un proceso de ingeniería riguroso para asegurar la excelencia en
-              cada entrega.
+              Un proceso de ingeniería riguroso para asegurar la excelencia en cada entrega.
             </p>
           </div>
 
@@ -305,12 +269,6 @@ export const Partnership = () => {
           />
         </div>
       </Reveal>
-
-     
-
-
-     
-
     </section>
   );
 };
