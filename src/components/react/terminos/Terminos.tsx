@@ -9,6 +9,9 @@ export const Terminos = () => {
         <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white">
           Términos y Condiciones de Uso.
         </h1>
+        <p className="text-gray-500 font-light italic mb-8 text-center">
+  Fecha de última actualización: 27 de Abril de 2026
+</p>
       </Reveal>
 
       {/* 1. IDENTIFICACIÓN */}

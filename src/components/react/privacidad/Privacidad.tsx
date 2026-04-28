@@ -9,7 +9,9 @@ export const Privacidad = () => {
         <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-8 text-white">
           Política de Privacidad.
         </h1>
-       
+        <p className="text-gray-500 font-light italic mb-8 text-center">
+          Fecha de última actualización: 27 de Abril de 2026
+        </p>
         <p className="text-gray-400 font-light leading-relaxed mb-4 text-left">
           La presente Política de Privacidad describe cómo Quark Techie (en adelante, "la Empresa", "nosotros" o "nuestro") recopila, utiliza y protege la información personal de los usuarios que visitan nuestro sitio web <a href="https://www.quark-techie.com/" className="text-white hover:underline">https://www.quark-techie.com/</a> y utilizan nuestros servicios de consultoría. Cumplimos estrictamente con el Reglamento General de Protección de Datos (RGPD) de la Unión Europea y la Ley Orgánica de Protección de Datos y Garantía de los Derechos Digitales (LOPDGDD) de España.
         </p>
