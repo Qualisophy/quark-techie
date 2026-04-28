@@ -143,6 +143,13 @@ export const Contact = () => {
             </form>
           </div>
         </div>
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.3532008746565!2d-4.4711954!3d36.690049599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f9e53484b7f1%3A0x1c89c125f2013c66!2sC.%20Esteban%20Salazar%20Chapela%2C%2011%2C%20Churriana%2C%2029004%20M%C3%A1laga!5e0!3m2!1ses!2ses!4v1776244446813!5m2!1ses!2ses"
+              className="mt-20 w-full aspect-[16/9] md:aspect-[7/3] border-0 flex justify-center items-center rounded-[3rem] invert grayscale brightness-90"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+          />
       </Reveal>
     </div>
   );
