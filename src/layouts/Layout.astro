@@ -15,6 +15,7 @@ const currentPath = Astro.url.pathname;
 <!doctype html>
 <html lang="es">
   <head>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/7f255d4a56a7b4004412e47cba6919e4/script.js"></script> 
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
@@ -40,7 +41,7 @@ const currentPath = Astro.url.pathname;
     <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#288B88]/10 blur-[150px] mix-blend-screen pointer-events-none z-0"></div>
     <div class="fixed bottom-[-20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E8D33F]/10 blur-[150px] mix-blend-screen pointer-events-none z-0"></div>
     
-    <div class="fixed inset-0 opacity-[0.015] pointer-events-none z-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;);"></div>
+    <div class="fixed inset-0 opacity-[0.015] pointer-events-none z-0" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
 
     <Navbar currentPath={currentPath} client:load />
 
