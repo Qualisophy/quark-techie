@@ -23,11 +23,17 @@ export const BentoGrid = () => {
       <section className="py-16 px-6 w-full max-w-7xl mx-auto">
         <Reveal>
           <div className="text-center mb-20">
+            <p className="text-[#288B88] font-semibold tracking-[0.3em] text-xs uppercase mb-4">
+              NUESTRO ADN TÉCNICO
+            </p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-white">
               Ingeniería a medida.
               <br />
               Diseño de precisión.
             </h2>
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-tight mb-12">
+            Desarrollamos soluciones digitales de alto rendimiento mediante arquitecturas robustas y escalables. Convertimos retos técnicos complejos en productos fluidos que impulsan el crecimiento de tu negocio.
+          </p>
           </div>
         </Reveal>
 

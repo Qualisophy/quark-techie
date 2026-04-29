@@ -19,6 +19,23 @@ export const AboutUs = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <section className="py-16 px-6 w-full max-w-7xl mx-auto">
+        {/* CABECERA UNIFICADA QTW-69 - SECCIÓN SERVICIOS */}
+<div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto px-4">
+  {/* Eyebrow */}
+  <p className="text-[#288B88] font-semibold tracking-[0.3em] text-xs uppercase mb-4">
+    Sobre Nosotros
+  </p>
+  
+  {/* Título Principal en Blanco */}
+  <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+    Soluciones Técnicas para Retos Complejos.
+  </h2>
+  
+  {/* Párrafo Descriptivo */}
+  <p className="text-gray-400 text-lg font-light leading-relaxed">
+    En Quark Techie diseñamos arquitecturas escalables y plataformas Fullstack optimizadas para el SEO técnico, transformando desafíos complejos en infraestructuras digitales preparadas para el futuro.
+  </p>
+</div>
         <Reveal delay={150}>
           <div
             ref={containerRef}

@@ -18,6 +18,23 @@ export const WhyUs = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <section className="py-16 px-6 w-full max-w-7xl mx-auto">
+        {/* CABECERA UNIFICADA QTW-69 */}
+        <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto px-4">
+          {/* Eyebrow */}
+          <p className="text-[#288B88] font-semibold tracking-[0.3em] text-xs uppercase mb-4">
+            VALOR DIFERENCIAL
+          </p>
+          
+          {/* Título en Blanco */}
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            ¿Por qué confiar tu proyecto a Quark Techie?
+          </h2>
+          
+          {/* Párrafo Descriptivo */}
+          <p className="text-gray-400 text-lg font-light leading-relaxed">
+            No solo escribimos código; construimos los cimientos tecnológicos de tu éxito con un enfoque en calidad técnica, escalabilidad y visión de negocio.
+          </p>
+        </div>
         <Reveal delay={150}>
           <div
             ref={containerRef}
@@ -49,20 +66,19 @@ export const WhyUs = () => {
               </div>
 
               {/* BLOQUE DE TEXTO */}
+              
               <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
-                <p className="text-[#288B88] font-semibold tracking-widest text-xs uppercase mb-3">VALOR DIFERENCIAL</p>
+                
                 
                 <h2 className="text-[clamp(1rem,5.2vw,1.875rem)] md:text-3xl font-semibold text-white tracking-tighter mb-6 leading-tight">
-                    <span className="block">¿Por qué confiar tu proyecto</span>
-                    <span className="font-bold block">
-                      a Quark Techie?
-                    </span>
+                    <span className="block">Excelencia en la ejecución técnica.</span>
+                    
                 </h2>
 
                 <div className="text-base md:text-lg text-gray-400 font-light leading-relaxed w-full space-y-4">
                     <p>
                       <span className="font-semibold text-white">No solo escribimos código;</span>{" "}
-                      construimos los cimientos tecnológicos de tu éxito con un enfoque en calidad técnica y visión de negocio.
+                      Aplicamos una metodología de desarrollo rigurosa para transformar ideas en productos digitales robustos, priorizando la mantenibilidad y el rendimiento en cada línea de código.
                     </p>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-sm md:text-base">

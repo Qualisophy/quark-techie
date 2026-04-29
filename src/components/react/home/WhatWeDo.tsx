@@ -31,12 +31,20 @@ export const WhatWeDo = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <section className="py-16 px-6 w-full max-w-7xl mx-auto">
+        
         <Reveal delay={150}>
-          <div className="text-center mb-6">
-            <span className="text-sm md:text-lg tracking-[0.3em] text-gray-400 font-medium uppercase">
-              SERVICIOS
-            </span>
-          </div>
+          {/* CABECERA UNIFICADA QTW-69 - FUERA DE LA CARD */}
+<div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto px-4">
+  <p className="text-[#288B88] font-semibold tracking-[0.3em] text-xs uppercase mb-4">
+    SERVICIOS
+  </p>
+  <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+    Especialistas en Ingeniería y Desarrollo a Medida.
+  </h2>
+  <p className="text-gray-400 text-lg font-light leading-relaxed">
+    Potenciamos agencias y empresas con soluciones digitales de alto impacto, combinando rigor técnico con una ejecución ágil y escalable.
+  </p>
+</div>
 
           <div 
             ref={mainRef}
