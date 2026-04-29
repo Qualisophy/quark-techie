@@ -105,7 +105,7 @@ export const solutionsData: Solution[] = [
         description: "Puesta en marcha y observabilidad.",
       },
     ],
-    starting_price: "Subvencionable 100%", // Optimizado para Kit Digital
+    starting_price: "Subvencionable 100%",
     meta_title:
       "Transformación Digital y Migración Cloud para Empresas | Quark Techie",
     meta_description:
@@ -116,93 +116,101 @@ export const solutionsData: Solution[] = [
   },
   {
     slug: "e-commerce-headless",
-    title: "E-Commerce Headless",
-    short_description: "Ventas sin límites con Shopify y React en el frontend.",
+    title: "E-Commerce de Alto Rendimiento",
+    short_description:
+      "Tu tienda online lista para vender en tiempo récord. Sin fricciones técnicas.",
     pain_point:
-      "Las tiendas online tradicionales sufren tiempos de carga lentos que destruyen la tasa de conversión y limitan la personalización de la marca.",
+      "Los emprendedores y pymes suelen perder meses en desarrollos interminables y complicaciones técnicas que frenan su crecimiento y agotan su presupuesto antes de vender la primera unidad.",
     solution_description:
-      "Desacoplamos el frontend de tu e-commerce usando una arquitectura Headless. Gestionas el inventario en Shopify, pero la experiencia de usuario se renderiza instantáneamente con React y Astro, logrando un SEO inmejorable.",
+      "Presentamos una solución 'llave en mano' diseñada para vender sin límites desde el primer día. Una plataforma e-commerce totalmente funcional, automatizada y escalable, que combina un diseño visual impactante con una infraestructura técnica robusta que opera en piloto automático.",
     deliverables: [
-      "Frontend a medida en React/Astro",
-      "Integración de API de Shopify/Swell",
-      "Optimizaciones avanzadas de Web Vitals",
-      "Sistema de diseño (UI Kit) personalizado",
-      "Analítica avanzada e integraciones",
+      "Plataforma e-commerce 'llave en mano' totalmente funcional",
+      "Navegación Premium y diseño visualmente impactante",
+      "Filtros avanzados de catálogo y búsqueda optimizada",
+      "Login social (Google) en un solo clic",
+      "Integración nativa con Stripe para pagos 100% seguros",
+      "Panel administrativo con dashboard de métricas en tiempo real",
+      "Automatización de emails (pedidos, estados y usuarios)",
     ],
     process: [
       {
-        title: "UX/UI E-Commerce",
-        description: "Diseño enfocado en conversión (CRO).",
+        title: "Estrategia y Carga",
+        description:
+          "Definimos tu catálogo y configuramos la estructura de venta.",
       },
       {
-        title: "Integración Headless",
-        description: "Conexión del motor de pagos e inventario.",
+        title: "Integración de Pagos",
+        description:
+          "Conexión nativa con Stripe para empezar a facturar de inmediato.",
       },
       {
-        title: "Optimización de Rendimiento",
-        description: "Ajuste fino de tiempos de carga.",
+        title: "Automatización",
+        description:
+          "Configuración del panel administrativo y flujos de email marketing.",
       },
       {
-        title: "Go-Live",
-        description: "Transición de dominio y lanzamiento.",
+        title: "Lanzamiento Récord",
+        description:
+          "Tu negocio online operativo y rindiendo al máximo en pocas semanas.",
       },
     ],
-    starting_price: "4,000€",
+    starting_price: "2,000€",
     meta_title:
-      "Desarrollo E-Commerce Headless con Shopify y React | Quark Techie",
+      "E-Commerce Listo para Vender | Lanza tu Tienda en Tiempo Récord | Quark Techie",
     meta_description:
-      "Aumenta tus ventas y mejora tu SEO con una tienda online ultrarrápida. Arquitectura Headless conectando Shopify con frontend a medida.",
+      "Olvídate de complicaciones técnicas. Lanzamos tu e-commerce profesional, automatizado y con pagos Stripe por solo 2.000€. ¡Empieza a vender ya!",
     icon_name: "Layers",
     accent_color: "#FFFFFF",
     category: "Desarrollo & Web",
+    // Mantenemos tu galería de imágenes que ya funciona
     gallery: [
       {
         src: "/images/ecommerce/01.png",
-        alt: "Detalle de producto avanzado",
+        alt: "Catálogo de productos con filtrado avanzado",
         caption:
-          "Ficha de producto optimizada con renderizado dinámico y carga instantánea.",
+          "Navegación fluida y filtros dinámicos para que tus clientes encuentren exactamente lo que buscan en milisegundos.",
       },
       {
         src: "/images/ecommerce/02.png",
-        alt: "Detalle de producto e inventario",
+        alt: "Ficha de producto con gestión de variantes y cross-selling",
         caption:
-          "Gestión de variantes y stock sincronizado en tiempo real a través de API.",
+          "Fichas diseñadas para convertir: selector visual de tallas/colores, listas de deseos y recomendaciones cruzadas inteligentes.",
       },
       {
         src: "/images/ecommerce/03.png",
-        alt: "Cesta de la compra intuitiva",
+        alt: "Proceso de checkout y cesta de la compra optimizada",
         caption:
-          "Proceso de checkout simplificado e integración nativa con Stripe para pagos seguros.",
+          "Checkout sin fricciones en una sola pantalla: gestión de envíos, desglose de impuestos y transición impecable hacia el pago seguro.",
       },
       {
         src: "/images/ecommerce/04.png",
-        alt: "Historial de pedidos del cliente",
+        alt: "Panel de cliente con historial y estado de pedidos",
         caption:
-          "Área de cliente con trazabilidad completa de transacciones y estados de envío.",
+          "Área de cliente autogestionable. Aporta total transparencia y permite cancelar pedidos no enviados, reduciendo la carga de soporte.",
       },
       {
         src: "/images/ecommerce/05.png",
-        alt: "Dashboard de administración",
+        alt: "Dashboard de métricas financieras y operativas",
         caption:
-          "Panel de control integral para la monitorización de métricas y KPIs de negocio.",
+          "El centro de mandos de tu negocio: monitoriza ingresos reales, margen de beneficios y volumen de nuevos usuarios de un solo vistazo.",
       },
       {
         src: "/images/ecommerce/06.png",
-        alt: "Gestión de catálogo en Dashboard",
+        alt: "Panel de control de inventario y creación de catálogo",
         caption:
-          "Control total sobre el catálogo de productos con edición masiva y filtrado avanzado.",
+          "Gestión de inventario intuitiva. Crea, edita y administra tu oferta de productos sin necesidad de conocimientos técnicos.",
       },
       {
         src: "/images/ecommerce/07.png",
-        alt: "Gestión de pedidos en Dashboard",
+        alt: "Sistema de administración y logística de pedidos",
         caption:
-          "Administración de órdenes y facturación integrada con el motor de pagos Stripe.",
+          "Logística bajo control. Supervisa todas las transacciones, actualiza estados de envío y gestiona la facturación desde un entorno centralizado.",
       },
       {
         src: "/images/ecommerce/08.png",
-        alt: "Control de usuarios y roles",
+        alt: "Base de datos y gestión de clientes (CRM)",
         caption:
-          "Gestión de perfiles corporativos y permisos de acceso para el equipo administrativo.",
+          "CRM integrado para el control total de tu base de datos: revisa detalles de usuarios, audita cuentas y mantén la seguridad de tu plataforma.",
       },
     ],
   },
