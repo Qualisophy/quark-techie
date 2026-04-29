@@ -18,6 +18,13 @@ export interface Solution {
   icon_name: string;
   accent_color: string;
   category: string;
+  gallery?: SolutionImage[];
+}
+
+export interface SolutionImage {
+  src: string;
+  alt: string;
+  caption?: string;
 }
 
 // Simulamos una base de datos o CMS headless
@@ -135,7 +142,10 @@ export const solutionsData: Solution[] = [
         title: "Optimización de Rendimiento",
         description: "Ajuste fino de tiempos de carga.",
       },
-      { title: "Go-Live", description: "Transición de dominio y lanzamiento." },
+      {
+        title: "Go-Live",
+        description: "Transición de dominio y lanzamiento.",
+      },
     ],
     starting_price: "4,000€",
     meta_title:
@@ -145,6 +155,56 @@ export const solutionsData: Solution[] = [
     icon_name: "Layers",
     accent_color: "#FFFFFF",
     category: "Desarrollo & Web",
+    gallery: [
+      {
+        src: "/images/ecommerce/01.png",
+        alt: "Detalle de producto avanzado",
+        caption:
+          "Ficha de producto optimizada con renderizado dinámico y carga instantánea.",
+      },
+      {
+        src: "/images/ecommerce/02.png",
+        alt: "Detalle de producto e inventario",
+        caption:
+          "Gestión de variantes y stock sincronizado en tiempo real a través de API.",
+      },
+      {
+        src: "/images/ecommerce/03.png",
+        alt: "Cesta de la compra intuitiva",
+        caption:
+          "Proceso de checkout simplificado e integración nativa con Stripe para pagos seguros.",
+      },
+      {
+        src: "/images/ecommerce/04.png",
+        alt: "Historial de pedidos del cliente",
+        caption:
+          "Área de cliente con trazabilidad completa de transacciones y estados de envío.",
+      },
+      {
+        src: "/images/ecommerce/05.png",
+        alt: "Dashboard de administración",
+        caption:
+          "Panel de control integral para la monitorización de métricas y KPIs de negocio.",
+      },
+      {
+        src: "/images/ecommerce/06.png",
+        alt: "Gestión de catálogo en Dashboard",
+        caption:
+          "Control total sobre el catálogo de productos con edición masiva y filtrado avanzado.",
+      },
+      {
+        src: "/images/ecommerce/07.png",
+        alt: "Gestión de pedidos en Dashboard",
+        caption:
+          "Administración de órdenes y facturación integrada con el motor de pagos Stripe.",
+      },
+      {
+        src: "/images/ecommerce/08.png",
+        alt: "Control de usuarios y roles",
+        caption:
+          "Gestión de perfiles corporativos y permisos de acceso para el equipo administrativo.",
+      },
+    ],
   },
   {
     slug: "validacion-app-store",
