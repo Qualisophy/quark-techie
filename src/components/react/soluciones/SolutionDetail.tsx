@@ -3,8 +3,9 @@ import { Reveal } from "../shared/Reveal";
 import { Button } from "../shared/ui/Button";
 import { Breadcrumb } from "../shared/ui/Breadcrumb";
 import { CTA } from "../shared/ui/CTA";
-import { CheckCircle2, TerminalSquare } from "lucide-react";
+import { CheckCircle2, TerminalSquare, ImageIcon } from "lucide-react";
 import type { Solution } from "../../../data/solutions";
+import { ImageViewer } from "../shared/ui/ImageViewer";
 
 interface SolutionDetailProps {
   solution: Solution;
@@ -21,7 +22,6 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
     <div className="w-full flex flex-col items-center pb-24">
       {/* 1. HERO SECTION */}
       <section className="relative w-full pt-40 pb-20 px-6 flex flex-col items-center overflow-hidden">
-        {/* Fondos corporativos */}
         <div className="absolute top-0 left-1/4 w-[50vw] h-[50vw] bg-[#288B88]/10 blur-[120px] rounded-full pointer-events-none z-0 translate-y-[-50%]"></div>
 
         <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-start">
@@ -57,7 +57,7 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
       </section>
 
       {/* 2. EL RETO Y LA SOLUCIÓN */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-20 flex flex-col gap-8">
+      <section className="w-full max-w-5xl mx-auto px-6 py-10 md:py-20 flex flex-col gap-8">
         <Reveal>
           <div className="p-10 rounded-[2.5rem] bg-[#E8D33F]/5 border border-[#E8D33F]/20 backdrop-blur-md">
             <h3 className="text-sm font-semibold tracking-widest text-[#E8D33F] uppercase mb-4">
@@ -80,8 +80,27 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </Reveal>
       </section>
 
-      {/* 3. ENTREGABLES */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-20">
+      {/* 3. GALERÍA VISUAL (RENDERIZADO CONDICIONAL) */}
+      {/* Solo se pinta si la solución tiene array de galería y no está vacío */}
+      {solution.gallery && solution.gallery.length > 0 && (
+        <section className="w-full max-w-5xl mx-auto px-6 py-10 md:py-20">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-white/5 rounded-xl border border-white/10">
+                <ImageIcon className="text-white w-6 h-6" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-semibold text-white">
+                Inside the Architecture.
+              </h2>
+            </div>
+
+            <ImageViewer images={solution.gallery} autoPlayInterval={6000} />
+          </Reveal>
+        </section>
+      )}
+
+      {/* 4. ENTREGABLES */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-10 md:py-20">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-10">
             Qué incluye exactamente.
@@ -103,8 +122,8 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </Reveal>
       </section>
 
-      {/* 4. PROCESO */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-20">
+      {/* 5. PROCESO */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-10 md:py-20">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-12">
             Nuestra Metodología.
@@ -130,8 +149,8 @@ export const SolutionDetail: React.FC<SolutionDetailProps> = ({ solution }) => {
         </Reveal>
       </section>
 
-      {/* 5. CTA */}
-      <section className="w-full max-w-4xl mx-auto px-6 py-24">
+      {/* 6. CTA */}
+      <section className="w-full max-w-4xl mx-auto px-6 py-16 md:py-24">
         <Reveal>
           <CTA buttonText="Empezar a colaborar" className="!p-0">
             <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
