@@ -1,5 +1,6 @@
 import React from "react";
 import { Reveal } from "../shared/Reveal";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "../shared/ui/Button";
 
 export const FinalCTA = () => {
@@ -12,6 +13,7 @@ export const FinalCTA = () => {
           </h2>
           <Button href="/contacto" size="lg">
             Hablemos de tu proyecto
+            <ArrowUpRight size={20} className="text-[#5B7B7B] ml-2" />
           </Button>
         </Reveal>
       </section>
