@@ -1,20 +1,11 @@
 import React from "react";
 import { Button } from "../shared/ui/Button";
-import {
-  ChevronRight,
-  Zap,
-  Layers,
-  Fingerprint,
-  Cpu,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../shared/Reveal";
-import { BentoGrid } from "./BentoGrid";
 
 export const Home = () => {
   return (
     <div className="w-full flex flex-col items-center">
-      {/* HERO SECTION - Estilo Apple */}
       <section className="relative min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden pt-20">
         <Reveal
           delay={100}
@@ -28,10 +19,11 @@ export const Home = () => {
             </span>
           </h1>
 
+          {/* NUEVO TEXTO HERO */}
           <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-tight mb-12">
-            Desarrollo web Fullstack de nivel subatómico. Diseñamos plataformas
-            tecnológicas que redefinen los límites de la velocidad y la
-            escalabilidad.
+            Transformamos la complejidad de tu negocio en software de alto
+            rendimiento. Consultoría tecnológica y desarrollo a medida para
+            empresas que buscan escalar.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full sm:w-auto">
