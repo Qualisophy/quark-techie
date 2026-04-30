@@ -73,46 +73,51 @@ export const solutionsData: Solution[] = [
     category: "Desarrollo & Web",
   },
   {
-    slug: "transformacion-digital",
-    title: "Transformación Digital",
-    short_description: "Modernización de sistemas legacy para corporaciones.",
+    slug: "auditoria-publicacion-stores",
+    title: "Auditoría y Publicación en Stores",
+    short_description:
+      "Llevamos tu app móvil al éxito en Google Play y App Store.",
     pain_point:
-      "Sistemas lentos, deuda técnica masiva y silos de datos que impiden a las corporaciones competir con startups ágiles.",
+      "Meses de desarrollo pueden quedarse estancados por un rechazo en las tiendas de aplicaciones. Las estrictas políticas de Apple y Google, los problemas de rendimiento ocultos y los fallos de UI/UX pueden hacer fracasar tu lanzamiento.",
     solution_description:
-      "Auditamos, refactorizamos y migramos tu infraestructura a la nube. Implementamos arquitecturas modernas (Serverless, Microservicios) que reducen costes operativos y aumentan la velocidad de despliegue de tu equipo.",
+      "Auditamos tu aplicación móvil de forma exhaustiva para asegurar que cumple con todos los requisitos técnicos y de diseño de las tiendas. Solucionamos problemas de rendimiento, vulnerabilidades de seguridad y optimizamos la experiencia de usuario. Además, nos encargamos de todo el proceso burocrático de publicación y gestión de apelaciones.",
     deliverables: [
-      "Auditoría profunda de deuda técnica",
-      "Plan de migración Cloud / Serverless",
-      "Refactorización a frameworks modernos",
-      "Integración continua (CI/CD)",
-      "Capacitación del equipo interno",
+      "Auditoría completa de código, rendimiento y seguridad",
+      "Revisión estricta de UI/UX contra Guidelines de Apple y Google",
+      "Resolución de crashes, memory leaks y problemas técnicos",
+      "Gestión total del proceso de publicación y comunicación con las stores",
+      "Acompañamiento en el cumplimiento normativo (GDPR/ATT)",
     ],
     process: [
       {
         title: "Auditoría Profunda",
-        description: "Análisis del código y cuellos de botella.",
+        description:
+          "Análisis exhaustivo del código, UI/UX y cumplimiento normativo.",
       },
       {
-        title: "Plan de Acción",
-        description: "Roadmap de migración sin tiempos de caída.",
+        title: "Refactorización Estratégica",
+        description:
+          "Resolución de problemas técnicos y ajustes de diseño para cumplir con los guidelines.",
       },
       {
-        title: "Refactorización",
-        description: "Migración progresiva a nueva arquitectura.",
+        title: "Testing Riguroso",
+        description:
+          "Pruebas exhaustivas en dispositivos reales para garantizar un rendimiento óptimo.",
       },
       {
-        title: "Despliegue y Monitorización",
-        description: "Puesta en marcha y observabilidad.",
+        title: "Publicación Exitosa",
+        description:
+          "Gestión completa del proceso de submission, revisión y publicación final.",
       },
     ],
-    starting_price: "Subvencionable 100%",
+    starting_price: "1,500€",
     meta_title:
-      "Transformación Digital y Migración Cloud para Empresas | Quark Techie",
+      "Auditoría y Publicación App Store y Google Play | Evita Rechazos | Quark Techie",
     meta_description:
-      "Modernizamos tus sistemas legacy. Auditoría, refactorización y migración a arquitecturas Cloud y Serverless para reducir costes y ganar agilidad.",
-    icon_name: "Globe2",
-    accent_color: "#E8D33F",
-    category: "Consultoría & Estrategia",
+      "Aseguramos la publicación de tu aplicación móvil en la App Store y Google Play. Auditamos el código, mejoramos el rendimiento y superamos las revisiones más estrictas.",
+    icon_name: "Smartphone",
+    accent_color: "#3b82f6",
+    category: "Auditoría & QA",
   },
   {
     slug: "e-commerce-headless",
@@ -213,50 +218,6 @@ export const solutionsData: Solution[] = [
           "CRM integrado para el control total de tu base de datos: revisa detalles de usuarios, audita cuentas y mantén la seguridad de tu plataforma.",
       },
     ],
-  },
-  {
-    slug: "validacion-app-store",
-    title: "Auditoría y Publicación App Store",
-    short_description: "Superamos los estrictos guidelines de Apple y Google.",
-    pain_point:
-      "Meses de desarrollo e inversión pueden quedarse bloqueados por un rechazo inesperado. Las normativas de Apple y Google cambian constantemente, son implacables con el rendimiento, la seguridad de datos y los estándares de interfaz (Human Interface Guidelines).",
-    solution_description:
-      "Realizamos una auditoría técnica y funcional exhaustiva antes del submit. Identificamos vulnerabilidades, crashes ocultos y problemas de UI/UX, refactorizando el código necesario para asegurar un pase verde en los procesos de revisión de las tiendas.",
-    deliverables: [
-      "Auditoría profunda de código, memoria y seguridad",
-      "Revisión estricta de UI/UX contra Guidelines oficiales",
-      "Optimización de permisos y normativas de privacidad (GDPR/ATT)",
-      "Gestión integral del proceso de Review y apelaciones",
-    ],
-    process: [
-      {
-        title: "Diagnóstico Inicial",
-        description:
-          "Análisis de la app frente a las políticas actuales de las stores.",
-      },
-      {
-        title: "Testing Técnico",
-        description:
-          "QA en dispositivos reales buscando cuellos de botella y crashes.",
-      },
-      {
-        title: "Refactorización & Compliance",
-        description: "Ajustes de código y diseño para cumplir los requisitos.",
-      },
-      {
-        title: "Submit & Aprobación",
-        description:
-          "Subida a producción y gestión de la comunicación con los revisores.",
-      },
-    ],
-    starting_price: "1,500€",
-    meta_title:
-      "Validador de Apps iOS y Android | Evita Rechazos en App Store | Quark Techie",
-    meta_description:
-      "Auditamos la calidad de tu aplicación móvil y aseguramos el cumplimiento de los guidelines de Apple App Store y Google Play. Publicación garantizada.",
-    icon_name: "Smartphone",
-    accent_color: "#3b82f6",
-    category: "Auditoría & QA",
   },
   {
     slug: "certificacion-smart-tv",
