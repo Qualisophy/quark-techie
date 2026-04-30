@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaNodeJs,
   FaPython,
@@ -34,6 +34,9 @@ import {
 } from "react-icons/si";
 
 export const TechStack = () => {
+  // Estado para controlar qué icono está activo (tocado/hovered)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   const stack = [
     // Backend
     { name: "Node.js", Icon: FaNodeJs },
@@ -74,8 +77,12 @@ export const TechStack = () => {
   const marqueeTechs = [...stack, ...stack];
 
   return (
-    <section className="w-full flex flex-col items-center pt-24 pb-16">
-      {/* 1. CABECERA UNIFICADA (Fuera del carrusel, manteniendo la consistencia de la web) */}
+    <section
+      className="w-full flex flex-col items-center pt-24 pb-16"
+      // Si el usuario toca en el fondo de la sección, se limpia el estado y se reanuda el carrusel
+      onClick={() => setActiveIndex(null)}
+    >
+      {/* 1. CABECERA UNIFICADA */}
       <div className="text-center mb-12 max-w-4xl mx-auto px-6">
         <p className="text-[#288B88] font-semibold tracking-[0.3em] text-xs uppercase mb-4">
           STACK TECNOLÓGICO
@@ -85,22 +92,51 @@ export const TechStack = () => {
         </h2>
       </div>
 
-      {/* 2. CONTENEDOR DEL CARRUSEL (Con bordes sutiles y fondo) */}
+      {/* 2. CONTENEDOR DEL CARRUSEL */}
       <div className="w-full overflow-hidden border-y border-white/5 bg-white/[0.01]">
-        {/* Añadimos pb-12 para dar espacio vertical y que el tooltip no se corte con el overflow-hidden */}
-        <div className="flex animate-marquee w-max items-center whitespace-nowrap pt-8 pb-12">
+        <div
+          className="flex animate-marquee w-max items-center whitespace-nowrap pt-8 pb-12"
+          // En móvil pausamos pasándole 'paused' si hay un índice activo.
+          // Si no, lo dejamos indefinido para que mande el CSS y el :hover de escritorio siga funcionando nativo.
+          style={{
+            animationPlayState: activeIndex !== null ? "paused" : undefined,
+          }}
+        >
           {marqueeTechs.map((tech, idx) => {
             const IconComponent = tech.Icon;
+            // Comprobamos si este icono en concreto es el que el usuario ha tocado
+            const isActive = activeIndex === idx;
+
             return (
               <div
                 key={idx}
                 className="mx-8 md:mx-12 flex flex-col items-center justify-center group cursor-pointer relative"
+                onMouseEnter={() => setActiveIndex(idx)}
+                onMouseLeave={() => setActiveIndex(null)}
+                onClick={(e) => {
+                  // Evitamos que el toque se propague a la sección principal y cierre el tooltip
+                  e.stopPropagation();
+                  // Si tocamos el que ya está activo, lo apagamos. Si no, lo encendemos.
+                  setActiveIndex(isActive ? null : idx);
+                }}
               >
-                {/* Logo SVG */}
-                <IconComponent className="w-12 h-12 text-white/30 group-hover:text-white transition-colors duration-300 relative z-10" />
+                {/* Logo SVG - Combina estado activo (móvil) y hover nativo (escritorio) */}
+                <IconComponent
+                  className={`w-12 h-12 transition-colors duration-300 relative z-10 ${
+                    isActive
+                      ? "text-white"
+                      : "text-white/30 group-hover:text-white"
+                  }`}
+                />
 
                 {/* Tooltip / Nombre de la tecnología */}
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-white/80 opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -bottom-8 whitespace-nowrap drop-shadow-md z-0 translate-y-2 group-hover:translate-y-0">
+                <span
+                  className={`text-[11px] font-semibold uppercase tracking-widest text-white/80 transition-all duration-300 absolute -bottom-8 whitespace-nowrap drop-shadow-md z-0 ${
+                    isActive
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+                  }`}
+                >
                   {tech.name}
                 </span>
               </div>
@@ -118,6 +154,7 @@ export const TechStack = () => {
         .animate-marquee {
           animation: marquee 60s linear infinite;
         }
+        /* El hover de escritorio sigue pausando por CSS puro para mayor rendimiento */
         .animate-marquee:hover {
           animation-play-state: paused;
         }
